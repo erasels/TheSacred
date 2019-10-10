@@ -1,0 +1,10 @@
+{
+  "theSacred:EmptyJar": {
+    "NAME": "Empty Jar",
+    "FLAVOR": "A medicine jar which seems to be unbothered by the heat. A relic of times past.",
+    "DESCRIPTIONS": [
+      "Whenever you lose HP, gain #b",
+      " temporary #yStrength."
+    ]
+  }
+}
