@@ -1,8 +1,11 @@
 package theSacred.cards.basic;
 
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.cards.abstracts.SacredCard;
+import theSacred.orbs.YinYangOrb;
 import theSacred.util.CardInfo;
 import theSacred.util.UC;
 
@@ -33,6 +36,9 @@ public class Defend extends SacredCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if(Settings.isDebug) {
+            UC.atb(new ChannelAction(new YinYangOrb()));
+        }
         UC.doDef(block);
     }
 }
