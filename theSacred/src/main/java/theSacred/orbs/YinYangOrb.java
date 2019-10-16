@@ -6,10 +6,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -19,21 +18,23 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
-import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
-import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
 import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbPassiveEffect;
 import theSacred.TheSacred;
+import theSacred.orbs.interfaces.DamageAndBlockModifyOrb;
 import theSacred.util.TextureLoader;
 import theSacred.util.UC;
 
 import static theSacred.TheSacred.makeOrbPath;
 
-public class YinYangOrb extends AbstractOrb {
-
+public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
     // Standard ID/Description
     public static final String ORB_ID = TheSacred.makeID("YinYangOrb");
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESC = orbString.DESCRIPTION;
+
+    private static final float BLK_MOD = 1.25f;
+    private static final float DMG_DEAL_MOD = 1.25f;
+    private static final float DMG_TAKE_MOD = 1.5f;
 
     private static final Texture IMG = TextureLoader.getTexture(makeOrbPath("default_orb.png"));
     // Animation Rendering Numbers - You can leave these at default, or play around with them and see what they change.
@@ -81,7 +82,29 @@ public class YinYangOrb extends AbstractOrb {
     }
 
     @Override
-    public void onStartOfTurn() {
+    public float modifyBlock(float blockAmount) {
+        return blockAmount*BLK_MOD;
+    }
+
+    @Override
+    public float atPlayerDamageReceive(float damage, DamageInfo.DamageType type) {
+        if(type == DamageInfo.DamageType.NORMAL) {
+            return damage*DMG_TAKE_MOD;
+        }
+        return damage;
+    }
+
+    @Override
+    public float atPlayerDamageGive(float damage, DamageInfo.DamageType type) {
+        if(type == DamageInfo.DamageType.NORMAL) {
+            return damage*DMG_DEAL_MOD;
+        }
+        return damage;
+    }
+
+    @Override
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        basePassiveAmount += card.costForTurn;
     }
 
     @Override
