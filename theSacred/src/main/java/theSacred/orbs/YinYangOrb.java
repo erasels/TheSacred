@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -36,13 +37,14 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
     private static final float DMG_DEAL_MOD = 1.25f;
     private static final float DMG_TAKE_MOD = 1.5f;
 
-    private static final Texture IMG = TextureLoader.getTexture(makeOrbPath("default_orb.png"));
+    protected static final float NUM_X_OFFSET = 42.0F * Settings.scale;
+    protected static final float NUM_Y_OFFSET = -30.0F * Settings.scale;
+
+    private static final Texture IMG = TextureLoader.getTexture(makeOrbPath("YinYangOrb.png"));
     // Animation Rendering Numbers - You can leave these at default, or play around with them and see what they change.
     private float vfxTimer = 1.0f;
     private float vfxIntervalMin = 0.1f;
     private float vfxIntervalMax = 0.4f;
-    private static final float ORB_WAVY_DIST = 0.1f;
-    private static final float PI_4 = 12.566371f;
 
     public YinYangOrb() {
         ID = ORB_ID;
@@ -72,7 +74,7 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
     @Override
     public void applyFocus() {
         AbstractPower power = AbstractDungeon.player.getPower(FocusPower.POWER_ID);
-        if(power != null) {
+        if (power != null) {
             evokeAmount = baseEvokeAmount * power.amount;
         } else {
             evokeAmount = baseEvokeAmount;
@@ -88,21 +90,21 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
 
     @Override
     public float modifyBlock(float blockAmount) {
-        return blockAmount*BLK_MOD;
+        return blockAmount * BLK_MOD;
     }
 
     @Override
     public float atPlayerDamageReceive(float damage, DamageInfo.DamageType type) {
-        if(type == DamageInfo.DamageType.NORMAL) {
-            return damage*DMG_TAKE_MOD;
+        if (type == DamageInfo.DamageType.NORMAL) {
+            return damage * DMG_TAKE_MOD;
         }
         return damage;
     }
 
     @Override
     public float atPlayerDamageGive(float damage, DamageInfo.DamageType type) {
-        if(type == DamageInfo.DamageType.NORMAL) {
-            return damage*DMG_DEAL_MOD;
+        if (type == DamageInfo.DamageType.NORMAL) {
+            return damage * DMG_DEAL_MOD;
         }
         return damage;
     }
@@ -123,28 +125,32 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
         }
     }
 
-    // Render the orb.
     @Override
     public void render(SpriteBatch sb) {
-        sb.setColor(new Color(1.0f, 1.0f, 1.0f, c.a / 2.0f));
-        sb.draw(img, cX - 48.0f, cY - 48.0f + bobEffect.y, 48.0f, 48.0f, 96.0f, 96.0f, scale + MathUtils.sin(angle / PI_4) * ORB_WAVY_DIST * Settings.scale, scale, angle, 0, 0, 96, 96, false, false);
-        sb.setColor(new Color(1.0f, 1.0f, 1.0f, this.c.a / 2.0f));
-        sb.setBlendFunction(770, 1);
-        sb.draw(img, cX - 48.0f, cY - 48.0f + bobEffect.y, 48.0f, 48.0f, 96.0f, 96.0f, scale, scale + MathUtils.sin(angle / PI_4) * ORB_WAVY_DIST * Settings.scale, -angle, 0, 0, 96, 96, false, false);
-        sb.setBlendFunction(770, 771);
+        sb.setColor(new Color(1.0f, 1.0f, 1.0f, c.a));
+        sb.draw(img, cX - 48.0f, cY - 48.0f + bobEffect.y, 48.0f, 48.0f, 96.0f, 96.0f, scale, scale, angle, 0, 0, 96, 96, false, false);
         renderText(sb);
         hb.render(sb);
     }
 
+    @Override
+    protected void renderText(SpriteBatch sb) {
+        if (this.showEvokeValue) {
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.evokeAmount), this.cX + NUM_X_OFFSET, this.cY + this.bobEffect.y / 2.0F + NUM_Y_OFFSET, new Color(0.2F, 1.0F, 1.0F, this.c.a), this.fontScale);
+        } else if (passiveAmount > 0) {
+            FontHelper.renderFontCentered(sb, FontHelper.cardEnergyFont_L, Integer.toString(this.passiveAmount), this.cX + NUM_X_OFFSET, this.cY + this.bobEffect.y / 2.0F + NUM_Y_OFFSET, this.c, this.fontScale);
+        }
+    }
+
 
     @Override
-    public void triggerEvokeAnimation() { // The evoke animation of this orb is the dark-orb activation effect.
+    public void triggerEvokeAnimation() {
         AbstractDungeon.effectsQueue.add(new DarkOrbActivateEffect(cX, cY));
     }
 
     @Override
     public void playChannelSFX() {
-        CardCrawlGame.sound.play("TINGSHA", 0.5f);
+        CardCrawlGame.sound.play("TINGSHA", 1.5f);
     }
 
     @Override
@@ -153,6 +159,6 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
     }
 
     private int convert(float val) {
-        return MathUtils.floor((val-1f)*100f);
+        return MathUtils.floor((val - 1f) * 100f);
     }
 }
