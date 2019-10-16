@@ -89,6 +89,12 @@ public abstract class SacredCard extends CustomCard {
         if(cardName.toLowerCase().contains("strike")) {
             tags.add(CardTags.STRIKE);
         }
+        if(cardName.toLowerCase().contains("barrier")) {
+            tags.add(CardENUMs.BARRIER);
+        }
+        if(this instanceof AlignedCard) {
+            tags.add(CardENUMs.ALIGNED);
+        }
 
         InitializeCard();
     }
