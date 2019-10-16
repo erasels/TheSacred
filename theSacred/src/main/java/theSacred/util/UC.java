@@ -86,12 +86,16 @@ public class UC {
         }
     }
 
-    public static void doAllDmg(int amount, AbstractGameAction.AttackEffect ae, boolean top) {
+    public static void doAllDmg(int amount, AbstractGameAction.AttackEffect ae, DamageInfo.DamageType dt, boolean top) {
         if (top) {
-            att(new DamageAllAction(p(), amount, false, DamageInfo.DamageType.NORMAL, ae, false));
+            att(new DamageAllAction(p(), amount, false, dt, ae, false));
         } else {
-            atb(new DamageAllAction(p(), amount, false, DamageInfo.DamageType.NORMAL, ae, false));
+            atb(new DamageAllAction(p(), amount, false, dt, ae, false));
         }
+    }
+
+    public static void doAllDmg(int amount, AbstractGameAction.AttackEffect ae, boolean top) {
+        doAllDmg(amount, ae, DamageInfo.DamageType.NORMAL, top);
     }
 
     public static void doDef(int amount) {
