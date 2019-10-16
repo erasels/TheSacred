@@ -13,7 +13,7 @@ import theSacred.orbs.interfaces.DamageAndBlockModifyOrb;
 import theSacred.util.UC;
 
 public class OrbHookPatches {
-    @SpirePatch(clz = UseCardAction.class, method = SpirePatch.CONSTRUCTOR)
+    @SpirePatch(clz = UseCardAction.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {AbstractCard.class, AbstractCreature.class})
     public static class UseCardHook {
         @SpireInsertPatch(locator = Locator.class)
         public static void callHook(UseCardAction __instance, AbstractCard c, AbstractCreature target) {
