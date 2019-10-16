@@ -39,6 +39,7 @@ public abstract class SacredCard extends CustomCard {
 
     protected boolean upgradeBurst;
     protected boolean upgradeRetain;
+    protected boolean upgradeEthereal;
     protected boolean upgradeMultiDmg;
 
     public int baseMagicNumber2;
@@ -85,6 +86,7 @@ public abstract class SacredCard extends CustomCard {
 
         upgradeBurst = false;
         upgradeRetain = false;
+        upgradeEthereal = false;
 
         if(cardName.toLowerCase().contains("strike")) {
             tags.add(CardTags.STRIKE);
@@ -173,6 +175,14 @@ public abstract class SacredCard extends CustomCard {
         }
     }
 
+    public void setEthereal(boolean upgradeToEthereal) {
+        if(upgradeToEthereal) {
+            upgradeEthereal = true;
+        } else {
+            isEthereal = true;
+        }
+    }
+
     public void setMultiDamage(boolean upgradeMulti) {
         if(upgradeMulti) {
             upgradeMultiDmg = true;
@@ -232,6 +242,7 @@ public abstract class SacredCard extends CustomCard {
 
             ((SacredCard) card).upgradeMultiDmg = this.upgradeMultiDmg;
             ((SacredCard) card).upgradeRetain = this.upgradeRetain;
+            ((SacredCard) card).upgradeEthereal = this.upgradeEthereal;
             ((SacredCard) card).upgradeBurst = this.upgradeBurst;
 
             ((SacredCard) card).baseMagicNumber2 = this.baseMagicNumber2;
@@ -287,6 +298,10 @@ public abstract class SacredCard extends CustomCard {
                 selfRetain = true;
             }
 
+            if(upgradeEthereal) {
+                isEthereal = true;
+            }
+
             if(upgradeMultiDmg) {
                 this.isMultiDamage = true;
             }
@@ -297,7 +312,7 @@ public abstract class SacredCard extends CustomCard {
 
     @Override
     public void triggerOnGlowCheck() {
-        if(this.hasTag(CardENUMs.BURST) && UC.anonymousCheckBurst()) {
+        if((this.hasTag(CardENUMs.BURST) && UC.anonymousCheckBurst()) || this.hasTag(CardENUMs.ALIGNED) && UC.isAligned()) {
             glowColor = GOLD_BORDER_GLOW_COLOR;
         } else {
             glowColor = BLUE_BORDER_GLOW_COLOR;
