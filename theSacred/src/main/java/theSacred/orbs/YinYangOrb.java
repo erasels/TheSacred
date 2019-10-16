@@ -20,10 +20,12 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
+import org.apache.commons.lang3.math.NumberUtils;
 import theSacred.TheSacred;
 import theSacred.orbs.interfaces.DamageAndBlockModifyOrb;
 import theSacred.util.TextureLoader;
 import theSacred.util.UC;
+import theSacred.vfx.general.ButtonConfirmedEffect;
 
 import static theSacred.TheSacred.makeOrbPath;
 
@@ -112,6 +114,13 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         basePassiveAmount += card.costForTurn;
+        int tmp = NumberUtils.max(card.damage, card.block);
+        if(card.type == AbstractCard.CardType.POWER) {
+            tmp = 25;
+        }
+        if(tmp > 10 && MathUtils.randomBoolean((tmp/100f)*1.5f)) {
+            AbstractDungeon.effectsQueue.add(new ButtonConfirmedEffect(cX, cY, Color.SKY, 0.75f, (tmp/100f)*5f));
+        }
     }
 
     @Override
