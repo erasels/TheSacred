@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import theSacred.actions.utility.DamageAllAction;
+import theSacred.orbs.YinYangOrb;
 import theSacred.patches.combat.BurstMechanics;
 
 import java.text.DecimalFormat;
@@ -42,6 +43,10 @@ public class UC {
             incrementTurnBurstAmount();
         }
         return tmp;
+    }
+
+    public static boolean isAligned() {
+        return p().orbs.stream().anyMatch(o -> o instanceof YinYangOrb);
     }
 
     public static boolean anonymousCheckBurst() {
