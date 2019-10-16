@@ -19,7 +19,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.relics.PrismaticShard;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -29,7 +28,6 @@ import theSacred.TheSacred;
 import theSacred.cards.basic.Defend;
 import theSacred.cards.basic.Strike;
 import theSacred.ui.SacredEnergyOrb;
-import theSacred.util.UC;
 
 import java.util.ArrayList;
 
