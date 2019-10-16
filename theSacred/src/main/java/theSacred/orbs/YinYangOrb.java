@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
-import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbPassiveEffect;
+import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
 import theSacred.TheSacred;
 import theSacred.orbs.interfaces.DamageAndBlockModifyOrb;
 import theSacred.util.TextureLoader;
@@ -58,10 +58,15 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
         channelAnimTimer = 0.5f;
     }
 
+    public YinYangOrb(int passive) {
+        super();
+        passiveAmount = basePassiveAmount = passive;
+    }
+
     @Override
     public void updateDescription() {
         applyFocus();
-        description = DESC[0] + convert(DMG_TAKE_MOD) + DESC[1] + convert(BLK_MOD) + DESC[2];
+        description = DESC[0] + convert(DMG_TAKE_MOD) + DESC[1] + convert(BLK_MOD) + DESC[2] + DESC[3];
     }
 
     @Override
@@ -113,7 +118,7 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
         angle += Gdx.graphics.getDeltaTime() * 45.0f;
         vfxTimer -= Gdx.graphics.getDeltaTime();
         if (vfxTimer < 0.0f) {
-            AbstractDungeon.effectList.add(new PlasmaOrbPassiveEffect(cX, cY));
+            AbstractDungeon.effectList.add(new FrostOrbPassiveEffect(cX, cY));
             vfxTimer = MathUtils.random(vfxIntervalMin, vfxIntervalMax);
         }
     }
@@ -138,13 +143,13 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
     }
 
     @Override
-    public void playChannelSFX() { // When you channel this orb, the ATTACK_FIRE effect plays ("Fwoom").
+    public void playChannelSFX() {
         CardCrawlGame.sound.play("TINGSHA", 0.5f);
     }
 
     @Override
     public AbstractOrb makeCopy() {
-        return new YinYangOrb();
+        return new YinYangOrb(basePassiveAmount);
     }
 
     private int convert(float val) {
