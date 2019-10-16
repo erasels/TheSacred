@@ -5,7 +5,7 @@
       "#yPassive: Increase damage taken by #b",
       "%. Increase damage dealt and Block gained by #b",
       "%. NL Whenever you play a card, gains charge equal to its cost.",
-      "NL #yEvoke: Deal damage equal to its charge to ALL enemies."
+      " NL NL #yEvoke: Deal damage equal to its charge to ALL enemies."
     ]
   }
 }
