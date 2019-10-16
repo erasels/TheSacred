@@ -16,18 +16,22 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbPassiveEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
+import com.megacrit.cardcrawl.vfx.combat.PlasmaOrbPassiveEffect;
 import theSacred.TheSacred;
 import theSacred.util.TextureLoader;
+import theSacred.util.UC;
 
 import static theSacred.TheSacred.makeOrbPath;
 
-public class DefaultOrb extends AbstractOrb {
+public class YinYangOrb extends AbstractOrb {
 
     // Standard ID/Description
-    public static final String ORB_ID = TheSacred.makeID("DefaultOrb");
+    public static final String ORB_ID = TheSacred.makeID("YinYangOrb");
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     public static final String[] DESC = orbString.DESCRIPTION;
 
@@ -36,17 +40,16 @@ public class DefaultOrb extends AbstractOrb {
     private float vfxTimer = 1.0f;
     private float vfxIntervalMin = 0.1f;
     private float vfxIntervalMax = 0.4f;
-    private static final float ORB_WAVY_DIST = 0.04f;
+    private static final float ORB_WAVY_DIST = 0.1f;
     private static final float PI_4 = 12.566371f;
 
-    public DefaultOrb() {
-
+    public YinYangOrb() {
         ID = ORB_ID;
         name = orbString.NAME;
         img = IMG;
 
-        evokeAmount = baseEvokeAmount = 1;
-        passiveAmount = basePassiveAmount = 3;
+        evokeAmount = baseEvokeAmount = 0;
+        passiveAmount = basePassiveAmount = 0;
 
         updateDescription();
 
@@ -55,47 +58,39 @@ public class DefaultOrb extends AbstractOrb {
     }
 
     @Override
-    public void updateDescription() { // Set the on-hover description of the orb
-        applyFocus(); // Apply Focus (Look at the next method)
-        description = DESC[0] + evokeAmount + DESC[1] + passiveAmount + DESC[2]; // Set the description
+    public void updateDescription() {
+        applyFocus();
+        description = DESC[0] + evokeAmount + DESC[1] + passiveAmount + DESC[2];
     }
 
     @Override
     public void applyFocus() {
+        AbstractPower power = AbstractDungeon.player.getPower(FocusPower.POWER_ID);
+        if(power != null) {
+            evokeAmount = baseEvokeAmount * power.amount;
+        } else {
+            evokeAmount = baseEvokeAmount;
+        }
         passiveAmount = basePassiveAmount;
-        evokeAmount = baseEvokeAmount;
     }
 
     @Override
-    public void onEvoke() { // 1.On Orb Evoke
-
-        AbstractDungeon.actionManager.addToBottom( // 2.Damage all enemies
-                new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(evokeAmount, true, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE));
-        // The damage matrix is how orb damage all enemies actions have to be assigned. For regular cards that do damage to everyone, check out cleave or whirlwind - they are a bit simpler.
-
-
-        AbstractDungeon.actionManager.addToBottom(new SFXAction("TINGSHA")); // 3.And play a Jingle Sound.
-        // For a list of sound effects you can use, look under com.megacrit.cardcrawl.audio.SoundMaster - you can see the list of keys you can use there. As far as previewing what they sound like, open desktop-1.0.jar with something like 7-Zip and go to audio. Reference the file names provided. (Thanks fiiiiilth)
-
+    public void onEvoke() {
+        UC.doAllDmg(evokeAmount, AbstractGameAction.AttackEffect.FIRE, DamageInfo.DamageType.THORNS, false);
+        AbstractDungeon.actionManager.addToBottom(new SFXAction("TINGSHA"));
     }
 
     @Override
-    public void onStartOfTurn() {// 1.At the start of your turn.
-        AbstractDungeon.actionManager.addToBottom(// 2.This orb will have a flare effect
-                new VFXAction(new OrbFlareEffect(this, OrbFlareEffect.OrbFlareColor.FROST), 0.1f));
-
-        AbstractDungeon.actionManager.addToBottom(// 3. And draw you cards.
-                new DrawCardAction(AbstractDungeon.player, passiveAmount));
+    public void onStartOfTurn() {
     }
 
     @Override
-    public void updateAnimation() {// You can totally leave this as is.
-        // If you want to create a whole new orb effect - take a look at conspire's Water Orb. It includes a custom sound, too!
+    public void updateAnimation() {
         super.updateAnimation();
         angle += Gdx.graphics.getDeltaTime() * 45.0f;
         vfxTimer -= Gdx.graphics.getDeltaTime();
         if (vfxTimer < 0.0f) {
-            AbstractDungeon.effectList.add(new DarkOrbPassiveEffect(cX, cY)); // This is the purple-sparkles in the orb. You can change this to whatever fits your orb.
+            AbstractDungeon.effectList.add(new PlasmaOrbPassiveEffect(cX, cY));
             vfxTimer = MathUtils.random(vfxIntervalMin, vfxIntervalMax);
         }
     }
@@ -121,11 +116,11 @@ public class DefaultOrb extends AbstractOrb {
 
     @Override
     public void playChannelSFX() { // When you channel this orb, the ATTACK_FIRE effect plays ("Fwoom").
-        CardCrawlGame.sound.play("ATTACK_FIRE", 0.1f);
+        CardCrawlGame.sound.play("TINGSHA", 0.5f);
     }
 
     @Override
     public AbstractOrb makeCopy() {
-        return new DefaultOrb();
+        return new YinYangOrb();
     }
 }
