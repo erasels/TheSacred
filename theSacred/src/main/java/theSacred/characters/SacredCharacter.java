@@ -18,6 +18,8 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
 import com.megacrit.cardcrawl.relics.PrismaticShard;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -27,6 +29,7 @@ import theSacred.TheSacred;
 import theSacred.cards.basic.Defend;
 import theSacred.cards.basic.Strike;
 import theSacred.ui.SacredEnergyOrb;
+import theSacred.util.UC;
 
 import java.util.ArrayList;
 
@@ -81,6 +84,16 @@ public class SacredCharacter extends CustomPlayer {
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(NAMES[0], TEXT[0], STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW, this, getStartingRelics(), getStartingDeck(), false);
+    }
+
+    @Override
+    public void channelOrb(AbstractOrb orbToSet) {
+        if(maxOrbs > 5 && !hasEmptyOrb()) {
+            return;
+        } else if(maxOrbs<6 && !hasEmptyOrb()) {
+            increaseMaxOrbSlots(1, false);
+        }
+        super.channelOrb(orbToSet);
     }
 
     // Starting Deck
