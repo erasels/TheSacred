@@ -7,6 +7,10 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import static theSacred.TheSacred.makePowerPath;
 
 public class AbstractSacredPower extends TwoAmountPower {
+    public boolean isBarrierPower = false;
+
+    //To be used with a certain power
+    public void extendBarrier() {}
     /**
      * @param bigImageName - is the name of the 84x84 image for your power.
      * @param smallImageName - is the name of the 32x32 image for your power.
