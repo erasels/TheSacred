@@ -210,7 +210,7 @@ public class TheSacred implements
     }
 
     public static String makeOrbPath(String resourcePath) {
-        return getModID() + "Resources/orbs/" + resourcePath;
+        return getModID() + "Resources/images/orbs/" + resourcePath;
     }
 
     public static String makePowerPath(String resourcePath) {
