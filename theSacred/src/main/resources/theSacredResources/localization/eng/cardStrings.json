@@ -24,5 +24,9 @@
   "theSacred:PreciseNeedle": {
     "NAME": "Precise Needle",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL thesacred:Aligned: Apply !M! Vulnerable."
+  },
+  "theSacred:BrittleBarrier": {
+    "NAME": "Brittle Barrier",
+    "DESCRIPTION": "Gain !B! Block. NL thesacred:Aligned: Whenever you're attacked this turn, apply 1 Weak."
   }
 }

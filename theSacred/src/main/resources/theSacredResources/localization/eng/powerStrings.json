@@ -60,5 +60,12 @@
     "DESCRIPTIONS": [
       "On death, applies its debuffs to all other monsters."
     ]
+  },
+  "theSacred:BrittleBarrier": {
+    "NAME": "Brittle Barrier",
+    "DESCRIPTIONS": [
+      "When attacked, apply #b",
+      " #yWeak [REMOVE_SPACE]."
+    ]
   }
 }
