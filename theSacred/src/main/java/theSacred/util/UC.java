@@ -130,6 +130,10 @@ public class UC {
         atb(new VFXAction(gameEffect, duration));
     }
 
+    public static void doDraw(int number) {
+        atb(new DrawCardAction(p(), number));
+    }
+
     public static void generalPowerLogic(AbstractPower p) {
         if(p.amount < 1) {
             atb(new RemoveSpecificPowerAction(p.owner, p.owner, p));
