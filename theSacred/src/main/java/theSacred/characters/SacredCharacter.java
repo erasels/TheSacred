@@ -26,6 +26,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theSacred.TheSacred;
 import theSacred.cards.basic.Defend;
+import theSacred.cards.basic.RepulseBarrier;
 import theSacred.cards.basic.Strike;
 import theSacred.cards.basic.TreasuredOrb;
 import theSacred.ui.SacredEnergyOrb;
@@ -106,8 +107,7 @@ public class SacredCharacter extends CustomPlayer {
             retVal.add(Defend.ID);
         }
         retVal.add(TreasuredOrb.ID);
-
-        //TODO: Add starter cards
+        retVal.add(RepulseBarrier.ID);
         return retVal;
     }
 
