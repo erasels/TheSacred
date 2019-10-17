@@ -7,9 +7,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -129,6 +127,22 @@ public class UC {
 
     public static void doVfx(AbstractGameEffect gameEffect, float duration) {
         atb(new VFXAction(gameEffect, duration));
+    }
+
+    public static void generalPowerLogic(AbstractPower p) {
+        if(p.amount < 1) {
+            atb(new RemoveSpecificPowerAction(p.owner, p.owner, p));
+        } else {
+            UC.reducePower(p);
+        }
+    }
+
+    public static void reducePower(AbstractPower p, int amount) {
+        atb(new ReducePowerAction(p.owner, p.owner, p, amount));
+    }
+
+    public static void reducePower(AbstractPower p) {
+        reducePower(p, 1);
     }
 
     //Getters
