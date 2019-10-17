@@ -1,4 +1,11 @@
 {
+  "theSacred:RepulseBarrier": {
+    "NAME": "Repulse",
+    "DESCRIPTIONS": [
+      "When attacked, deals #b",
+      " damage back."
+    ]
+  },
   "theSacred:Ignite": {
     "NAME": "Ignite",
     "DESCRIPTIONS": [
