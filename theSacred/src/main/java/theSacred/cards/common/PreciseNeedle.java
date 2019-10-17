@@ -1,9 +1,11 @@
 package theSacred.cards.common;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect;
 import theSacred.cards.abstracts.AlignedCard;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.util.CardInfo;
@@ -34,6 +36,7 @@ public class PreciseNeedle extends SacredCard implements AlignedCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        doVfx(getModifiedObj(new ThrowDaggerEffect(m.hb.cX, m.hb.cY), "color", Color.GOLDENROD.cpy(), true));
         doDmg(m, damage);
         doPow(m, new VulnerablePower(m, magicNumber, false));
     }
