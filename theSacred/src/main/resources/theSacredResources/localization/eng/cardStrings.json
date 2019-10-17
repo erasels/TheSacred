@@ -19,6 +19,6 @@
   "theSacred:Fortification": {
     "NAME": "Fortification",
     "DESCRIPTION": "Effects from Barriers last !M! additional turn.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Effects from Barriers last !M! additional turn."
+    "UPGRADE_DESCRIPTION": "Innate. NL Effects from thesacred:Barriers last !M! additional turn."
   }
 }
