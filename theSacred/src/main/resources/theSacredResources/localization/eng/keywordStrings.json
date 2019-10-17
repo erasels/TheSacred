@@ -28,5 +28,14 @@
       "altchannel"
     ],
     "DESCRIPTION": "Put the orb into a new slot. If you've reached max capacity (6), no new orb will be channeled."
+  },
+  {
+    "PROPER_NAME": "Aligned",
+    "NAMES": [
+      "aligned",
+      "align",
+      "aligned:"
+    ],
+    "DESCRIPTION": "This effect is repeated for each currently channeled #yYin-Yang #yOrb."
   }
 ]

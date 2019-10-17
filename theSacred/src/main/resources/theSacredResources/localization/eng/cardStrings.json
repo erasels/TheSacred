@@ -20,5 +20,9 @@
     "NAME": "Fortification",
     "DESCRIPTION": "Effects from Barriers last !M! additional turn.",
     "UPGRADE_DESCRIPTION": "Innate. NL Effects from thesacred:Barriers last !M! additional turn."
+  },
+  "theSacred:PreciseNeedle": {
+    "NAME": "Precise Needle",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL thesacred:Aligned: Apply !M! Vulnerable."
   }
 }
