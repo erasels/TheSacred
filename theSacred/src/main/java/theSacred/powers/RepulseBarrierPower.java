@@ -1,6 +1,8 @@
 package theSacred.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -9,6 +11,7 @@ import theSacred.TheSacred;
 import theSacred.powers.abstracts.AbstractSacredPower;
 import theSacred.util.UC;
 
+import static theSacred.util.UC.doDmg;
 import static theSacred.util.UC.p;
 
 public class RepulseBarrierPower extends AbstractSacredPower implements CloneablePowerInterface {
@@ -37,6 +40,14 @@ public class RepulseBarrierPower extends AbstractSacredPower implements Cloneabl
     @Override
     public void atStartOfTurn() {
         UC.generalPowerLogic(this);
+    }
+
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner) {
+            flash();
+            doDmg(info.owner, amount2, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
+        }
+        return damageAmount;
     }
 
     @Override
