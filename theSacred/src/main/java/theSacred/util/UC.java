@@ -1,5 +1,6 @@
 package theSacred.util;
 
+import basemod.ReflectionHacks;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
@@ -196,6 +197,15 @@ public class UC {
 
     public static float gt() {
         return Gdx.graphics.getRawDeltaTime();
+    }
+
+    public static <T> T getModifiedObj(T t, String fieldKey, Object newValue, boolean isProtected) {
+        if(!isProtected) {
+            ReflectionHacks.setPrivate(t, t.getClass(), fieldKey, newValue);
+        } else {
+            ReflectionHacks.setPrivateInherited(t, t.getClass(), fieldKey, newValue);
+        }
+        return t;
     }
 
     //Setters
