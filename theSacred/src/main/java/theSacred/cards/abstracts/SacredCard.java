@@ -94,6 +94,9 @@ public abstract class SacredCard extends CustomCard {
         if(cardName.toLowerCase().contains("barrier")) {
             tags.add(CardENUMs.BARRIER);
         }
+        if(cardName.toLowerCase().contains("needle")) {
+            tags.add(CardENUMs.NEEDLE);
+        }
         if(this instanceof AlignedCard) {
             tags.add(CardENUMs.ALIGNED);
         }

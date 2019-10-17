@@ -10,4 +10,6 @@ public class CardENUMs {
     public static AbstractCard.CardTags BARRIER;
     @SpireEnum
     public static AbstractCard.CardTags ALIGNED;
+    @SpireEnum
+    public static AbstractCard.CardTags NEEDLE;
 }
