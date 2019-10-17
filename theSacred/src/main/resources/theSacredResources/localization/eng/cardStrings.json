@@ -28,5 +28,9 @@
   "theSacred:BrittleBarrier": {
     "NAME": "Brittle Barrier",
     "DESCRIPTION": "Gain !B! Block. NL thesacred:Aligned: Whenever you're attacked this turn, apply 1 Weak."
+  },
+  "theSacred:SpeedyShot": {
+    "NAME": "Speedy Shot",
+    "DESCRIPTION": "Deal !D! damage. NL thesacred:Aligned: Draw !M! cards."
   }
 }
