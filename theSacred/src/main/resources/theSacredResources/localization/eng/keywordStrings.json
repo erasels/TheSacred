@@ -8,12 +8,12 @@
     "DESCRIPTION": "This effect triggers if the last card played was an #yAttack [REMOVE_SPACE]."
   },
   {
-    "PROPER_NAME": "Ignite",
+    "PROPER_NAME": "Barrier",
     "NAMES": [
-      "ignite",
-      "ignited"
+      "barrier",
+      "barriers"
     ],
-    "DESCRIPTION": "Ignited creatures take damage at the end of the monsters' turn. Each turn, Ignited is reduced by #bhalf its amount (rounded up)."
+    "DESCRIPTION": "Cards which have \"barrier\" in their name."
   },
   {
     "PROPER_NAME": "Yin-Yang Orb",

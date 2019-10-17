@@ -14,7 +14,11 @@
   },
   "theSacred:RepulseBarrier": {
     "NAME": "Repulse Barrier",
-    "DESCRIPTION": "Gain !B! Block. Whenever you're attacked this turn, deal !M! damage back.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Gain !B! Block. Whenever you're attacked this turn, deal !M! damage back."
+    "DESCRIPTION": "Gain !B! Block. Whenever you're attacked this turn, deal !M! damage back."
+  },
+  "theSacred:Fortification": {
+    "NAME": "Fortification",
+    "DESCRIPTION": "Effects from Barriers last !M! additional turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Effects from Barriers last !M! additional turn."
   }
 }
