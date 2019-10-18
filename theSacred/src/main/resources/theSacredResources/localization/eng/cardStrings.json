@@ -32,5 +32,9 @@
   "theSacred:SpeedyShot": {
     "NAME": "Speedy Shot",
     "DESCRIPTION": "Deal !D! damage. NL thesacred:Aligned: Draw !M! cards."
+  },
+  "theSacred:ProtectionPrayer": {
+    "NAME": "Protection Prayer",
+    "DESCRIPTION": "Gain 25% more Block for !theSacred:M2! turns. NL thesacred:Aligned: ALL enemies lose !M! Strength this turn."
   }
 }

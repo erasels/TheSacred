@@ -39,22 +39,6 @@
       " times the amount of cards with a HP cost in your deck."
     ]
   },
-  "theSacred:LoseHPDrawCard": {
-    "NAME": "HP Loss Card Draw",
-    "DESCRIPTIONS": [
-      "Whenever you lose HP, draw #b",
-      " card.",
-      " cards."
-    ]
-  },
-  "theSacred:BurningMadness": {
-    "NAME": "Burning Madness",
-    "DESCRIPTIONS": [
-      "At the start of your turn, lose #b",
-      " HP and gain #b",
-      " #yStrength [REMOVE_SPACE]."
-    ]
-  },
   "theSacred:Cursed": {
     "NAME": "Cursed",
     "DESCRIPTIONS": [
@@ -66,6 +50,13 @@
     "DESCRIPTIONS": [
       "When attacked, apply #b",
       " #yWeak [REMOVE_SPACE]."
+    ]
+  },
+  "theSacred:BlessingOfProtection": {
+    "NAME": "Protection Blessing",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      "% more #yBlock from cards."
     ]
   }
 }
