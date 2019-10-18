@@ -70,7 +70,7 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
     @Override
     public void updateDescription() {
         applyFocus();
-        description = DESC[0] + convert(DMG_TAKE_MOD) + DESC[1] + convert(BLK_MOD) + DESC[2] + DESC[3];
+        description = DESC[0] + UC.getPercentageInc(DMG_TAKE_MOD) + DESC[1] + UC.getPercentageInc(BLK_MOD) + DESC[2] + DESC[3];
     }
 
     @Override
@@ -165,9 +165,5 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
     @Override
     public AbstractOrb makeCopy() {
         return new YinYangOrb(basePassiveAmount);
-    }
-
-    private int convert(float val) {
-        return MathUtils.floor((val - 1f) * 100f);
     }
 }

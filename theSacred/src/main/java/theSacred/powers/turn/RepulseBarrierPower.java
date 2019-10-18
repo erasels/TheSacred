@@ -1,26 +1,26 @@
-package theSacred.powers;
+package theSacred.powers.turn;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import theSacred.TheSacred;
 import theSacred.powers.abstracts.AbstractSacredPower;
 import theSacred.util.UC;
 
-import static theSacred.util.UC.doPow;
+import static theSacred.util.UC.doDmg;
 import static theSacred.util.UC.p;
 
-public class BrittleBarrierPower extends AbstractSacredPower implements CloneablePowerInterface {
-    public static final String POWER_ID = TheSacred.makeID("BrittleBarrier");
+public class RepulseBarrierPower extends AbstractSacredPower implements CloneablePowerInterface {
+    public static final String POWER_ID = TheSacred.makeID("RepulseBarrier");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public BrittleBarrierPower(int amount2, AbstractCreature owner) {
+    public RepulseBarrierPower(int amount2, AbstractCreature owner) {
         name = NAME;
         ID = POWER_ID;
         this.owner = owner;
@@ -33,7 +33,7 @@ public class BrittleBarrierPower extends AbstractSacredPower implements Cloneabl
         isBarrierPower = true;
     }
 
-    public BrittleBarrierPower(int amount2) {
+    public RepulseBarrierPower(int amount2) {
         this(amount2, p());
     }
 
@@ -45,7 +45,7 @@ public class BrittleBarrierPower extends AbstractSacredPower implements Cloneabl
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner) {
             flash();
-            doPow(info.owner, new WeakPower(info.owner, amount2, false));
+            doDmg(info.owner, amount2, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
         }
         return damageAmount;
     }
@@ -65,7 +65,7 @@ public class BrittleBarrierPower extends AbstractSacredPower implements Cloneabl
 
     @Override
     public AbstractPower makeCopy() {
-        BrittleBarrierPower tmp = new BrittleBarrierPower(amount2, owner);
+        RepulseBarrierPower tmp = new RepulseBarrierPower(amount2, owner);
         tmp.amount = this.amount;
         return tmp;
     }
