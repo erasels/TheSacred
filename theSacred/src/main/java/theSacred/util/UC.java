@@ -199,6 +199,10 @@ public class UC {
         return twoDecFormat.format(AlchHelper.round(num, 2));
     }
 
+    public static int getPercentageInc(float val) {
+        return MathUtils.floor((val - 1f) * 100f);
+    }
+
     public static float gt() {
         return Gdx.graphics.getRawDeltaTime();
     }
