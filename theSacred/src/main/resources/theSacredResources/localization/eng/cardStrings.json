@@ -36,5 +36,9 @@
   "theSacred:ProtectionPrayer": {
     "NAME": "Protection Prayer",
     "DESCRIPTION": "Gain 25% more Block for !theSacred:M2! turns. NL thesacred:Aligned: ALL enemies lose !M! Strength this turn."
+  },
+  "theSacred:PersuasionNeedles": {
+    "NAME": "Persuasion Needles",
+    "DESCRIPTION": "Deal !D! damage !M! times. NL thesacred:Aligned: Add a copy of this card into your discard pile. NL Exhaust."
   }
 }
