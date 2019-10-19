@@ -40,5 +40,10 @@
   "theSacred:PersuasionNeedles": {
     "NAME": "Persuasion Needles",
     "DESCRIPTION": "Deal !D! damage !M! times. NL thesacred:Aligned: Add a copy of this card into your discard pile. NL Exhaust."
+  },
+  "theSacred:SacredShot": {
+    "NAME": "Sacred Shot",
+    "DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL thesacred:Aligned: Deal !D! damage. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL thesacred:Aligned: Deal !D! damage. NL Exhaustive !stslib:ex!."
   }
 }
