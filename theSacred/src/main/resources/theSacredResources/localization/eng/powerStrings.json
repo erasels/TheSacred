@@ -58,5 +58,12 @@
       "Gain #b",
       "% more #yBlock from cards."
     ]
+  },
+  "theSacred:DuplexBoundary": {
+    "NAME": "Duplex Boundary",
+    "DESCRIPTIONS": [
+      "Take #b",
+      "% less damage."
+    ]
   }
 }

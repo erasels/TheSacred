@@ -45,5 +45,10 @@
     "NAME": "Sacred Shot",
     "DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL thesacred:Aligned: Deal !D! damage. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL thesacred:Aligned: Deal !D! damage. NL Exhaustive !stslib:ex!."
+  },
+  "theSacred:DuplexBoundary": {
+    "NAME": "Duplex Boundary",
+    "DESCRIPTION": "Take 50% less damage for !M! turns.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Take 50% less damage for !M! turns."
   }
 }
