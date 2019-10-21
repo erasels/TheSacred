@@ -9,6 +9,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -132,6 +133,18 @@ public class UC {
 
     public static void doDraw(int number) {
         atb(new DrawCardAction(p(), number));
+    }
+
+    public static void channelYY() {
+        channelYY(false);
+    }
+
+    public static void channelYY(boolean top) {
+        if(top) {
+            att(new ChannelAction(new YinYangOrb()));
+        } else {
+            atb(new ChannelAction(new YinYangOrb()));
+        }
     }
 
     public static void generalPowerLogic(AbstractPower p) {

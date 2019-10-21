@@ -1,14 +1,12 @@
 package theSacred.cards.basic;
 
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.cards.abstracts.SacredCard;
-import theSacred.orbs.YinYangOrb;
 import theSacred.util.CardInfo;
-import theSacred.util.UC;
 
 import static theSacred.TheSacred.makeID;
+import static theSacred.util.UC.channelYY;
 
 public class TreasuredOrb extends SacredCard {
     private final static CardInfo cardInfo = new CardInfo(
@@ -30,7 +28,7 @@ public class TreasuredOrb extends SacredCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        UC.atb(new ChannelAction(new YinYangOrb()));
+        channelYY();
     }
 
     @Override

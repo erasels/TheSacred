@@ -1,13 +1,11 @@
 package theSacred.cards.common;
 
 import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
-import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.cards.abstracts.AlignedCard;
 import theSacred.cards.abstracts.SacredCard;
-import theSacred.orbs.YinYangOrb;
 import theSacred.util.CardInfo;
 
 import static theSacred.TheSacred.makeID;
@@ -35,7 +33,7 @@ public class SacredShot extends SacredCard implements AlignedCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new ChannelAction(new YinYangOrb()));
+        channelYY();
     }
 
     @Override
