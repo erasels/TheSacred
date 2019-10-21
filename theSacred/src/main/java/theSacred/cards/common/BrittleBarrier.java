@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.cards.abstracts.AlignedCard;
 import theSacred.cards.abstracts.SacredCard;
-import theSacred.powers.turn.BrittleBarrierPower;
+import theSacred.powers.turn.barriers.BrittleBarrierPower;
 import theSacred.util.CardInfo;
 
 import static theSacred.TheSacred.makeID;

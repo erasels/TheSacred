@@ -3,7 +3,7 @@ package theSacred.cards.basic;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.cards.abstracts.SacredCard;
-import theSacred.powers.turn.RepulseBarrierPower;
+import theSacred.powers.turn.barriers.RepulseBarrierPower;
 import theSacred.util.CardInfo;
 
 import static theSacred.TheSacred.makeID;
