@@ -1,7 +1,6 @@
 package theSacred.cards.uncommon;
 
 import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.actions.common.ChooseCardsFromPilesAction;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static theSacred.TheSacred.makeID;
-import static theSacred.util.UC.*;
+import static theSacred.util.UC.atb;
 
 public class Prayer extends SacredCard {
     private final static CardInfo cardInfo = new CardInfo(
@@ -37,6 +36,6 @@ public class Prayer extends SacredCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        atb(new ChooseCardsFromPilesAction((ArrayList<CardGroup>)Arrays.asList(p.drawPile, p.discardPile), c -> c.hasTag(CardENUMs.INVOKE), magicNumber));
+        atb(new ChooseCardsFromPilesAction(new ArrayList<>(Arrays.asList(p.drawPile, p.discardPile)), c -> c.hasTag(CardENUMs.INVOKE), magicNumber));
     }
 }
