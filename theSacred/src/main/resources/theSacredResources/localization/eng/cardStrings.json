@@ -64,5 +64,10 @@
   "theSacred:QuickwittedStrike": {
     "NAME": "Quick-Witted Strike",
     "DESCRIPTION": "Deal !D! damage. NL Shuffle your hand into your draw pile then draw that many cards."
+  },
+  "theSacred:Prayer": {
+    "NAME": "Prayer",
+    "DESCRIPTION": "Put !M! Invoke card from your draw or discard pile into your hand. Exhaustive !stslib:ex!.",
+    "UPGRADE_DESCRIPTION": "Put !M! Invoke cards from your draw or discard pile into your hand. Exhaustive !stslib:ex!."
   }
 }
