@@ -9,5 +9,11 @@
     "TEXT": [
       "Begins in: "
     ]
+  },
+  "theSacred:ChooseCardsFromPilesAction": {
+    "TEXT": [
+      "Choose ",
+      " card(s)."
+    ]
   }
 }
