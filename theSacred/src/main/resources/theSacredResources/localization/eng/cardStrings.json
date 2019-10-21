@@ -60,5 +60,9 @@
     "NAME": "Seal: Erode",
     "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. Increase this card's hit count by !theImmortal:M2! this combat.",
     "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage to a random enemy !M! times. Increase this card's hit count by !theImmortal:M2! this combat."
+  },
+  "theSacred:QuickwittedStrike": {
+    "NAME": "Quick-Witted Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Shuffle your hand into your draw pile then draw that many cards."
   }
 }
