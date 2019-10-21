@@ -50,5 +50,15 @@
     "NAME": "Duplex Boundary",
     "DESCRIPTION": "Take 50% less damage for !M! turns.",
     "UPGRADE_DESCRIPTION": "Retain. NL Take 50% less damage for !M! turns."
+  },
+  "theSacred:DispellingPrayer": {
+    "NAME": "Dispelling Prayer",
+    "DESCRIPTION": "Remove all your debuffs, gain !M! Strength for each. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remove all your debuffs, gain !M! Strength and !theSacred:M2! Dexterity for each. NL Exhaust."
+  },
+  "theSacred:SealErode": {
+    "NAME": "Seal: Erode",
+    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. Increase this card's hit count by !theImmortal:M2! this combat.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage to a random enemy !M! times. Increase this card's hit count by !theImmortal:M2! this combat."
   }
 }
