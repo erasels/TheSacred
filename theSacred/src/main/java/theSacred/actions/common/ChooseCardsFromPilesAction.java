@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import theSacred.patches.cards.RenderCurrentPilePatches;
 import theSacred.util.UC;
 
 import java.util.ArrayList;
@@ -16,23 +17,23 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
 
+import static theSacred.TheSacred.makeID;
+
 public class ChooseCardsFromPilesAction extends AbstractGameAction {
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ChooseCardsFromPilesAction");
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("ChooseCardsFromPilesAction"));
 
     public static final String[] TEXT = uiStrings.TEXT;
 
     private ArrayList<CardGroup> piles;
     private Predicate<AbstractCard> cardFilter;
-    private int num;
     private Map<AbstractCard, CardGroup> relationMap = new HashMap<>();
 
     public ChooseCardsFromPilesAction(ArrayList<CardGroup> piles, Predicate<AbstractCard> cardFilter, int num) {
-        setValues(null, UC.p(), this.amount);
+        setValues(null, UC.p(), num);
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FASTER;
         this.piles = piles;
         this.cardFilter = cardFilter;
-        this.num = num;
     }
 
     public void update() {
@@ -45,6 +46,17 @@ public class ChooseCardsFromPilesAction extends AbstractGameAction {
                 for(AbstractCard c : pile.group) {
                     if(cardFilter.test(c)) {
                         relationMap.put(c, pile);
+                        String hack = "";
+                        if(pile == UC.p().drawPile) {
+                            hack = "draw";
+                        } else if (pile == UC.p().discardPile) {
+                            hack = "discard";
+                        } else  if (pile == UC.p().exhaustPile) {
+                            hack = "exhaust";
+                        } else if (pile == UC.p().hand) {
+                            hack = "hand";
+                        }
+                        RenderCurrentPilePatches.CurrentPileField.pileEnum.set(c, RenderCurrentPilePatches.getRenderEnum(hack));
                     }
                 }
             }
@@ -53,9 +65,10 @@ public class ChooseCardsFromPilesAction extends AbstractGameAction {
             if (relationMap.isEmpty()) {
                 this.isDone = true;
                 return;
-            } else if (relationMap.size() <= num) {
+            } else if (relationMap.size() <= amount) {
                 for(Map.Entry<AbstractCard, CardGroup> vals: relationMap.entrySet()) {
-                    if(UC.p().hand.size() < BaseMod.MAX_HAND_SIZE) {
+                    RenderCurrentPilePatches.CurrentPileField.pileEnum.set(vals.getKey(), RenderCurrentPilePatches.pileRender.UNSPECIFIED);
+                    if(!(UC.p().hand.size() < BaseMod.MAX_HAND_SIZE)) {
                         AbstractCard card = vals.getKey();
                         card.unhover();
                         card.lighten(true);
@@ -75,14 +88,15 @@ public class ChooseCardsFromPilesAction extends AbstractGameAction {
                 }
                 return;
             } else {
-                AbstractDungeon.gridSelectScreen.open(tmp, num, TEXT[0] + num + TEXT[1], false, false, false, false);
+                AbstractDungeon.gridSelectScreen.open(tmp, amount, TEXT[0] + amount + TEXT[1], false, false, false, false);
                 tickDuration();
             }
         }
         if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
+                RenderCurrentPilePatches.CurrentPileField.pileEnum.set(c, RenderCurrentPilePatches.pileRender.UNSPECIFIED);
                 c.unhover();
-                if(UC.p().hand.size() < BaseMod.MAX_HAND_SIZE) {
+                if(!(UC.p().hand.size() < BaseMod.MAX_HAND_SIZE)) {
                     relationMap.get(c).moveToDiscardPile(c);
                     UC.p().createHandIsFullDialog();
                 } else {
