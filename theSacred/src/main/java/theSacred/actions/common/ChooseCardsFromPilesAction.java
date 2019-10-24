@@ -46,17 +46,7 @@ public class ChooseCardsFromPilesAction extends AbstractGameAction {
                 for(AbstractCard c : pile.group) {
                     if(cardFilter.test(c)) {
                         relationMap.put(c, pile);
-                        String hack = "";
-                        if(pile == UC.p().drawPile) {
-                            hack = "draw";
-                        } else if (pile == UC.p().discardPile) {
-                            hack = "discard";
-                        } else  if (pile == UC.p().exhaustPile) {
-                            hack = "exhaust";
-                        } else if (pile == UC.p().hand) {
-                            hack = "hand";
-                        }
-                        RenderCurrentPilePatches.CurrentPileField.pileEnum.set(c, RenderCurrentPilePatches.getRenderEnum(hack));
+                        RenderCurrentPilePatches.CurrentPileField.set(c, pile);
                     }
                 }
             }
