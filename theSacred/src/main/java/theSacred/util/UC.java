@@ -84,6 +84,9 @@ public class UC {
     }
 
     public static void doDmg(AbstractCreature target, int amount, DamageInfo.DamageType dt, AbstractGameAction.AttackEffect ae, boolean fast, boolean top) {
+        if(target == null) {
+            target = AbstractDungeon.getRandomMonster();
+        }
         if (top) {
             att(new DamageAction(target, new DamageInfo(p(), amount, dt), ae, fast));
         } else {
