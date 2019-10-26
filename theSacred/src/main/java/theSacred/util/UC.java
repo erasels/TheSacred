@@ -107,7 +107,15 @@ public class UC {
     }
 
     public static void doDef(int amount) {
-        atb(new GainBlockAction(p(), p(), amount));
+        doDef(amount, false);
+    }
+
+    public static void doDef(int amount, boolean top) {
+        if(top) {
+            att(new GainBlockAction(p(), p(), amount));
+        } else {
+            atb(new GainBlockAction(p(), p(), amount));
+        }
     }
 
     public static void doPow(AbstractCreature target, AbstractPower p) {
