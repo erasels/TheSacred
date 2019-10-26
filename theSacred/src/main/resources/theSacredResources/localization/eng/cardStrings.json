@@ -87,5 +87,10 @@
   "theSacred:QuickRift": {
     "NAME": "Quick Rift",
     "DESCRIPTION": "Draw !M! cards, gain Block equal to their combined costs, affected by Block modifiers."
+  },
+  "theSacred:Ward": {
+    "NAME": "Ward",
+    "DESCRIPTION": "Scry !M!. NL Next turn, gain [E].",
+    "UPGRADE_DESCRIPTION": "Scry !M!. NL Next turn, gain [E][E]."
   }
 }
