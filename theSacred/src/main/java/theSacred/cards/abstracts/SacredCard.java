@@ -194,6 +194,14 @@ public abstract class SacredCard extends CustomCard {
         }
     }
 
+    public void setSN(int sn) {
+        this.showNumber = baseShowNumber = sn;
+    }
+
+    public void setMN2(int mn2) {
+        this.magicNumber2 = baseMagicNumber2 = mn2;
+    }
+
     private CardRarity autoRarity() {
         String packageName = this.getClass().getPackage().getName();
 
