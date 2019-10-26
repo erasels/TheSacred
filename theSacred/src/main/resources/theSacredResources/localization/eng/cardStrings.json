@@ -73,5 +73,10 @@
   "theSacred:YinYangStrike": {
     "NAME": "Yin-Yang Strike",
     "DESCRIPTION": "Deal !D! damage. NL If you have less than !M! thesacred:Yin-Yang channel a thesacred:Yin-Yang."
+  },
+  "theSacred:SealSpread": {
+    "NAME": "Seal: Spread",
+    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL Gain !theImmortal:M2! Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to a random enemy !M! times."
   }
 }
