@@ -91,6 +91,6 @@
   "theSacred:Ward": {
     "NAME": "Ward",
     "DESCRIPTION": "Scry !M!. NL Next turn, gain [E].",
-    "UPGRADE_DESCRIPTION": "Scry !M!. NL Next turn, gain [E][E]."
+    "UPGRADE_DESCRIPTION": "Scry !M!. NL Next turn, gain [E] [E]."
   }
 }
