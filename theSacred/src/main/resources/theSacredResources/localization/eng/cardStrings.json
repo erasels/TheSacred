@@ -92,5 +92,9 @@
     "NAME": "Ward",
     "DESCRIPTION": "Scry !M!. NL Next turn, gain [E].",
     "UPGRADE_DESCRIPTION": "Scry !M!. NL Next turn, gain [E] [E]."
+  },
+  "theSacred:HomingAmulet": {
+    "NAME": "Homing Amulet",
+    "DESCRIPTION": "Deal !D! damage, deal !D! damage to a random enemy that you didn't target. NL thesacred:Aligned: Repeat."
   }
 }
