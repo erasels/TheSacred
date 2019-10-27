@@ -26,7 +26,6 @@ public class HomingAmulet extends SacredCard implements AlignedCard {
 
     public HomingAmulet() {
         super(cardInfo, false);
-        p(); //Stupid intellij stuff , 
 
         setDamage(DAMAGE, UPG_DAMAGE);
     }
