@@ -33,9 +33,9 @@ public class TreasuredOrb extends SacredCard {
 
     @Override
     public void upgrade() {
-        super.upgrade();
         if(!upgraded) {
             isEthereal = false;
         }
+        super.upgrade();
     }
 }

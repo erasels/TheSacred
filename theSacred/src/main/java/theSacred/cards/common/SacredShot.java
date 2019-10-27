@@ -38,11 +38,10 @@ public class SacredShot extends SacredCard implements AlignedCard {
 
     @Override
     public void upgrade() {
-        super.upgrade();
-
         if(!upgraded) {
             ExhaustiveVariable.setBaseValue(this, EXH_AMT);
         }
+        super.upgrade();
     }
 
     @Override
