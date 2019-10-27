@@ -105,5 +105,10 @@
     "NAME": "Yin-Yang Shield",
     "DESCRIPTION": "Channel a thesacred:Yin-Yang. NL thesacred:Aligned: Gain !B! Block. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Retain. NL Channel a thesacred:Yin-Yang. NL thesacred:Aligned: Gain !B! Block. NL Exhaust."
+  },
+  "theSacred:AnachronicBarrier": {
+    "NAME": "Anachronic Barrier",
+    "DESCRIPTION": "Take all incoming attack damage at the end of your next turn instead. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Take all incoming attack damage at the end of your next turn instead. NL Next turn, gain !B! Block. NL Exhaust."
   }
 }

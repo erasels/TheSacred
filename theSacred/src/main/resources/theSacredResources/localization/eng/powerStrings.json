@@ -65,5 +65,12 @@
       "Take #b",
       "% less damage."
     ]
+  },
+  "theSacred:AnachronicBarrier": {
+    "NAME": "Anachronic Barrier",
+    "DESCRIPTIONS": [
+      "Delay all incoming attack damage to the end of the specified round. NL Currently: #b",
+      " damage is stored."
+    ]
   }
 }
