@@ -110,5 +110,10 @@
     "NAME": "Anachronic Barrier",
     "DESCRIPTION": "Take all incoming attack damage at the end of your next turn instead. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Take all incoming attack damage at the end of your next turn instead. NL Next turn, gain !B! Block. NL Exhaust."
+  },
+  "theSacred:Vengeance": {
+    "NAME": "Vengeance",
+    "DESCRIPTION": "Deal damage equal to your missing health affected by attack modifiers. NL (Currently: !D!)",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to your missing health affected by attack modifiers to ALL enemies. NL (Currently: !D!)"
   }
 }
