@@ -119,5 +119,9 @@
   "theSacred:SlaveSeals": {
     "NAME": "Slave Seals",
     "DESCRIPTION": "Whenever an enemy takes attack damage, another enemy takes that much damage as well."
+  },
+  "theSacred:InfiniteNeedles": {
+    "NAME": "Infinite Needles",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. NL Shuffle a copy of this card into your draw pile. NL Exhaustive !stslib:ex!."
   }
 }
