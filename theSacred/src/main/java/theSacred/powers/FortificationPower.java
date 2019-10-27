@@ -40,6 +40,14 @@ public class FortificationPower extends AbstractSacredPower implements Cloneable
     }
 
     @Override
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        p().powers.stream()
+                .filter(p -> p instanceof AbstractSacredPower && ((AbstractSacredPower)p).isBarrierPower)
+                .forEach(p->((AbstractSacredPower) p).extendBarrier(stackAmount));
+    }
+
+    @Override
     public boolean onReceivePower(AbstractPower p, AbstractCreature target, AbstractCreature source) {
         if(target == p()) {
             if(p instanceof AbstractSacredPower && ((AbstractSacredPower) p).isBarrierPower) {
