@@ -100,5 +100,10 @@
   "theSacred:FantasyRift": {
     "NAME": "Fantasy Rift",
     "DESCRIPTION": "Gain !B! Block. NL Transform !M! random cards in your hand. NL Next Turn, gain [E]."
+  },
+  "theSacred:YinYangShield": {
+    "NAME": "Yin-Yang Shield",
+    "DESCRIPTION": "Channel a thesacred:Yin-Yang. NL thesacred:Aligned: Gain !B! Block. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Channel a thesacred:Yin-Yang. NL thesacred:Aligned: Gain !B! Block. NL Exhaust."
   }
 }
