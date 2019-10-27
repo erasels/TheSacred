@@ -1,8 +1,10 @@
 package theSacred.cards.rare;
 
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.VerticalAuraEffect;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.util.CardInfo;
 
@@ -29,10 +31,11 @@ public class Vengeance extends SacredCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(!upgraded) {
-            doDmg(m, damage, AbstractGameAction.AttackEffect.SMASH);
+        doVfx(new VerticalAuraEffect(Color.FIREBRICK, p.hb.cX, p.hb.cY));
+        if (!upgraded) {
+            doDmg(m, damage, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         } else {
-            doAllDmg(damage, AbstractGameAction.AttackEffect.SMASH, damageTypeForTurn, false);
+            doAllDmg(damage, AbstractGameAction.AttackEffect.BLUNT_HEAVY, damageTypeForTurn, false);
         }
     }
 
@@ -45,7 +48,7 @@ public class Vengeance extends SacredCard {
 
     @Override
     public void upgrade() {
-        if(!upgraded) {
+        if (!upgraded) {
             this.target = CardTarget.ALL_ENEMY;
         }
         super.upgrade();
