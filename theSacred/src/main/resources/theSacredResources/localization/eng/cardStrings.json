@@ -115,5 +115,9 @@
     "NAME": "Vengeance",
     "DESCRIPTION": "Deal damage equal to your missing health affected by attack modifiers. NL (Currently: !D!)",
     "UPGRADE_DESCRIPTION": "Deal damage equal to your missing health affected by attack modifiers to ALL enemies. NL (Currently: !D!)"
+  },
+  "theSacred:SlaveSeals": {
+    "NAME": "Slave Seals",
+    "DESCRIPTION": "Whenever an enemy takes attack damage, another enemy takes that much damage as well."
   }
 }

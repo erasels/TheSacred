@@ -72,5 +72,15 @@
       "Delay all incoming attack damage to the end of the specified round. NL Currently: #b",
       " damage is stored."
     ]
+  },
+  "theSacred:SlaveSeals": {
+    "NAME": "Slave Seals",
+    "DESCRIPTIONS": [
+      "Whenever an enemy takes attack damage, #b",
+      " other ",
+      "enemy",
+      "enemies",
+      " takes that much damage as well."
+    ]
   }
 }
