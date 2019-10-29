@@ -132,5 +132,9 @@
     "NAME": "Illusion",
     "DESCRIPTION": "Deal !D! damage. Scry equal to the damage.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. Scry equal to the damage. NL thesacred:Aligned: Deal !M! damage for each discarded card."
+  },
+  "theSacred:TargetingTalisman": {
+    "NAME": "Chain Reaction",
+    "DESCRIPTION": "Deal !D! damage to the weakest enemy. If this kills the enemy, deal double the excess damage to the next weakest enemy."
   }
 }
