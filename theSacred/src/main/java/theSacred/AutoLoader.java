@@ -3,6 +3,7 @@ package theSacred;
 import basemod.BaseMod;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import javassist.CtClass;
 import javassist.NotFoundException;
 import org.clapper.util.classutil.*;
@@ -47,6 +48,7 @@ public class AutoLoader {
 
     private static void addToBaseMod(AbstractCard card) {
         BaseMod.addCard(card);
+        UnlockTracker.unlockCard(card.cardID);
         TheSacred.logger.info("Added Card: " + card.name);
 
         if(card.hasTag(CardENUMs.NEEDLE)) {
