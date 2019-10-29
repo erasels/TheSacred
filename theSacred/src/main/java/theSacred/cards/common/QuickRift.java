@@ -27,7 +27,6 @@ public class QuickRift extends SacredCard {
 
     public QuickRift() {
         super(cardInfo, false);
-        p(); //Stupid intellij stuff s, s
 
         setMagic(MAGIC, UPG_MAGIC);
         setMN2(MAGIC2);

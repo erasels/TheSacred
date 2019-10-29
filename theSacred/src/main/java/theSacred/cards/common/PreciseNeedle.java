@@ -16,14 +16,14 @@ import static theSacred.util.UC.*;
 public class PreciseNeedle extends SacredCard implements AlignedCard {
     private final static CardInfo cardInfo = new CardInfo(
             "PreciseNeedle",
-            0,
+            1,
             CardType.ATTACK,
             CardTarget.ENEMY);
 
     public final static String ID = makeID(cardInfo.cardName);
 
-    private static final int DAMAGE = 4;
-    private static final int UPG_DAMAGE = 2;
+    private static final int DAMAGE = 9;
+    private static final int UPG_DAMAGE = 3;
 
     private static final int MAGIC = 1;
 
