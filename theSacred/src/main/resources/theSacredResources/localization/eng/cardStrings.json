@@ -58,8 +58,8 @@
   },
   "theSacred:SealErode": {
     "NAME": "Seal: Erode",
-    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. Increase this card's hit count by !theImmortal:M2! this combat.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage to a random enemy !M! times. Increase this card's hit count by !theImmortal:M2! this combat."
+    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. Increase this card's hit count by !theSacred:M2! this combat.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage to a random enemy !M! times. Increase this card's hit count by !theSacred:M2! this combat."
   },
   "theSacred:QuickwittedStrike": {
     "NAME": "Quick-Witted Strike",
@@ -76,7 +76,7 @@
   },
   "theSacred:SealSpread": {
     "NAME": "Spread Amulet",
-    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL Gain !theImmortal:M2! Vulnerable.",
+    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL Gain !theSacred:M2! Vulnerable.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage to a random enemy !M! times."
   },
   "theSacred:MindAmulet": {
@@ -144,10 +144,14 @@
   },
   "theSacred:ErrantFaith": {
     "NAME": "Errant Faith",
-    "DESCRIPTION": "Whenever you play an Invoke card, gain [E]."
+    "DESCRIPTION": "Whenever you play an thesacred:Invoke card, gain [E]."
   },
   "theSacred:AscensionKick": {
     "NAME": "Ascension Kick",
     "DESCRIPTION": "Deal !D! damage. Put !M! cards from your discard pile on top of your draw pile. NL thesacred:Aligned: Draw !theSacred:M2! card."
+  },
+  "theSacred:Expansion": {
+    "NAME": "Expansion",
+    "DESCRIPTION": "Gain !B! Block. NL thesacred:Aligned: Deal damage equal to your Block to a random enemy."
   }
 }

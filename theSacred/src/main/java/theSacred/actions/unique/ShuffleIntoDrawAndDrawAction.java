@@ -7,6 +7,8 @@ import theSacred.util.UC;
 
 public class ShuffleIntoDrawAndDrawAction extends AbstractGameAction {
     private float startingDuration;
+    private int counter = 0;
+    private boolean firstRun = true;
 
     public ShuffleIntoDrawAndDrawAction() {
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -16,16 +18,22 @@ public class ShuffleIntoDrawAndDrawAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == this.startingDuration) {
-            int cnt = 0;
+            counter = 0;
             for(AbstractCard c : UC.p().hand.group) {
                 UC.p().drawPile.moveToDeck(c, true);
-                cnt++;
+                counter++;
             }
-            for (int i = 0; i < cnt ; i++) {
+        } else if (firstRun) {
+            firstRun = false;
+
+            for (int i = 0; i < counter ; i++) {
                 //Because onDraworDiscard isn't called otherwise
                 UC.p().draw();
             }
-            this.isDone = true;
+            UC.p().hand.refreshHandLayout();
+            UC.p().hand.glowCheck();
+
         }
+        tickDuration();
     }
 }
