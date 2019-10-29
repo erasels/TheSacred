@@ -35,7 +35,7 @@
     "NAMES": [
       "yin-yang"
     ],
-    "DESCRIPTION": "Increases damage taken by #b50%, damage dealt and Block gained by #b25%."
+    "DESCRIPTION": "Increases damage taken by #b25%, damage dealt and Block gained by #b25%."
   },
   {
     "PROPER_NAME": "Channel",

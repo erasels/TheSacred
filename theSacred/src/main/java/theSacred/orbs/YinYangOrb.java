@@ -37,7 +37,7 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
 
     private static final float BLK_MOD = 1.25f;
     private static final float DMG_DEAL_MOD = 1.25f;
-    private static final float DMG_TAKE_MOD = 1.5f;
+    private static final float DMG_TAKE_MOD = 1.25f;
 
     protected static final float NUM_X_OFFSET = 42.0F * Settings.scale;
     protected static final float NUM_Y_OFFSET = -30.0F * Settings.scale;
