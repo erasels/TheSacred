@@ -145,5 +145,9 @@
   "theSacred:ErrantFaith": {
     "NAME": "Errant Faith",
     "DESCRIPTION": "Whenever you play an Invoke card, gain [E]."
+  },
+  "theSacred:AscensionKick": {
+    "NAME": "Ascension Kick",
+    "DESCRIPTION": "Deal !D! damage. Put !M! cards from your discard pile on top of your draw pile. NL thesacred:Aligned: Draw !theSacred:M2! card."
   }
 }
