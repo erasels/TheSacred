@@ -1,10 +1,10 @@
 {
-  "theSacred:EmptyJar": {
-    "NAME": "Empty Jar",
-    "FLAVOR": "A medicine jar which seems to be unbothered by the heat. A relic of times past.",
+  "theSacred:PurificationRod": {
+    "NAME": "Purification Rod",
+    "FLAVOR": "A \"correctional tool\" used to correct the behavior of unbehaved creatures.",
     "DESCRIPTIONS": [
-      "Whenever you lose HP, gain #b",
-      " temporary #yStrength."
+      "The first time you attack each enemy, apply #b",
+      " #yWeak and #yVulnerable."
     ]
   }
 }

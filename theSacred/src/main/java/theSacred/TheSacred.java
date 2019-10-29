@@ -22,6 +22,7 @@ import theSacred.cards.variables.MagicNumber2;
 import theSacred.cards.variables.ShowNumber;
 import theSacred.characters.SacredCharacter;
 import theSacred.mechanics.speed.AbstractSpeedTime;
+import theSacred.relics.special.PurificationRod;
 import theSacred.util.TextureLoader;
 
 import java.net.URISyntaxException;
@@ -150,6 +151,7 @@ public class TheSacred implements
 
     @Override
     public void receiveEditRelics() {
+        BaseMod.addRelicToCustomPool(new PurificationRod(), SacredCharacter.Enums.COLOR_SACRED);
     }
 
     @Override

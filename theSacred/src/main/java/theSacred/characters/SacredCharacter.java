@@ -19,7 +19,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.relics.PrismaticShard;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -29,6 +28,7 @@ import theSacred.cards.basic.Defend;
 import theSacred.cards.basic.RepulseBarrier;
 import theSacred.cards.basic.Strike;
 import theSacred.cards.basic.TreasuredOrb;
+import theSacred.relics.special.PurificationRod;
 import theSacred.ui.SacredEnergyOrb;
 
 import java.util.ArrayList;
@@ -113,8 +113,8 @@ public class SacredCharacter extends CustomPlayer {
 
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(PrismaticShard.ID);
-        UnlockTracker.markRelicAsSeen(PrismaticShard.ID);
+        retVal.add(PurificationRod.ID);
+        UnlockTracker.markRelicAsSeen(PurificationRod.ID);
         return retVal;
     }
 
