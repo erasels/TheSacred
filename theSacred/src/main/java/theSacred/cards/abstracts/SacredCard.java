@@ -50,6 +50,8 @@ public abstract class SacredCard extends CustomCard {
     public int showNumber;
     public boolean isShowNumberModified;
 
+    public boolean invoke;
+
 
     public SacredCard(CardInfo cardInfo, boolean upgradesDescription) {
         this(SacredCharacter.Enums.COLOR_SACRED, cardInfo.cardName, cardInfo.cardCost, cardInfo.cardType, cardInfo.cardTarget, cardInfo.cardRarity, upgradesDescription);
@@ -87,6 +89,8 @@ public abstract class SacredCard extends CustomCard {
         upgradeBurst = false;
         upgradeRetain = false;
         upgradeEthereal = false;
+
+        invoke = false;
 
         if(cardName.toLowerCase().contains("strike")) {
             tags.add(CardTags.STRIKE);
@@ -200,6 +204,11 @@ public abstract class SacredCard extends CustomCard {
 
     public void setMN2(int mn2) {
         this.magicNumber2 = baseMagicNumber2 = mn2;
+    }
+
+    public void setInvoke() {
+        this.invoke = true;
+        this.tags.add(CardENUMs.INVOKE);
     }
 
     private CardRarity autoRarity() {
