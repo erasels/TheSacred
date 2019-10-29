@@ -141,5 +141,9 @@
     "NAME": "Exorcism Dance",
     "DESCRIPTION": "Gain !B! Block !theSacred:M2! times. NL Add a random Needle into you hand.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block !theSacred:M2! times. NL Add !M! random thesacred:Needles into you hand."
+  },
+  "theSacred:ErrantFaith": {
+    "NAME": "Errant Faith",
+    "DESCRIPTION": "Whenever you play an Invoke card, gain [E]."
   }
 }

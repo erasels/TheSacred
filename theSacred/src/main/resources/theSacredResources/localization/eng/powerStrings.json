@@ -88,5 +88,12 @@
     "DESCRIPTIONS": [
       "Cannot gain #yIntagible for the rest of combat."
     ]
+  },
+  "theSacred:ErrantFaith": {
+    "NAME": "Errant Faith",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " [E] after playing an #yInvoke card."
+    ]
   }
 }

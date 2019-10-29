@@ -24,6 +24,13 @@
     "DESCRIPTION": "Cards which have \"needle\" in their name."
   },
   {
+    "PROPER_NAME": "Invoke",
+    "NAMES": [
+      "invoke"
+    ],
+    "DESCRIPTION": "Cards that have their cost randomized whenever they enter your hand."
+  },
+  {
     "PROPER_NAME": "Yin-Yang Orb",
     "NAMES": [
       "yin-yang"
