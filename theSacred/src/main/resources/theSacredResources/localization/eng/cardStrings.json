@@ -123,5 +123,9 @@
   "theSacred:InfiniteNeedles": {
     "NAME": "Infinite Needles",
     "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. NL Shuffle a copy of this card into your draw pile. NL Exhaustive !stslib:ex!."
+  },
+  "theSacred:FantasyNature": {
+    "NAME": "Fantasy Nature",
+    "DESCRIPTION": "Gain !M! Intangible. NL thesacred:Aligned: Gain !M! Intangible. NL You cannot gain Intangible for the rest of combat."
   }
 }

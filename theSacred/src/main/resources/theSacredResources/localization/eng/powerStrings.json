@@ -82,5 +82,11 @@
       "enemies",
       " takes that much damage as well."
     ]
+  },
+  "theSacred:Limit": {
+    "NAME": "Self-Imposed Limit",
+    "DESCRIPTIONS": [
+      "Cannot gain #yIntagible for the rest of combat."
+    ]
   }
 }
