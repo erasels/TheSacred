@@ -2,9 +2,7 @@ package theSacred.actions.unique;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
-import theSacred.actions.common.MoveCardFromHandToDeckAction;
 import theSacred.util.UC;
 
 public class ShuffleIntoDrawAndDrawAction extends AbstractGameAction {
@@ -17,11 +15,9 @@ public class ShuffleIntoDrawAndDrawAction extends AbstractGameAction {
     }
 
     public void update() {
-        if (this.duration == this.startingDuration) {
-            UC.att(new DrawCardAction(UC.p(), UC.p().hand.size()));
-            for(AbstractCard c : UC.p().hand.group) {
-                UC.att(new MoveCardFromHandToDeckAction(c));
-            }
+        UC.att(new DrawCardAction(UC.p(), UC.p().hand.size()));
+        while(!UC.p().hand.isEmpty()) {
+            UC.p().hand.moveToDeck(UC.p().hand.getTopCard(), true);
         }
         isDone = true;
     }
