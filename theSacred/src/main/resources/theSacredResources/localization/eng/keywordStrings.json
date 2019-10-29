@@ -16,6 +16,14 @@
     "DESCRIPTION": "Cards which have \"barrier\" in their name."
   },
   {
+    "PROPER_NAME": "Needle",
+    "NAMES": [
+      "needle",
+      "needles"
+    ],
+    "DESCRIPTION": "Cards which have \"needle\" in their name."
+  },
+  {
     "PROPER_NAME": "Yin-Yang Orb",
     "NAMES": [
       "yin-yang"

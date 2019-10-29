@@ -136,5 +136,10 @@
   "theSacred:TargetingTalisman": {
     "NAME": "Chain Reaction",
     "DESCRIPTION": "Deal !D! damage to the weakest enemy. If this kills the enemy, deal double the excess damage to the next weakest enemy."
+  },
+  "theSacred:ExorcismDance": {
+    "NAME": "Exorcism Dance",
+    "DESCRIPTION": "Gain !B! Block !theSacred:M2! times. NL Add a random Needle into you hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block !theSacred:M2! times. NL Add !M! random thesacred:Needles into you hand."
   }
 }
