@@ -3,6 +3,7 @@ package theSacred.cards.abstracts;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import theSacred.TheSacred;
@@ -230,7 +231,9 @@ public abstract class SacredCard extends CustomCard {
             case "basic":
                 return CardRarity.BASIC;
             default:
-                TheSacred.logger.info("Automatic Card rarity resulted in SPECIAL, input: " + directParent);
+                if(Settings.isDebug) {
+                    TheSacred.logger.info("Automatic Card rarity resulted in SPECIAL, input: " + directParent);
+                }
                 return CardRarity.SPECIAL;
         }
     }
@@ -332,10 +335,12 @@ public abstract class SacredCard extends CustomCard {
 
     @Override
     public void triggerOnGlowCheck() {
-        if((this.hasTag(CardENUMs.BURST) && UC.anonymousCheckBurst()) || this.hasTag(CardENUMs.ALIGNED) && UC.isAligned()) {
-            glowColor = GOLD_BORDER_GLOW_COLOR;
-        } else {
-            glowColor = BLUE_BORDER_GLOW_COLOR;
+        if(CardCrawlGame.isInARun()) {
+            if ((this.hasTag(CardENUMs.BURST) && UC.anonymousCheckBurst()) || this.hasTag(CardENUMs.ALIGNED) && UC.isAligned()) {
+                glowColor = GOLD_BORDER_GLOW_COLOR;
+            } else {
+                glowColor = BLUE_BORDER_GLOW_COLOR;
+            }
         }
     }
 
