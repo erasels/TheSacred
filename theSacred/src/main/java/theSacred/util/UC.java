@@ -20,7 +20,9 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import theSacred.TheSacred;
 import theSacred.actions.utility.DamageAllAction;
+import theSacred.cards.abstracts.SacredCard;
 import theSacred.orbs.YinYangOrb;
 import theSacred.patches.combat.BurstMechanics;
 
@@ -238,6 +240,10 @@ public class UC {
             ReflectionHacks.setPrivateInherited(t, t.getClass(), fieldKey, newValue);
         }
         return t;
+    }
+
+    public static SacredCard getRandomNeedle() {
+        return TheSacred.needles.get(AbstractDungeon.cardRandomRng.random(TheSacred.needles.size()-1));
     }
 
     //Setters

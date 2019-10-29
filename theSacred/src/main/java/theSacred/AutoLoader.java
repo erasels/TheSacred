@@ -7,6 +7,7 @@ import javassist.CtClass;
 import javassist.NotFoundException;
 import org.clapper.util.classutil.*;
 import theSacred.cards.abstracts.SacredCard;
+import theSacred.patches.cards.CardENUMs;
 
 import java.io.File;
 import java.lang.reflect.Modifier;
@@ -47,6 +48,13 @@ public class AutoLoader {
     private static void addToBaseMod(AbstractCard card) {
         BaseMod.addCard(card);
         TheSacred.logger.info("Added Card: " + card.name);
+
+        if(card.hasTag(CardENUMs.NEEDLE)) {
+            TheSacred.needles.add((SacredCard) card);
+        }
+        if(card.hasTag(CardENUMs.BARRIER)) {
+            TheSacred.barriers.add((SacredCard) card);
+        }
     }
 
     private static boolean ctClassIgnoresAutoLoader(CtClass ctClass) {

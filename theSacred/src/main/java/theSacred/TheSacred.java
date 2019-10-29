@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import theSacred.cards.abstracts.SacredCard;
 import theSacred.cards.variables.MagicNumber2;
 import theSacred.cards.variables.ShowNumber;
 import theSacred.characters.SacredCharacter;
@@ -25,6 +26,7 @@ import theSacred.util.TextureLoader;
 
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Properties;
 
 @SpireInitializer
@@ -74,6 +76,9 @@ public class TheSacred implements
 
     public static final String THE_SACRED_SKELETON_ATLAS = "theSacredResources/images/char/skeleton.atlas";
     public static final String THE_SACRED_SKELETON_JSON = "theSacredResources/images/char/skeleton.json";
+
+    public static ArrayList<SacredCard> needles = new ArrayList<>();
+    public static ArrayList<SacredCard> barriers = new ArrayList<>();
 
     public TheSacred() {
         BaseMod.subscribe(this);
