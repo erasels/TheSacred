@@ -127,5 +127,10 @@
   "theSacred:FantasyNature": {
     "NAME": "Fantasy Nature",
     "DESCRIPTION": "Gain !M! Intangible. NL thesacred:Aligned: Gain !M! Intangible. NL You cannot gain Intangible for the rest of combat."
+  },
+  "theSacred:Illusion": {
+    "NAME": "Illusion",
+    "DESCRIPTION": "Deal !D! damage. Scry equal to the damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Scry equal to the damage. NL thesacred:Aligned: Deal !M! damage for each discarded card."
   }
 }
