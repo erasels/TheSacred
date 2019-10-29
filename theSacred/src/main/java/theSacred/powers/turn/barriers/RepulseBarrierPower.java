@@ -45,7 +45,7 @@ public class RepulseBarrierPower extends AbstractSacredPower implements Cloneabl
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner) {
             flash();
-            doDmg(info.owner, amount2, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
+            doDmg(info.owner, amount2, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_LIGHT, true, true);
         }
         return damageAmount;
     }
