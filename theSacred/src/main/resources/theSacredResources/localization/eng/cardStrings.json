@@ -144,7 +144,8 @@
   },
   "theSacred:ErrantFaith": {
     "NAME": "Errant Faith",
-    "DESCRIPTION": "Whenever you play an thesacred:Invoke card, gain [E]."
+    "DESCRIPTION": "Whenever you play an thesacred:Invoke card, gain [E].",
+    "UPGRADE_DESCRIPTION": "Whenever you play an thesacred:Invoke card, gain [E] [E]."
   },
   "theSacred:AscensionKick": {
     "NAME": "Ascension Kick",
