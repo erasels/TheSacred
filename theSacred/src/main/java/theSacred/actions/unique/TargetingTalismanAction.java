@@ -1,8 +1,10 @@
 package theSacred.actions.unique;
 
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.patches.combat.OverkillHookPatches;
 import theSacred.util.UC;
@@ -30,6 +32,7 @@ public class TargetingTalismanAction extends DamageAction {
             }
             if(t != null) {
                 UC.att(new TargetingTalismanAction(t, new DamageInfo(UC.p(), amount * 2, DamageInfo.DamageType.NORMAL), AttackEffect.FIRE, false));
+                UC.att(new WaitAction(Settings.FAST_MODE?Settings.ACTION_DUR_FAST:Settings.ACTION_DUR_MED));
             }
         }
     }
