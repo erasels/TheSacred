@@ -20,7 +20,7 @@ public class TargetingTalismanAction extends DamageAction {
     @Override
     public void update() {
         super.update();
-        if(isDone && target.isDeadOrEscaped() && amount > 0) {
+        if(isDone && (target == null || target.isDeadOrEscaped()) && amount > 0) {
             ArrayList<AbstractMonster> aM = UC.getAliveMonsters();
             AbstractCreature t = null;
             for(AbstractMonster m : aM) {
@@ -28,8 +28,9 @@ public class TargetingTalismanAction extends DamageAction {
                     t = m;
                 }
             }
-
-            UC.att(new TargetingTalismanAction(t, new DamageInfo(UC.p(), amount*2, DamageInfo.DamageType.NORMAL), AttackEffect.FIRE, false));
+            if(t != null) {
+                UC.att(new TargetingTalismanAction(t, new DamageInfo(UC.p(), amount * 2, DamageInfo.DamageType.NORMAL), AttackEffect.FIRE, false));
+            }
         }
     }
 }
