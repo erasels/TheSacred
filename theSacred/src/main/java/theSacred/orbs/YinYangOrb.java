@@ -23,13 +23,14 @@ import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
 import org.apache.commons.lang3.math.NumberUtils;
 import theSacred.TheSacred;
 import theSacred.orbs.interfaces.DamageAndBlockModifyOrb;
+import theSacred.orbs.interfaces.OnHPLossOrb;
 import theSacred.util.TextureLoader;
 import theSacred.util.UC;
 import theSacred.vfx.general.ButtonConfirmedEffect;
 
 import static theSacred.TheSacred.makeOrbPath;
 
-public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
+public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb, OnHPLossOrb {
     // Standard ID/Description
     public static final String ORB_ID = TheSacred.makeID("YinYangOrb");
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
@@ -121,6 +122,11 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb {
         if(tmp > 10 && MathUtils.randomBoolean((tmp/100f)*1.5f)) {
             AbstractDungeon.effectsQueue.add(new ButtonConfirmedEffect(cX, cY, Color.SKY, 0.75f, (tmp/100f)*5f));
         }
+    }
+
+    @Override
+    public void wasHPLost(DamageInfo info, int damageAmount) {
+
     }
 
     @Override
