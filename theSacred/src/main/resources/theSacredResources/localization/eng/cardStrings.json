@@ -9,7 +9,7 @@
   },
   "theSacred:TreasuredOrb": {
     "NAME": "Treasured Orb",
-    "DESCRIPTION": "Innate. NL Ethereal. NL Channel 1 thesacred:Yin-Yang. NL Exhaust.",
+    "DESCRIPTION": "Retain. NL Channel 1 thesacred:Yin-Yang. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Innate. NL Retain. NL Channel 1 thesacred:Yin-Yang. NL Exhaust."
   },
   "theSacred:RepulseBarrier": {

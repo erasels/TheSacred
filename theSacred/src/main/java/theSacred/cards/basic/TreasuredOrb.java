@@ -21,21 +21,12 @@ public class TreasuredOrb extends SacredCard {
     public TreasuredOrb() {
         super(cardInfo, true);
         setExhaust(true);
-        setInnate(true, true);
-        setRetain(true);
-        setEthereal(false);
+        setInnate(false, true);
+        setRetain(false);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         channelYY();
-    }
-
-    @Override
-    public void upgrade() {
-        if(!upgraded) {
-            isEthereal = false;
-        }
-        super.upgrade();
     }
 }
