@@ -72,7 +72,7 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb, 
     @Override
     public void updateDescription() {
         applyFocus();
-        description = DESC[0] + UC.getPercentageInc(DMG_TAKE_MOD) + DESC[1] + UC.getPercentageInc(BLK_MOD) + DESC[2] + DESC[3];
+        description = DESC[0] + passiveAmount + DESC[1] + getCharge() + DESC[2] + breakAmount + DESC[3];
     }
 
     @Override
@@ -110,7 +110,8 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb, 
     }
 
     public void onChannel() {
-        basePassiveAmount = (int)UC.p().orbs.stream().filter(o -> o instanceof YinYangOrb).count();
+        //basePassiveAmount = (int)UC.p().orbs.stream().filter(o -> o instanceof YinYangOrb).count();
+        basePassiveAmount = CHARGE_INC;
         passiveAmount = basePassiveAmount;
     }
 
