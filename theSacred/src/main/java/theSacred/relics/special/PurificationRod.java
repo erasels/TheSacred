@@ -25,7 +25,7 @@ public class PurificationRod extends SacredRelic {
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if(target instanceof AbstractMonster) {
-            if (!hitList.contains(target)) {
+            if (info.type == DamageInfo.DamageType.NORMAL && info.owner == UC.p()  && target != UC.p() && !hitList.contains(target)) {
                 hitList.add((AbstractMonster) target);
                 UC.doPow(target, new WeakPower(target, STACK, false));
                 UC.doPow(target, new VulnerablePower(target, STACK, false));
