@@ -23,7 +23,7 @@ public class onHPLossPatches {
             @Override
             public int[] Locate(CtBehavior ctBehavior) throws Exception {
                 Matcher finalMatcher = new Matcher.FieldAccessMatcher(AbstractPlayer.class, "powers");
-                return new int[]{LineFinder.findAllInOrder(ctBehavior, finalMatcher)[5]};
+                return new int[]{LineFinder.findAllInOrder(ctBehavior, finalMatcher)[3]};
             }
         }
     }
