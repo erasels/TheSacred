@@ -9,8 +9,8 @@
   },
   "theSacred:TreasuredOrb": {
     "NAME": "Treasured Orb",
-    "DESCRIPTION": "Retain. NL Channel 1 thesacred:Yin-Yang. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Retain. NL Channel 1 thesacred:Yin-Yang. NL Exhaust."
+    "DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL Exhaustive !stslib:ex!."
   },
   "theSacred:RepulseBarrier": {
     "NAME": "Repulse Barrier",

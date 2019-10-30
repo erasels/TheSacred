@@ -1,5 +1,6 @@
 package theSacred.cards.basic;
 
+import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.cards.abstracts.SacredCard;
@@ -17,16 +18,23 @@ public class TreasuredOrb extends SacredCard {
 
     public final static String ID = makeID(cardInfo.cardName);
 
+    private static final int EXH_AMT = 2;
 
     public TreasuredOrb() {
         super(cardInfo, true);
-        setExhaust(true);
-        setInnate(false, true);
-        setRetain(false);
+        setExhaust(true, false);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         channelYY();
+    }
+
+    @Override
+    public void upgrade() {
+        if(!upgraded) {
+            ExhaustiveVariable.setBaseValue(this, EXH_AMT);
+        }
+        super.upgrade();
     }
 }
