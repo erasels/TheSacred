@@ -16,21 +16,22 @@ import static theSacred.util.UC.*;
 public class PersuasionNeedles extends SacredCard implements AlignedCard {
     private final static CardInfo cardInfo = new CardInfo(
             "PersuasionNeedles",
-            0,
+            1,
             CardType.ATTACK,
             CardTarget.ENEMY);
 
     public final static String ID = makeID(cardInfo.cardName);
 
-    private static final int DAMAGE = 2;
-    private static final int UPG_DAMAGE = 1;
+    private static final int UPG_COST = 0;
+    private static final int DAMAGE = 1;
 
     private static final int MAGIC = 3;
 
     public PersuasionNeedles() {
         super(cardInfo, false);
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setCostUpgrade(UPG_COST);
+        setDamage(DAMAGE);
         setMagic(MAGIC);
         setExhaust(true);
     }
