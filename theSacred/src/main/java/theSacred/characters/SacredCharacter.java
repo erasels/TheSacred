@@ -28,6 +28,7 @@ import theSacred.cards.basic.Defend;
 import theSacred.cards.basic.RepulseBarrier;
 import theSacred.cards.basic.Strike;
 import theSacred.cards.basic.TreasuredOrb;
+import theSacred.orbs.YinYangOrb;
 import theSacred.relics.special.PurificationRod;
 import theSacred.ui.SacredEnergyOrb;
 
@@ -94,6 +95,12 @@ public class SacredCharacter extends CustomPlayer {
             increaseMaxOrbSlots(1, false);
         }
         super.channelOrb(orbToSet);
+        for(AbstractOrb o : this.orbs) {
+            if(o instanceof YinYangOrb && o.equals(orbToSet)) {
+                ((YinYangOrb) o).onChannel();
+                break;
+            }
+        }
     }
 
     // Starting Deck
