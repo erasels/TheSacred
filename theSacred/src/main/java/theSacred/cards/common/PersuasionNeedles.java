@@ -22,17 +22,16 @@ public class PersuasionNeedles extends SacredCard implements AlignedCard {
 
     public final static String ID = makeID(cardInfo.cardName);
 
-    private static final int UPG_COST = 0;
     private static final int DAMAGE = 1;
 
-    private static final int MAGIC = 3;
+    private static final int MAGIC = 2;
+    private static final int UPG_MAGIC = 1;
 
     public PersuasionNeedles() {
         super(cardInfo, false);
 
-        setCostUpgrade(UPG_COST);
         setDamage(DAMAGE);
-        setMagic(MAGIC);
+        setMagic(MAGIC, UPG_MAGIC);
         setExhaust(true);
     }
 
