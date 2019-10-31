@@ -14,7 +14,7 @@ import static theSacred.util.UC.*;
 public class YinYangStrike extends SacredCard {
     private final static CardInfo cardInfo = new CardInfo(
             "YinYangStrike",
-            1,
+            2,
             CardType.ATTACK,
             CardTarget.ENEMY);
 
