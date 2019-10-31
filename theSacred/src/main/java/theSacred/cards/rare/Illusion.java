@@ -16,7 +16,7 @@ import static theSacred.util.UC.*;
 public class Illusion extends SacredCard implements AlignedCard {
     private final static CardInfo cardInfo = new CardInfo(
             "Illusion",
-            0,
+            1,
             CardType.ATTACK,
             CardTarget.ENEMY);
 
@@ -50,7 +50,7 @@ public class Illusion extends SacredCard implements AlignedCard {
         }
     }
 
-    @Override
+    /*@Override
     public void applyPowers() {
         magicNumber = baseMagicNumber;
 
@@ -82,5 +82,5 @@ public class Illusion extends SacredCard implements AlignedCard {
         super.calculateCardDamage(mo);
 
         isMagicNumberModified = (magicNumber != baseMagicNumber);
-    }
+    }*/
 }
