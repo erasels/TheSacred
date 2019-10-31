@@ -1,4 +1,4 @@
-package theSacred.cards.common;
+package theSacred.cards.uncommon;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -35,7 +35,9 @@ public class HomingAmulet extends SacredCard implements AlignedCard {
         //TODO: Kinda like Bouncing flask?
         doDmg(m, damage);
         AbstractMonster secondaryTarget = AbstractDungeon.getRandomMonster(m);
-        doDmg(secondaryTarget, damage);
+        if(secondaryTarget != m) {
+            doDmg(secondaryTarget, damage);
+        }
     }
 
     @Override
