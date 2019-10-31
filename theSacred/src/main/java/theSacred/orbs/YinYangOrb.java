@@ -111,7 +111,8 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb, 
 
     public void onChannel() {
         //basePassiveAmount = (int)UC.p().orbs.stream().filter(o -> o instanceof YinYangOrb).count();
-        basePassiveAmount = CHARGE_INC;
+        //basePassiveAmount = CHARGE_INC;
+        basePassiveAmount = 0;
         passiveAmount = basePassiveAmount;
     }
 
