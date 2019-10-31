@@ -1,7 +1,6 @@
 package theSacred.powers.turn.barriers;
 
 import basemod.interfaces.CloneablePowerInterface;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -20,11 +19,13 @@ public class AnachronicBarrierPower extends AbstractSacredPower implements Clone
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
+    public boolean justApplied;
+
     public AnachronicBarrierPower(int amount2, AbstractCreature owner) {
         name = NAME;
         ID = POWER_ID;
         this.owner = owner;
-        this.amount = 2;
+        this.amount = 1;
         this.amount2 = amount2;
         type = PowerType.BUFF;
         updateDescription();
@@ -32,6 +33,12 @@ public class AnachronicBarrierPower extends AbstractSacredPower implements Clone
         loadRegion("barricade");
         isBarrierPower = true;
         this.priority = 1;
+        justApplied = false;
+    }
+
+    @Override
+    public void onInitialApplication() {
+        justApplied = true;
     }
 
     public AnachronicBarrierPower(int amount2) {
@@ -41,13 +48,19 @@ public class AnachronicBarrierPower extends AbstractSacredPower implements Clone
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if(isPlayer) {
-            if(amount < 2) {
-                UC.atb(new RemoveSpecificPowerAction(owner, owner, this));
-                UC.atb(new SFXAction("POWER_TIME_WARP"));
-                UC.doDmg(owner, amount2);
-            } else {
+            if(!justApplied) {
                 UC.reducePower(this);
+            } else {
+                justApplied = false;
             }
+        }
+    }
+
+    @Override
+    public void onRemove() {
+        if(amount2 > 0) {
+            UC.atb(new SFXAction("POWER_TIME_WARP"));
+            UC.doDmg(owner, amount2, DamageInfo.DamageType.THORNS);
         }
     }
 
