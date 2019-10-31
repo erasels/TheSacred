@@ -48,8 +48,8 @@
   },
   "theSacred:DuplexBoundary": {
     "NAME": "Duplex Boundary",
-    "DESCRIPTION": "Take 50% less damage for !M! turns.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Take 50% less damage for !M! turns."
+    "DESCRIPTION": "Take 50% less attack damage for !M! turns.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Take 50% less attack damage for !M! turns."
   },
   "theSacred:DispellingPrayer": {
     "NAME": "Dispelling Prayer",
