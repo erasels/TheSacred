@@ -1,5 +1,6 @@
 package theSacred.cards.uncommon;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.actions.common.CallbackDrawAction;
@@ -32,7 +33,7 @@ public class AscenscionKick extends SacredCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        doDmg(m, damage);
+        doDmg(m, damage, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         atb(new CallbackDrawAction(magicNumber, c -> {
             if(c.type == CardType.ATTACK) {
                 c.setCostForTurn(0);
