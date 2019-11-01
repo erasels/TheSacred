@@ -1,5 +1,6 @@
 package theSacred.cards.uncommon;
 
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -20,14 +21,19 @@ public class HomingAmulet extends SacredCard implements AlignedCard {
 
     public final static String ID = makeID(cardInfo.cardName);
 
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 3;
     private static final int UPG_DAMAGE = 2;
+
+
+    private static final int MAGIC = 7;
+    private static final int UPG_MAGIC = 2;
 
 
     public HomingAmulet() {
         super(cardInfo, false);
 
         setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(MAGIC, UPG_MAGIC);
     }
 
     @Override
@@ -36,7 +42,7 @@ public class HomingAmulet extends SacredCard implements AlignedCard {
         doDmg(m, damage);
         AbstractMonster secondaryTarget = AbstractDungeon.getRandomMonster(m);
         if(secondaryTarget != m) {
-            doDmg(secondaryTarget, damage);
+            doDmg(secondaryTarget, magicNumber, DamageInfo.DamageType.THORNS);
         }
     }
 

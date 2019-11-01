@@ -95,7 +95,7 @@
   },
   "theSacred:HomingAmulet": {
     "NAME": "Homing Amulet",
-    "DESCRIPTION": "Deal !D! damage, deal !D! damage to a random enemy that you didn't target. NL thesacred:Aligned: Repeat."
+    "DESCRIPTION": "Deal !D! damage, deal !M! damage to a random enemy that you didn't target. NL thesacred:Aligned: Repeat."
   },
   "theSacred:FantasyRift": {
     "NAME": "Fantasy Rift",
