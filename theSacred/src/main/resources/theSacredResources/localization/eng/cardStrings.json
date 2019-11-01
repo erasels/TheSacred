@@ -162,5 +162,9 @@
   "theSacred:TripUp": {
     "NAME": "Trip Up",
     "DESCRIPTION": "Deal !D! damage. NL Trigger the effect of each active barrier on you on the target."
+  },
+  "theSacred:UnstableBarrier": {
+    "NAME": "Unstable Barrier",
+    "DESCRIPTION": "Gain !B! Block. NL If your Block is broken this turn, deal !D! damage to ALL enemies."
   }
 }

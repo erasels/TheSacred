@@ -95,5 +95,12 @@
       "Gain #b",
       " [E] after playing an #yInvoke card."
     ]
+  },
+  "theSacred:UnstableBarrier": {
+    "NAME": "Unstable Barrier",
+    "DESCRIPTIONS": [
+      "If your #yBlock is broken, deal #b",
+      " damage to ALL enemies."
+    ]
   }
 }
