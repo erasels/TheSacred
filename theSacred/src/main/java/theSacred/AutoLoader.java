@@ -97,7 +97,7 @@ public class AutoLoader {
             private static final String PACKAGE = "theSacred.cards";
             @Override
             public boolean accept(ClassInfo classInfo, ClassFinder classFinder) {
-                return classInfo.getClassName().startsWith(PACKAGE);
+                return classInfo.getClassName().startsWith(PACKAGE) && !classInfo.getClassName().contains("_deprecated");
             }
         }
     }

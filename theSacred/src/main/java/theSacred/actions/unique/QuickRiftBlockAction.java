@@ -1,7 +1,7 @@
 package theSacred.actions.unique;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import theSacred.cards.common.QuickRift;
+import theSacred.cards._deprecated.QuickRift;
 import theSacred.util.UC;
 
 public class QuickRiftBlockAction extends AbstractGameAction {

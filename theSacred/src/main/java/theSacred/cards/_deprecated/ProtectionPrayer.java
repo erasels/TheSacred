@@ -1,4 +1,4 @@
-package theSacred.cards.common;
+package theSacred.cards._deprecated;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
