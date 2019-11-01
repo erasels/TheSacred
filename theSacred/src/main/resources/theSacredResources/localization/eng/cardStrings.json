@@ -147,12 +147,16 @@
     "DESCRIPTION": "Whenever you play an thesacred:Invoke card, gain [E].",
     "UPGRADE_DESCRIPTION": "Whenever you play an thesacred:Invoke card, gain [E] [E]."
   },
-  "theSacred:AscensionKick": {
+  "_DEPRECATEDtheSacred:AscensionKick": {
     "NAME": "Ascension Kick",
     "DESCRIPTION": "Deal !D! damage. Put !M! cards from your discard pile on top of your draw pile. NL thesacred:Aligned: Draw !theSacred:M2! card."
   },
   "theSacred:Expansion": {
     "NAME": "Expansion",
     "DESCRIPTION": "Gain !B! Block. NL thesacred:Aligned: Deal damage equal to your Block to a random enemy."
+  },
+  "theSacred:AscensionKick": {
+    "NAME": "Ascension Kick",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! card, if it's an attack, it costs 0 this turn."
   }
 }
