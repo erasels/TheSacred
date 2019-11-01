@@ -24,7 +24,7 @@ import theSacred.TheSacred;
 import theSacred.actions.utility.DamageAllAction;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.orbs.YinYangOrb;
-import theSacred.patches.combat.BurstMechanics;
+import theSacred.patches.combat.CardFieldMechanicsPatches;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -40,11 +40,15 @@ public class UC {
 
     //Checks
     public static boolean checkBurst() {
-        boolean tmp = BurstMechanics.PlayerBurstField.isBurst.get(p());
+        boolean tmp = CardFieldMechanicsPatches.PlayerFields.isBurst.get(p());
         if(tmp) {
             incrementTurnBurstAmount();
         }
         return tmp;
+    }
+
+    public static boolean checkRemnant() {
+        return CardFieldMechanicsPatches.PlayerFields.hasRemnant.get(p());
     }
 
     public static boolean isAligned() {
@@ -52,7 +56,7 @@ public class UC {
     }
 
     public static boolean anonymousCheckBurst() {
-        return BurstMechanics.PlayerBurstField.isBurst.get(p());
+        return CardFieldMechanicsPatches.PlayerFields.isBurst.get(p());
     }
 
     //Actionmanager
@@ -215,7 +219,7 @@ public class UC {
     }
 
     public static int getTurnBurstAmount() {
-        return BurstMechanics.PlayerBurstField.turnBurstAmount.get(p());
+        return CardFieldMechanicsPatches.PlayerFields.turnBurstAmount.get(p());
     }
 
     public static String get2DecString(float num) {
@@ -248,7 +252,7 @@ public class UC {
 
     //Setters
     public static void incrementTurnBurstAmount() {
-        BurstMechanics.PlayerBurstField.turnBurstAmount.set(p(), getTurnBurstAmount() + 1);
+        CardFieldMechanicsPatches.PlayerFields.turnBurstAmount.set(p(), getTurnBurstAmount() + 1);
     }
 
     public static <T> boolean True(T t) {

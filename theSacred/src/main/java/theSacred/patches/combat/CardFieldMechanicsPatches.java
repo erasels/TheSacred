@@ -9,15 +9,18 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
+import theSacred.patches.cards.CardENUMs;
+import theSacred.util.UC;
 
 import java.util.ArrayList;
 
-public class BurstMechanics {
+public class CardFieldMechanicsPatches {
 
     @SpirePatch(clz = AbstractPlayer.class, method = SpirePatch.CLASS)
-    public static class PlayerBurstField {
+    public static class PlayerFields {
         public static SpireField<Boolean> isBurst = new SpireField<>(() -> false);
         public static SpireField<Integer> turnBurstAmount = new SpireField<>(() -> 0);
+        public static SpireField<Boolean> hasRemnant = new SpireField<>(() -> false);
     }
 
     //Should take care of clearing burst from last combat as well
@@ -25,8 +28,9 @@ public class BurstMechanics {
     public static class TurnEndBurstReset {
         @SpirePrefixPatch
         public static void patch(AbstractPlayer __instance) {
-            PlayerBurstField.isBurst.set(AbstractDungeon.player, false);
-            BurstMechanics.PlayerBurstField.turnBurstAmount.set(AbstractDungeon.player, 0);
+            PlayerFields.isBurst.set(AbstractDungeon.player, false);
+            PlayerFields.turnBurstAmount.set(AbstractDungeon.player, 0);
+            PlayerFields.hasRemnant.set(AbstractDungeon.player, false);
         }
     }
 
@@ -35,9 +39,13 @@ public class BurstMechanics {
         @SpireInsertPatch(locator = Locator.class)
         public static void patch(UseCardAction __instance, AbstractCard c, AbstractCreature target) {
             if(c.type == AbstractCard.CardType.ATTACK) {
-                PlayerBurstField.isBurst.set(AbstractDungeon.player, true);
+                PlayerFields.isBurst.set(AbstractDungeon.player, true);
             } else {
-                PlayerBurstField.isBurst.set(AbstractDungeon.player, false);
+                PlayerFields.isBurst.set(AbstractDungeon.player, false);
+            }
+
+            if(!PlayerFields.hasRemnant.get(c) && c.hasTag(CardENUMs.INVOKE)) {
+                PlayerFields.hasRemnant.set(UC.p(), true);
             }
         }
 

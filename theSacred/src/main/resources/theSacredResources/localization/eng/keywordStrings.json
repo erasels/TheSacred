@@ -8,6 +8,14 @@
     "DESCRIPTION": "This effect triggers if the last card played was an #yAttack [REMOVE_SPACE]."
   },
   {
+    "PROPER_NAME": "Remnant",
+    "NAMES": [
+      "remnant",
+      "remnant:"
+    ],
+    "DESCRIPTION": "This effect triggers if an #yInvoke card was played this turn."
+  },
+  {
     "PROPER_NAME": "Barrier",
     "NAMES": [
       "barrier",
