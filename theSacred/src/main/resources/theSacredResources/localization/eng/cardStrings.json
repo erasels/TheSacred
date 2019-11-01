@@ -158,5 +158,9 @@
   "theSacred:AscensionKick": {
     "NAME": "Ascension Kick",
     "DESCRIPTION": "Deal !D! damage. NL Draw !M! card, if it's an attack, it costs 0 this turn."
+  },
+  "theSacred:TripUp": {
+    "NAME": "Trip Up",
+    "DESCRIPTION": "Deal !D! damage. NL Trigger the effect of each active barrier on you on the target."
   }
 }
