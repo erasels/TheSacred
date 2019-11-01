@@ -59,9 +59,14 @@ public class AnachronicBarrierPower extends AbstractSacredPower implements Clone
     @Override
     public void onRemove() {
         if(amount2 > 0) {
-            UC.atb(new SFXAction("POWER_TIME_WARP"));
-            UC.doDmg(owner, amount2, DamageInfo.DamageType.THORNS);
+            retaliate(owner);
         }
+    }
+
+    @Override
+    public void retaliate(AbstractCreature target) {
+        UC.atb(new SFXAction("POWER_TIME_WARP"));
+        UC.doDmg(target, amount2, DamageInfo.DamageType.THORNS);
     }
 
     public int onAttacked(DamageInfo info, int damageAmount) {

@@ -44,10 +44,15 @@ public class BrittleBarrierPower extends AbstractSacredPower implements Cloneabl
 
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner) {
-            flash();
-            doPow(info.owner, new WeakPower(info.owner, amount2, false));
+            retaliate(info.owner);
         }
         return damageAmount;
+    }
+
+    @Override
+    public void retaliate(AbstractCreature target) {
+        flash();
+        doPow(target, new WeakPower(target, amount2, false));
     }
 
     @Override
