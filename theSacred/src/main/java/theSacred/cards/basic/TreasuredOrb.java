@@ -1,40 +1,40 @@
 package theSacred.cards.basic;
 
-import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import theSacred.actions.common.OrbCheckAction;
 import theSacred.cards.abstracts.SacredCard;
+import theSacred.orbs.YinYangOrb;
 import theSacred.util.CardInfo;
 
 import static theSacred.TheSacred.makeID;
+import static theSacred.util.UC.atb;
 import static theSacred.util.UC.channelYY;
 
 public class TreasuredOrb extends SacredCard {
     private final static CardInfo cardInfo = new CardInfo(
             "TreasuredOrb",
             1,
-            CardType.SKILL,
-            CardTarget.SELF);
+            CardType.ATTACK,
+            CardTarget.ENEMY);
 
     public final static String ID = makeID(cardInfo.cardName);
 
-    private static final int EXH_AMT = 2;
+    private static final int DMG = 9;
 
     public TreasuredOrb() {
         super(cardInfo, true);
-        setExhaust(true, false);
+        setDamage(DMG);
+        setExhaust(true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         channelYY();
+        if(upgraded) {
+            atb(new OrbCheckAction(o -> o instanceof YinYangOrb, AbstractOrb::onStartOfTurn));
+        }
     }
 
-    @Override
-    public void upgrade() {
-        if(!upgraded) {
-            ExhaustiveVariable.setBaseValue(this, EXH_AMT);
-        }
-        super.upgrade();
-    }
 }

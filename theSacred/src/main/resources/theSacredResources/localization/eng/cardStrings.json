@@ -10,7 +10,7 @@
   "theSacred:TreasuredOrb": {
     "NAME": "Treasured Orb",
     "DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL Exhaustive !stslib:ex!."
+    "UPGRADE_DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL Trigger the passive of all thesacred:Yin-Yang. NL Exhaust."
   },
   "theSacred:RepulseBarrier": {
     "NAME": "Repulse Barrier",
