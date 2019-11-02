@@ -17,7 +17,7 @@ public class ProtectionIdol extends SacredCard {
 
     public final static String ID = makeID(cardInfo.cardName);
 
-    private static final int BLOCK = 10;
+    private static final int BLOCK = 12;
 
     public ProtectionIdol() {
         super(cardInfo, true);
