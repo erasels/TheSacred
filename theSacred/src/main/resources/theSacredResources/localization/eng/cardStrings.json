@@ -171,5 +171,9 @@
     "NAME": "Protection Idol",
     "DESCRIPTION": "Gain !B! * ? Block.",
     "UPGRADE_DESCRIPTION": "Gain !B! * ? Block. NL Cost can't be 0."
+  },
+  "theSacred:BlightBuster": {
+    "NAME": "Blight Buster",
+    "DESCRIPTION": "thesacred:Remnant: This card costs 0. NL Deal !D! damage. NL Next turn, gain [E]."
   }
 }
