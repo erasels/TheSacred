@@ -52,6 +52,8 @@ public abstract class SacredCard extends CustomCard {
     public boolean isShowNumberModified;
 
     public boolean invoke;
+    public boolean invokeNonZero;
+    public boolean invokeCostRandomized;
 
 
     public SacredCard(CardInfo cardInfo, boolean upgradesDescription) {
@@ -92,6 +94,8 @@ public abstract class SacredCard extends CustomCard {
         upgradeEthereal = false;
 
         invoke = false;
+        invokeNonZero = false;
+        invokeCostRandomized = false;
 
         if(cardName.toLowerCase().contains("strike")) {
             tags.add(CardTags.STRIKE);
@@ -207,8 +211,11 @@ public abstract class SacredCard extends CustomCard {
         this.magicNumber2 = baseMagicNumber2 = mn2;
     }
 
-    public void setInvoke() {
+    public void setInvoke(boolean nonZero) {
         this.invoke = true;
+        if(nonZero) {
+            this.invokeNonZero = true;
+        }
         this.tags.add(CardENUMs.INVOKE);
     }
 
