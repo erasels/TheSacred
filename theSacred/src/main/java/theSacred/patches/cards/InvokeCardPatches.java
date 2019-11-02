@@ -55,7 +55,7 @@ public class InvokeCardPatches {
     private static void randomizeCost(AbstractCard c) {
         c.cost = AbstractDungeon.cardRandomRng.random(((SacredCard)c).invokeNonZero?1:0, MAX_COST);
         c.costForTurn = c.cost;
-        c.isCostModified = true;
+        //c.isCostModified = true;
         ((SacredCard) c).invokeCostRandomized = true;
     }
 
@@ -93,7 +93,7 @@ public class InvokeCardPatches {
     public static class RenderInvokeKeyword {
         @SpireInsertPatch(locator = Locator.class)
         public static void patch(AbstractCard c, SpriteBatch sb, ArrayList<String> keywords) {
-            if(UC.isInvoke(c) && !keywords.get(0).equals("thesacred:invoke")) {
+            if(UC.isInvoke(c) && (keywords.isEmpty() || !keywords.get(0).equals("thesacred:invoke"))) {
                 keywords.add(0, "thesacred:invoke");
             }
         }
