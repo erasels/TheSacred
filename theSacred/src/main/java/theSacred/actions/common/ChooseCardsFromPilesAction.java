@@ -58,7 +58,7 @@ public class ChooseCardsFromPilesAction extends AbstractGameAction {
             } else if (relationMap.size() <= amount) {
                 for(Map.Entry<AbstractCard, CardGroup> vals: relationMap.entrySet()) {
                     RenderCurrentPilePatches.CurrentPileField.pileEnum.set(vals.getKey(), RenderCurrentPilePatches.pileRender.UNSPECIFIED);
-                    if(!(UC.p().hand.size() < BaseMod.MAX_HAND_SIZE)) {
+                    if(UC.p().hand.size() < BaseMod.MAX_HAND_SIZE) {
                         AbstractCard card = vals.getKey();
                         card.unhover();
                         card.lighten(true);
@@ -76,6 +76,7 @@ public class ChooseCardsFromPilesAction extends AbstractGameAction {
                         UC.p().createHandIsFullDialog();
                     }
                 }
+                tickDuration();
                 return;
             } else {
                 AbstractDungeon.gridSelectScreen.open(tmp, amount, TEXT[0] + amount + TEXT[1], false, false, false, false);
