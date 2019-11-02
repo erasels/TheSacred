@@ -44,7 +44,7 @@ public class CardFieldMechanicsPatches {
                 PlayerFields.isBurst.set(AbstractDungeon.player, false);
             }
 
-            if(!PlayerFields.hasRemnant.get(c) && c.hasTag(CardENUMs.INVOKE)) {
+            if(!PlayerFields.hasRemnant.get(UC.p()) && c.hasTag(CardENUMs.INVOKE)) {
                 PlayerFields.hasRemnant.set(UC.p(), true);
             }
         }
