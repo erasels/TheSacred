@@ -166,5 +166,10 @@
   "theSacred:UnstableBarrier": {
     "NAME": "Unstable Barrier",
     "DESCRIPTION": "Gain !B! Block. NL If your Block is broken this turn, deal !D! damage to ALL enemies."
+  },
+  "theSacred:ProtectionIdol": {
+    "NAME": "Protection Idol",
+    "DESCRIPTION": "Gain !B! * ? Block.",
+    "UPGRADE_DESCRIPTION": "Gain !B! * ? Block. NL Cost can't be 0."
   }
 }
