@@ -36,7 +36,7 @@
     "NAMES": [
       "invoke"
     ],
-    "DESCRIPTION": "Cards that have their cost randomized whenever they enter your hand."
+    "DESCRIPTION": "Cards that have their cost hidden and randomized between 0-3 whenever they enter your hand."
   },
   {
     "PROPER_NAME": "Yin-Yang Orb",
