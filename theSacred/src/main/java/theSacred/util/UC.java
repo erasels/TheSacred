@@ -55,6 +55,10 @@ public class UC {
         return p().orbs.stream().anyMatch(o -> o instanceof YinYangOrb);
     }
 
+    public static boolean isInvoke(AbstractCard c) {
+        return c instanceof SacredCard && ((SacredCard) c).invoke;
+    }
+
     public static boolean anonymousCheckBurst() {
         return CardFieldMechanicsPatches.PlayerFields.isBurst.get(p());
     }
