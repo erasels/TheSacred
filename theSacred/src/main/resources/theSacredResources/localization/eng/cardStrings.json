@@ -175,5 +175,9 @@
   "theSacred:BlightBuster": {
     "NAME": "Blight Buster",
     "DESCRIPTION": "thesacred:Remnant: This card costs 0. NL Deal !D! damage. NL Next turn, gain [E]."
+  },
+  "theSacred:ScourgedEarth": {
+    "NAME": "Scourged Earth",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deal !M! damage to ALL enemies at the start of your next ? turns."
   }
 }

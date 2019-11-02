@@ -102,5 +102,12 @@
       "If your #yBlock is broken, deal #b",
       " damage to ALL enemies."
     ]
+  },
+  "theSacred:ScourgedEarth": {
+    "NAME": "Scourged Earth",
+    "DESCRIPTIONS": [
+      "At the start of your turn, deal #b",
+      " damage to ALL enemies."
+    ]
   }
 }
