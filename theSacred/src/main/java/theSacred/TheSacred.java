@@ -7,14 +7,17 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theSacred.cards.abstracts.SacredCard;
@@ -39,7 +42,7 @@ public class TheSacred implements
         EditCharactersSubscriber,
         PostInitializeSubscriber,
         PreStartGameSubscriber,
-        PostUpdateSubscriber {
+        PostUpdateSubscriber, PostBattleSubscriber {
     public static final Logger logger = LogManager.getLogger(TheSacred.class.getName());
     private static String modID;
 
@@ -74,9 +77,6 @@ public class TheSacred implements
     public static final String THE_SACRED_CORPSE = "theSacredResources/images/char/corpse.png";
 
     public static final String BADGE_IMAGE = "theSacredResources/images/Badge.png";
-
-    public static final String THE_SACRED_SKELETON_ATLAS = "theSacredResources/images/char/skeleton.atlas";
-    public static final String THE_SACRED_SKELETON_JSON = "theSacredResources/images/char/skeleton.json";
 
     public static ArrayList<SacredCard> needles = new ArrayList<>();
     public static ArrayList<SacredCard> barriers = new ArrayList<>();
@@ -136,6 +136,22 @@ public class TheSacred implements
         settingsPanel.addUIElement(enableNormalsButton);
 
         BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
+    }
+
+    //Checks to make sure player is playing this character before running animations
+    public static void runAnimation(String anim) {
+        if (AbstractDungeon.player.chosenClass == SacredCharacter.Enums.THE_SACRED) {
+            ((SacredCharacter) AbstractDungeon.player).runAnim(anim);
+        }
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom room) {
+        if(MathUtils.randomBoolean()) {
+            runAnimation("winA");
+        } else {
+            runAnimation("winB");
+        }
     }
 
     @Override

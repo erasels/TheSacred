@@ -5,11 +5,10 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.math.MathUtils;
-import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -18,12 +17,15 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theSacred.TheSacred;
+import theSacred.animation.BetterSpriterAnimation;
+import theSacred.animation.PlayerListener;
 import theSacred.cards.basic.Defend;
 import theSacred.cards.basic.RepulseBarrier;
 import theSacred.cards.basic.Strike;
@@ -70,9 +72,8 @@ public class SacredCharacter extends CustomPlayer {
                 THE_SACRED_CORPSE,
                 getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        loadAnimation(THE_SACRED_SKELETON_ATLAS, THE_SACRED_SKELETON_JSON, 1.0f);
-        AnimationState.TrackEntry e = state.setAnimation(0, "animation", true);
-        e.setTime(e.getEndTime() * MathUtils.random());
+        PlayerListener listener = new PlayerListener(this);
+        ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
 
         dialogX = (drawX + 0.0F * Settings.scale);
         dialogY = (drawY + 220.0F * Settings.scale);
@@ -85,6 +86,53 @@ public class SacredCharacter extends CustomPlayer {
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(NAMES[0], TEXT[0], STARTING_HP, MAX_HP, ORB_SLOTS, STARTING_GOLD, CARD_DRAW, this, getStartingRelics(), getStartingDeck(), false);
+    }
+
+    @Override
+    public void damage(DamageInfo info) {
+        int thisHealth = this.currentHealth;
+        super.damage(info);
+        int trueDamage = thisHealth - this.currentHealth;
+        if (info.owner instanceof AbstractMonster) {
+            if (this.isDead) {
+                playDeathAnimation();
+            } else {
+                if(trueDamage > 15) {
+                    TheSacred.runAnimation("hitHigh");
+                } else if (trueDamage > 0) {
+                    TheSacred.runAnimation("hitLow");
+                } else {
+                    if(info.output > 20) {
+                        TheSacred.runAnimation("guardB");
+                    } else {
+                        TheSacred.runAnimation("guardA");
+                    }
+                }
+            }
+        }
+    }
+
+    //Stops the corpse img from overwriting the SpriterAnimation
+    @Override
+    public void playDeathAnimation() {
+        TheSacred.runAnimation("downed");
+    }
+
+    //Runs a specific animation
+    public void runAnim(String animation) {
+        ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation(animation);
+    }
+
+    //Resets character back to idle animation
+    public void resetAnimation() {
+        ((BetterSpriterAnimation)this.animation).myPlayer.setAnimation("idle");
+    }
+
+    //Prevents any further animation once the death animation is finished
+    public void stopAnimation() {
+        int time = ((BetterSpriterAnimation)this.animation).myPlayer.getAnimation().length;
+        ((BetterSpriterAnimation)this.animation).myPlayer.setTime(time);
+        ((BetterSpriterAnimation)this.animation).myPlayer.speed = 0;
     }
 
     @Override

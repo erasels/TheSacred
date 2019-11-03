@@ -15,12 +15,12 @@ public class AbstractSacredPower extends TwoAmountPower {
         this.amount += amount;
     }
     public void retaliate(AbstractCreature target) {}
+
     /**
      * @param bigImageName - is the name of the 84x84 image for your power.
      * @param smallImageName - is the name of the 32x32 image for your power.
      */
     public void setImage(String bigImageName, String smallImageName){
-
         String path128 = makePowerPath(bigImageName);
         String path48 = makePowerPath(smallImageName);
 
