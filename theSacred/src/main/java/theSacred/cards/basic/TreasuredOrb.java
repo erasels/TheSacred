@@ -1,5 +1,6 @@
 package theSacred.cards.basic;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
@@ -9,8 +10,7 @@ import theSacred.orbs.YinYangOrb;
 import theSacred.util.CardInfo;
 
 import static theSacred.TheSacred.makeID;
-import static theSacred.util.UC.atb;
-import static theSacred.util.UC.channelYY;
+import static theSacred.util.UC.*;
 
 public class TreasuredOrb extends SacredCard {
     private final static CardInfo cardInfo = new CardInfo(
@@ -31,6 +31,7 @@ public class TreasuredOrb extends SacredCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        doDmg(m, damage, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
         channelYY();
         if(upgraded) {
             atb(new OrbCheckAction(o -> o instanceof YinYangOrb, AbstractOrb::onStartOfTurn));

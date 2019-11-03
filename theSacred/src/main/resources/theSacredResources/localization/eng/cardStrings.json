@@ -9,8 +9,8 @@
   },
   "theSacred:TreasuredOrb": {
     "NAME": "Treasured Orb",
-    "DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL Trigger the passive of all thesacred:Yin-Yang. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage. NL Channel thesacred:Yin-Yang. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel thesacred:Yin-Yang. NL Trigger the passive of all thesacred:Yin-Yang. NL Exhaust."
   },
   "theSacred:RepulseBarrier": {
     "NAME": "Repulse Barrier",
@@ -43,8 +43,8 @@
   },
   "theSacred:SacredShot": {
     "NAME": "Sacred Shot",
-    "DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL thesacred:Aligned: Deal !D! damage. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Channel 1 thesacred:Yin-Yang. NL thesacred:Aligned: Deal !D! damage. NL Exhaustive !stslib:ex!."
+    "DESCRIPTION": "Channel thesacred:Yin-Yang. NL thesacred:Aligned: Deal !D! damage. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Channel thesacred:Yin-Yang. NL thesacred:Aligned: Deal !D! damage. NL Exhaustive !stslib:ex!."
   },
   "theSacred:DuplexBoundary": {
     "NAME": "Duplex Boundary",
@@ -72,7 +72,7 @@
   },
   "theSacred:YinYangStrike": {
     "NAME": "Yin-Yang Strike",
-    "DESCRIPTION": "Deal !D! damage. NL If you have less than !M! thesacred:Yin-Yang channel a thesacred:Yin-Yang."
+    "DESCRIPTION": "Deal !D! damage. NL If you have less than !M! thesacred:Yin-Yang channel thesacred:Yin-Yang."
   },
   "theSacred:SealSpread": {
     "NAME": "Spread Amulet",
@@ -103,8 +103,8 @@
   },
   "theSacred:YinYangShield": {
     "NAME": "Yin-Yang Shield",
-    "DESCRIPTION": "Channel a thesacred:Yin-Yang. NL thesacred:Aligned: Gain !B! Block. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Channel a thesacred:Yin-Yang. NL thesacred:Aligned: Gain !B! Block. NL Exhaust."
+    "DESCRIPTION": "Channel thesacred:Yin-Yang. NL thesacred:Aligned: Gain !B! Block. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Channel thesacred:Yin-Yang. NL thesacred:Aligned: Gain !B! Block. NL Exhaust."
   },
   "theSacred:AnachronicBarrier": {
     "NAME": "Anachronic Barrier",
