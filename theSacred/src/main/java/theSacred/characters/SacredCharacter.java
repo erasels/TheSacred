@@ -50,6 +50,8 @@ public class SacredCharacter extends CustomPlayer {
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }
 
+    private int prevSpeed = 0;
+
     public static final int ENERGY_PER_TURN = 3;
     public static final int STARTING_HP = 70;
     public static final int MAX_HP = 70;
@@ -132,7 +134,17 @@ public class SacredCharacter extends CustomPlayer {
     public void stopAnimation() {
         int time = ((BetterSpriterAnimation)this.animation).myPlayer.getAnimation().length;
         ((BetterSpriterAnimation)this.animation).myPlayer.setTime(time);
+        prevSpeed = ((BetterSpriterAnimation)this.animation).myPlayer.speed;
         ((BetterSpriterAnimation)this.animation).myPlayer.speed = 0;
+    }
+
+    @Override
+    public void preBattlePrep() {
+        super.preBattlePrep();
+        if(prevSpeed != 0) {
+            ((BetterSpriterAnimation)this.animation).myPlayer.speed = prevSpeed;
+        }
+        resetAnimation();
     }
 
     @Override

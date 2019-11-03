@@ -15,7 +15,9 @@ public class PlayerListener implements Player.PlayerListener {
         if (animation.name.contains("downed")) {
             //character.stopAnimation();
             character.runAnim("downedIdle");
-        } else if (!animation.name.equals("idle")) {
+        } else if (animation.name.contains("win")) {
+            character.stopAnimation();
+        }else if (!animation.name.equals("idle")) {
             character.resetAnimation();
         }
     }
