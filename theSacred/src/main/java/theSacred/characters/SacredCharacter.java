@@ -2,7 +2,6 @@ package theSacred.characters;
 
 import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -64,7 +63,8 @@ public class SacredCharacter extends CustomPlayer {
     private static final String[] TEXT = characterStrings.TEXT;
 
     public SacredCharacter(String name, PlayerClass setClass) {
-        super(name, setClass, new SacredEnergyOrb(), new SpriterAnimation("theSacredResources/images/char/Spriter/theDefaultAnimation.scml"));
+        super(name, setClass, new SacredEnergyOrb(), new BetterSpriterAnimation(
+                "theSacredResources/images/char/Spriter/Sacred.scml"));
 
         initializeClass(null, // required call to load textures and setup energy/loadout.
                 THE_SACRED_SHOULDER_1,
