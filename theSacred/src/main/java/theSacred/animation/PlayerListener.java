@@ -12,8 +12,9 @@ public class PlayerListener implements Player.PlayerListener {
         this.character = character;
     }
     public void animationFinished(Animation animation){
-        if (animation.name.equals("downed")) {
-            character.stopAnimation();
+        if (animation.name.contains("downed")) {
+            //character.stopAnimation();
+            character.runAnim("downedIdle");
         } else if (!animation.name.equals("idle")) {
             character.resetAnimation();
         }
