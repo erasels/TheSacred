@@ -169,8 +169,8 @@
   },
   "theSacred:ProtectionIdol": {
     "NAME": "Protection Idol",
-    "DESCRIPTION": "Gain !B! * ? Block.",
-    "UPGRADE_DESCRIPTION": "Gain !B! * ? Block. NL ? can't roll 0."
+    "DESCRIPTION": "Gain !B! * _?_ Block.",
+    "UPGRADE_DESCRIPTION": "Gain !B! * _?_ Block. NL ? can't roll 0."
   },
   "theSacred:BlightBuster": {
     "NAME": "Blight Buster",
@@ -178,11 +178,11 @@
   },
   "theSacred:ScourgedEarth": {
     "NAME": "Scourged Earth",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deal !M! damage to ALL enemies at the start of your next ? turns."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deal !M! damage to ALL enemies at the start of your next _?_ turns."
   },
   "theSacred:Trifecta": {
     "NAME": "Trifecta",
-    "DESCRIPTION": "The next ? cards you play are played 2 additional times. NL ? can't roll 0. NL Exhaust.",
+    "DESCRIPTION": "The next _?_ cards you play are played 2 additional times. NL ? can't roll 0. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "The next ? + !theSacred:IA! cards you play are played 2 additional times. NL Exhaust."
   }
 }

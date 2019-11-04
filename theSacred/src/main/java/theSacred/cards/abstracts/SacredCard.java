@@ -358,8 +358,37 @@ public abstract class SacredCard extends CustomCard {
         }
     }
 
+    private int invokeChangeIndex;
+    private boolean invokeStringChanged = false;
+    private static final String INVOKE_DYNAMIC_MARKER = "_?_";
+    @Override
+    public void initializeDescription() {
+        if(invoke) {
+            int marker = rawDescription.indexOf(INVOKE_DYNAMIC_MARKER);
+            if (marker > -1) {
+                invokeChangeIndex = marker;
+                rawDescription = rawDescription.replace(INVOKE_DYNAMIC_MARKER, "?");
+            }
+
+            if (invokeAddition != baseInvokeAddition && !invokeStringChanged) {
+                invokeStringChanged = true;
+                rawDescription = rawDescription.substring(0, invokeChangeIndex + 1)
+                        + " + !theSacred:IA!"
+                        + rawDescription.substring(invokeChangeIndex + 1);
+            }
+        }
+        super.initializeDescription();
+    }
+
     public int getInvokeAmt() {
         return costForTurn + invokeAddition + (upgraded?invokeUpgAddition:0);
+    }
+
+    public void incrementInvokeForCombat(int invkAdd) {
+        invokeAddition+=invkAdd;
+        if(!invokeStringChanged) {
+            initializeDescription();
+        }
     }
 
     @Override
