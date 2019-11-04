@@ -229,6 +229,7 @@ public abstract class SacredCard extends CustomCard {
         invokeMinCost = invkMin;
         invokeMaxCost = invkMax;
         this.tags.add(CardENUMs.INVOKE);
+        initializeDescription();
     }
 
     private CardRarity autoRarity() {
@@ -370,7 +371,7 @@ public abstract class SacredCard extends CustomCard {
                 rawDescription = rawDescription.replace(INVOKE_DYNAMIC_MARKER, "?");
             }
 
-            if (invokeAddition != baseInvokeAddition && !invokeStringChanged) {
+            if (invokeAddition != baseInvokeAddition && !invokeStringChanged && !rawDescription.contains("? + !theSacred:IA!")) {
                 invokeStringChanged = true;
                 rawDescription = rawDescription.substring(0, invokeChangeIndex + 1)
                         + " + !theSacred:IA!"
