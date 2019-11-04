@@ -1,6 +1,7 @@
 package theSacred.powers.turn;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -14,7 +15,7 @@ import theSacred.util.UC;
 import static theSacred.util.UC.doAllDmg;
 import static theSacred.util.UC.p;
 
-public class ScourgedEarthPower extends AbstractSacredPower implements CloneablePowerInterface {
+public class ScourgedEarthPower extends AbstractSacredPower implements CloneablePowerInterface, NonStackablePower {
     public static final String POWER_ID = TheSacred.makeID("ScourgedEarth");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -29,7 +30,7 @@ public class ScourgedEarthPower extends AbstractSacredPower implements Cloneable
         type = PowerType.BUFF;
         updateDescription();
         isTurnBased = true;
-        loadRegion("skillBurn");
+        loadRegion("firebreathing");
     }
 
     public ScourgedEarthPower(int amount, int amount2) {
