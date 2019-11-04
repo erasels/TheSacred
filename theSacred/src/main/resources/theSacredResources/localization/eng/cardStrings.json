@@ -165,7 +165,7 @@
   },
   "theSacred:UnstableBarrier": {
     "NAME": "Unstable Barrier",
-    "DESCRIPTION": "Gain !B! Block. NL If your Block is broken this turn, deal !D! damage to ALL enemies."
+    "DESCRIPTION": "Gain !B! Block. NL If your Block is broken this turn, deal !M! damage to ALL enemies."
   },
   "theSacred:ProtectionIdol": {
     "NAME": "Protection Idol",
@@ -184,5 +184,9 @@
     "NAME": "Trifecta",
     "DESCRIPTION": "The next _?_ cards you play are played 2 additional times. NL ? can't roll 0. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "The next ? + !theSacred:IA! cards you play are played 2 additional times. NL Exhaust."
+  },
+  "theSacred:Invocation": {
+    "NAME": "Invocation",
+    "DESCRIPTION": "Increase the thesacred:Invoke effect of all cards in your hand by !M! for the rest of combat."
   }
 }
