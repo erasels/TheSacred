@@ -109,5 +109,14 @@
       "At the start of your turn, deal #b",
       " damage to ALL enemies."
     ]
+  },
+  "theSacred:Trifecta": {
+    "NAME": "Trifecta",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " card is ",
+      " cards are ",
+      " played #b2 additional times."
+    ]
   }
 }

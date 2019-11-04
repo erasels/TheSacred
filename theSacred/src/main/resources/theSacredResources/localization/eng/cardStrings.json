@@ -179,5 +179,10 @@
   "theSacred:ScourgedEarth": {
     "NAME": "Scourged Earth",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deal !M! damage to ALL enemies at the start of your next ? turns."
+  },
+  "theSacred:Trifecta": {
+    "NAME": "Trifecta",
+    "DESCRIPTION": "The next ? cards you play are played 2 additional times. NL ? can't be 0. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "The next ? + !M! cards you play are played 2 additional times. NL Exhaust."
   }
 }
