@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theSacred.cards.abstracts.SacredCard;
+import theSacred.cards.variables.InvokeAddition;
 import theSacred.cards.variables.MagicNumber2;
 import theSacred.cards.variables.ShowNumber;
 import theSacred.characters.SacredCharacter;
@@ -174,6 +175,7 @@ public class TheSacred implements
     public void receiveEditCards() {
         BaseMod.addDynamicVariable(new MagicNumber2());
         BaseMod.addDynamicVariable(new ShowNumber());
+        BaseMod.addDynamicVariable(new InvokeAddition());
 
         try {
             AutoLoader.addCards();

@@ -19,6 +19,8 @@ public abstract class SacredCard extends CustomCard {
     protected CardStrings cardStrings;
     protected String img;
 
+    public static final int INVOKE_MAX_COST = 3;
+
     protected boolean upgradesDescription;
 
     protected int baseCost;
@@ -52,8 +54,9 @@ public abstract class SacredCard extends CustomCard {
     public boolean isShowNumberModified;
 
     public boolean invoke;
-    public boolean invokeNonZero;
     public boolean invokeCostRandomized;
+    public int invokeMinCost, invokeMaxCost;
+    public int baseInvokeAddition, invokeAddition, invokeUpgAddition;
 
 
     public SacredCard(CardInfo cardInfo, boolean upgradesDescription) {
@@ -94,8 +97,12 @@ public abstract class SacredCard extends CustomCard {
         upgradeEthereal = false;
 
         invoke = false;
-        invokeNonZero = false;
         invokeCostRandomized = false;
+        invokeMinCost = 0;
+        invokeMaxCost = INVOKE_MAX_COST;
+        baseInvokeAddition = 0;
+        invokeAddition = 0;
+        invokeUpgAddition = 0;
 
         if(cardName.toLowerCase().contains("strike")) {
             tags.add(CardTags.STRIKE);
@@ -211,11 +218,16 @@ public abstract class SacredCard extends CustomCard {
         this.magicNumber2 = baseMagicNumber2 = mn2;
     }
 
-    public void setInvoke(boolean nonZero) {
+    public void setInvoke(int invkAdd, int invkUpgAdd) {
+        setInvoke(invkAdd, invkUpgAdd, 0, INVOKE_MAX_COST);
+    }
+
+    public void setInvoke(int invkAdd, int invkUpgAdd, int invkMin, int invkMax) {
         this.invoke = true;
-        if(nonZero) {
-            this.invokeNonZero = true;
-        }
+        baseInvokeAddition = invokeAddition = invkAdd;
+        invokeUpgAddition = invkUpgAdd;
+        invokeMinCost = invkMin;
+        invokeMaxCost = invkMax;
         this.tags.add(CardENUMs.INVOKE);
     }
 
@@ -279,6 +291,12 @@ public abstract class SacredCard extends CustomCard {
             ((SacredCard) card).magicNumber2 = this.magicNumber2;
             ((SacredCard) card).baseShowNumber = this.baseShowNumber;
             ((SacredCard) card).showNumber = this.showNumber;
+
+            ((SacredCard) card).baseInvokeAddition = baseInvokeAddition;
+            ((SacredCard) card).invokeAddition = invokeAddition;
+            ((SacredCard) card).invokeUpgAddition = invokeUpgAddition;
+            ((SacredCard) card).invokeMinCost = invokeMinCost;
+            ((SacredCard) card).invokeMaxCost = invokeMaxCost;
         }
 
         return card;
@@ -338,6 +356,10 @@ public abstract class SacredCard extends CustomCard {
 
             this.initializeDescription();
         }
+    }
+
+    public int getInvokeAmt() {
+        return costForTurn + invokeAddition + (upgraded?invokeUpgAddition:0);
     }
 
     @Override

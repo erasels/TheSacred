@@ -19,8 +19,6 @@ import theSacred.util.UC;
 import java.util.ArrayList;
 
 public class InvokeCardPatches {
-    public static int MAX_COST = 3;
-
     //Randomize cost
     @SpirePatch(clz = AbstractPlayer.class, method = "draw", paramtypes = {"int"})
     public static class Draw {
@@ -53,7 +51,7 @@ public class InvokeCardPatches {
     }
 
     private static void randomizeCost(AbstractCard c) {
-        c.cost = AbstractDungeon.cardRandomRng.random(((SacredCard)c).invokeNonZero?1:0, MAX_COST);
+        c.cost = AbstractDungeon.cardRandomRng.random(((SacredCard)c).invokeMinCost, ((SacredCard) c).invokeMaxCost);
         c.costForTurn = c.cost;
         //c.isCostModified = true;
         ((SacredCard) c).invokeCostRandomized = true;
