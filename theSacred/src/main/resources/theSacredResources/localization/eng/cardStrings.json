@@ -170,7 +170,7 @@
   "theSacred:ProtectionIdol": {
     "NAME": "Protection Idol",
     "DESCRIPTION": "Gain !B! * ? Block.",
-    "UPGRADE_DESCRIPTION": "Gain !B! * ? Block. NL Cost can't be 0."
+    "UPGRADE_DESCRIPTION": "Gain !B! * ? Block. NL ? can't roll 0."
   },
   "theSacred:BlightBuster": {
     "NAME": "Blight Buster",
@@ -182,7 +182,7 @@
   },
   "theSacred:Trifecta": {
     "NAME": "Trifecta",
-    "DESCRIPTION": "The next ? cards you play are played 2 additional times. NL ? can't be 0. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "The next ? + !M! cards you play are played 2 additional times. NL Exhaust."
+    "DESCRIPTION": "The next ? cards you play are played 2 additional times. NL ? can't roll 0. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "The next ? + !theSacred:IA! cards you play are played 2 additional times. NL Exhaust."
   }
 }

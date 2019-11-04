@@ -28,7 +28,7 @@ public class ScourgedEarth extends SacredCard {
     public ScourgedEarth() {
         super(cardInfo, false);
 
-        setInvoke(false);
+        setInvoke(0, 0);
         setDamage(DAMAGE);
         setMagic(MAGIC, UPG_MAGIC);
         setMultiDamage(false);
@@ -36,8 +36,8 @@ public class ScourgedEarth extends SacredCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        doVfx(new BetterScreenOnFireEffect(0.5f*costForTurn, 0.5f*costForTurn, "ATTACK_FLAME_BARRIER"));
+        doVfx(new BetterScreenOnFireEffect(0.5f*getInvokeAmt(), 0.5f*getInvokeAmt(), "ATTACK_FLAME_BARRIER"));
         doAllDmg(damage, AbstractGameAction.AttackEffect.FIRE, DamageInfo.DamageType.NORMAL, false);
-        doPow(p, new ScourgedEarthPower(costForTurn, magicNumber));
+        doPow(p, new ScourgedEarthPower(getInvokeAmt(), magicNumber));
     }
 }

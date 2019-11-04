@@ -22,7 +22,7 @@ public class ProtectionIdol extends SacredCard {
     public ProtectionIdol() {
         super(cardInfo, true);
 
-        setInvoke(false);
+        setInvoke(0, 0);
         setBlock(BLOCK);
     }
 
@@ -30,14 +30,14 @@ public class ProtectionIdol extends SacredCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(costForTurn>0) {
             //TODO: Add Stone Idol Vfx
-            doDef(block * costForTurn);
+            doDef(block * getInvokeAmt());
         }
     }
 
     @Override
     public void upgrade() {
         if(!upgraded) {
-            invokeNonZero = true;
+            invokeMinCost = 1;
         }
         super.upgrade();
     }

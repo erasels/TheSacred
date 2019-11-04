@@ -24,20 +24,20 @@ public class Trifecta extends SacredCard {
     public Trifecta() {
         super(cardInfo, true);
 
-        setInvoke(true);
+        setInvoke(0, 1, 1, INVOKE_MAX_COST);
         setMagic(MAGIC, UPG_MAGIC);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //TODO: 3 Planets rotation?
-        doPow(p, new TrifectaPower(costForTurn+magicNumber));
+        doPow(p, new TrifectaPower(getInvokeAmt()));
     }
 
     @Override
     public void upgrade() {
         if(!upgraded) {
-            invokeNonZero = false;
+            invokeMinCost = 0;
         }
         super.upgrade();
     }
