@@ -38,6 +38,8 @@ public class ScourgedEarth extends SacredCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         doVfx(new BetterScreenOnFireEffect(0.5f*getInvokeAmt(), 0.5f*getInvokeAmt(), "ATTACK_FLAME_BARRIER"));
         doAllDmg(damage, AbstractGameAction.AttackEffect.FIRE, DamageInfo.DamageType.NORMAL, false);
-        doPow(p, new ScourgedEarthPower(getInvokeAmt(), magicNumber));
+        if(getInvokeAmt() > 0) {
+            doPow(p, new ScourgedEarthPower(getInvokeAmt(), magicNumber));
+        }
     }
 }

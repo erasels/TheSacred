@@ -28,7 +28,7 @@ public class ProtectionIdol extends SacredCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(costForTurn>0) {
+        if(getInvokeAmt()>0) {
             //TODO: Add Stone Idol Vfx
             doDef(block * getInvokeAmt());
         }

@@ -31,7 +31,9 @@ public class Trifecta extends SacredCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //TODO: 3 Planets rotation?
-        doPow(p, new TrifectaPower(getInvokeAmt()));
+        if(getInvokeAmt() > 0) {
+            doPow(p, new TrifectaPower(getInvokeAmt()));
+        }
     }
 
     @Override
