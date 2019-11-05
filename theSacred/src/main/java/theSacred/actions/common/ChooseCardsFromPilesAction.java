@@ -84,8 +84,11 @@ public class ChooseCardsFromPilesAction extends AbstractGameAction {
             }
         }
         if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
-            for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
+            for(AbstractCard c : AbstractDungeon.gridSelectScreen.targetGroup.group) {
                 RenderCurrentPilePatches.CurrentPileField.pileEnum.set(c, RenderCurrentPilePatches.pileRender.UNSPECIFIED);
+            }
+
+            for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 c.unhover();
                 if(!(UC.p().hand.size() < BaseMod.MAX_HAND_SIZE)) {
                     relationMap.get(c).moveToDiscardPile(c);
