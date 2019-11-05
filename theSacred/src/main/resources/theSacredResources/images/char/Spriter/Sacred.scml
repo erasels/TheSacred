@@ -208,6 +208,36 @@
         <file id="4" name="grab/tile004.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
         <file id="5" name="grab/tile005.png" width="256" height="256" pivot_x="0" pivot_y="1"/>
     </folder>
+    <folder id="17" name="spellB">
+        <file id="0" name="spellB/tile000.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="spellB/tile001.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="2" name="spellB/tile002.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="3" name="spellB/tile003.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="4" name="spellB/tile004.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="5" name="spellB/tile005.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="6" name="spellB/tile006.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="7" name="spellB/tile007.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="8" name="spellB/tile008.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="9" name="spellB/tile009.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="10" name="spellB/tile010.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="11" name="spellB/tile011.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="12" name="spellB/tile012.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="13" name="spellB/tile013.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="14" name="spellB/tile014.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="15" name="spellB/tile015.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="16" name="spellB/tile016.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="17" name="spellB/tile017.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="18" name="spellB/tile018.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="19" name="spellB/tile019.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="20" name="spellB/tile020.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="21" name="spellB/tile021.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="22" name="spellB/tile022.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="23" name="spellB/tile023.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="24" name="spellB/tile024.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="25" name="spellB/tile025.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="26" name="spellB/tile026.png" width="257" height="256" pivot_x="0" pivot_y="1"/>
+        <file id="27" name="spellB/tile027.png" width="255" height="256" pivot_x="0" pivot_y="1"/>
+    </folder>
     <entity id="0" name="Sacred">
         <animation id="0" name="idle" length="1400" interval="100">
             <mainline>
@@ -1136,7 +1166,181 @@
                 </key>
             </timeline>
         </animation>
-        <animation id="14" name="winA" length="1300" interval="100">
+        <animation id="14" name="spellB" length="2800" interval="100">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="100">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="200">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="301">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+                <key id="4" time="400">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                </key>
+                <key id="5" time="499">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                </key>
+                <key id="6" time="601">
+                    <object_ref id="0" timeline="0" key="6" z_index="0"/>
+                </key>
+                <key id="7" time="700">
+                    <object_ref id="0" timeline="0" key="7" z_index="0"/>
+                </key>
+                <key id="8" time="801">
+                    <object_ref id="0" timeline="0" key="8" z_index="0"/>
+                </key>
+                <key id="9" time="900">
+                    <object_ref id="0" timeline="0" key="9" z_index="0"/>
+                </key>
+                <key id="10" time="1001">
+                    <object_ref id="0" timeline="0" key="10" z_index="0"/>
+                </key>
+                <key id="11" time="1100">
+                    <object_ref id="0" timeline="0" key="11" z_index="0"/>
+                </key>
+                <key id="12" time="1200">
+                    <object_ref id="0" timeline="0" key="12" z_index="0"/>
+                </key>
+                <key id="13" time="1299">
+                    <object_ref id="0" timeline="0" key="13" z_index="0"/>
+                </key>
+                <key id="14" time="1400">
+                    <object_ref id="0" timeline="0" key="14" z_index="0"/>
+                </key>
+                <key id="15" time="1499">
+                    <object_ref id="0" timeline="0" key="15" z_index="0"/>
+                </key>
+                <key id="16" time="1599">
+                    <object_ref id="0" timeline="0" key="16" z_index="0"/>
+                </key>
+                <key id="17" time="1700">
+                    <object_ref id="0" timeline="0" key="17" z_index="0"/>
+                </key>
+                <key id="18" time="1801">
+                    <object_ref id="0" timeline="0" key="18" z_index="0"/>
+                </key>
+                <key id="19" time="1900">
+                    <object_ref id="0" timeline="0" key="19" z_index="0"/>
+                </key>
+                <key id="20" time="2000">
+                    <object_ref id="0" timeline="0" key="20" z_index="0"/>
+                </key>
+                <key id="21" time="2099">
+                    <object_ref id="0" timeline="0" key="21" z_index="0"/>
+                </key>
+                <key id="22" time="2200">
+                    <object_ref id="0" timeline="0" key="22" z_index="0"/>
+                </key>
+                <key id="23" time="2300">
+                    <object_ref id="0" timeline="0" key="23" z_index="0"/>
+                </key>
+                <key id="24" time="2400">
+                    <object_ref id="0" timeline="0" key="24" z_index="0"/>
+                </key>
+                <key id="25" time="2500">
+                    <object_ref id="0" timeline="0" key="25" z_index="0"/>
+                </key>
+                <key id="26" time="2600">
+                    <object_ref id="0" timeline="0" key="26" z_index="0"/>
+                </key>
+                <key id="27" time="2699">
+                    <object_ref id="0" timeline="0" key="27" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="tile000_016">
+                <key id="0" spin="0">
+                    <object folder="17" file="0" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="17" file="1" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="2" time="200" spin="0">
+                    <object folder="17" file="2" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="3" time="301" spin="0">
+                    <object folder="17" file="3" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="4" time="400" spin="0">
+                    <object folder="17" file="4" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="5" time="499" spin="0">
+                    <object folder="17" file="5" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="6" time="601" spin="0">
+                    <object folder="17" file="6" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="7" time="700" spin="0">
+                    <object folder="17" file="7" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="8" time="801" spin="0">
+                    <object folder="17" file="8" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="9" time="900" spin="0">
+                    <object folder="17" file="9" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="10" time="1001" spin="0">
+                    <object folder="17" file="10" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="11" time="1100" spin="0">
+                    <object folder="17" file="11" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="12" time="1200" spin="0">
+                    <object folder="17" file="12" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="13" time="1299" spin="0">
+                    <object folder="17" file="13" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="14" time="1400" spin="0">
+                    <object folder="17" file="14" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="15" time="1499" spin="0">
+                    <object folder="17" file="15" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="16" time="1599" spin="0">
+                    <object folder="17" file="16" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="17" time="1700" spin="0">
+                    <object folder="17" file="17" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="18" time="1801" spin="0">
+                    <object folder="17" file="18" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="19" time="1900" spin="0">
+                    <object folder="17" file="19" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="20" time="2000" spin="0">
+                    <object folder="17" file="20" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="21" time="2099" spin="0">
+                    <object folder="17" file="21" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="22" time="2200" spin="0">
+                    <object folder="17" file="22" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="23" time="2300" spin="0">
+                    <object folder="17" file="23" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="24" time="2400" spin="0">
+                    <object folder="17" file="24" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="25" time="2500" spin="0">
+                    <object folder="17" file="25" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="26" time="2600" spin="0">
+                    <object folder="17" file="26" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+                <key id="27" time="2699" spin="0">
+                    <object folder="17" file="27" x="-148.32636" y="308.368201" scale_x="1.15" scale_y="1.15"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="15" name="winA" length="1300" interval="100">
             <mainline>
                 <key id="0">
                     <object_ref id="0" timeline="0" key="0" z_index="0"/>
@@ -1220,7 +1424,7 @@
                 </key>
             </timeline>
         </animation>
-        <animation id="15" name="winB" length="1000" interval="100">
+        <animation id="16" name="winB" length="1000" interval="100">
             <mainline>
                 <key id="0">
                     <object_ref id="0" timeline="0" key="0" z_index="0"/>
@@ -1286,7 +1490,7 @@
                 </key>
             </timeline>
         </animation>
-        <animation id="16" name="downed" length="759" interval="100">
+        <animation id="17" name="downed" length="759" interval="100">
             <mainline>
                 <key id="0">
                     <object_ref id="0" timeline="0" key="0" z_index="0"/>
@@ -1340,7 +1544,7 @@
                 </key>
             </timeline>
         </animation>
-        <animation id="17" name="downedIdle" length="800" interval="100">
+        <animation id="18" name="downedIdle" length="800" interval="100">
             <mainline>
                 <key id="0">
                     <object_ref id="0" timeline="0" key="0" z_index="0"/>
