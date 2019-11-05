@@ -36,6 +36,7 @@ public class TreasuredOrb extends SacredCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         doAnim(RunAnimationEffect.ANIS.SPELLA);
         doVfx(new ButtonConfirmedEffect(m.hb.cX, m.hb.cY, Color.SALMON, 2f, 3f));
+        //doVfx(new FlashImageEffect(TextureLoader.getTexture(makeOrbPath("YinYangOrb.png")), m.hb.cX, m.hb.cY, Color.WHITE, 1f, 1.5f));
         doDmg(m, damage, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
         channelYY();
         if(upgraded) {
