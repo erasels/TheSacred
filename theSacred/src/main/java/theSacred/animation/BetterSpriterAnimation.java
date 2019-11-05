@@ -14,6 +14,7 @@ import com.brashmonkey.spriter.SCMLReader;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theSacred.characters.SacredCharacter;
 
 //Taken from Darkglade's Koishi mod.
 public class BetterSpriterAnimation extends AbstractAnimation {
@@ -32,7 +33,7 @@ public class BetterSpriterAnimation extends AbstractAnimation {
         this.loader.load(handle.file());
         this.drawer = new LibGdxDrawer(this.loader, this.renderer);
         this.myPlayer = new Player(data.getEntity(0));
-        this.myPlayer.setScale(Settings.scale);
+        this.myPlayer.setScale(Settings.scale * SacredCharacter.SIZE_MULTI);
     }
 
     public Type type() {

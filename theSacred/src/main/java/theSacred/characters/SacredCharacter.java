@@ -54,10 +54,12 @@ public class SacredCharacter extends CustomPlayer {
 
     public static final int ENERGY_PER_TURN = 3;
     public static final int STARTING_HP = 70;
-    public static final int MAX_HP = 70;
+    public static final int MAX_HP = 68;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
+
+    public static final float SIZE_MULTI = 1.2f;
 
     private static final String ID = makeID("SacredCharacter");
     private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
@@ -72,7 +74,7 @@ public class SacredCharacter extends CustomPlayer {
                 THE_SACRED_SHOULDER_1,
                 THE_SACRED_SHOULDER_2,
                 THE_SACRED_CORPSE,
-                getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
+                getLoadout(), 0.0F, 0.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
         PlayerListener listener = new PlayerListener(this);
         ((BetterSpriterAnimation)this.animation).myPlayer.addListener(listener);
