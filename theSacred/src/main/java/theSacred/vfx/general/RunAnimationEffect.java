@@ -7,7 +7,7 @@ import theSacred.TheSacred;
 public class RunAnimationEffect extends AbstractGameEffect {
     private String key;
     public enum ANIS {
-       IDLE, GUARDA, GUARDB, HITLOW, HITHIGH, FAILURE, LOWKICK, RODWHACK, RODSTAB, RODSLASH, BACKFLIP, SPELLA, WINA, WINB, DOWNED, DOWNIDLE
+       IDLE, GUARDA, GUARDB, HITLOW, HITHIGH, FAILURE, LOWKICK, RODWHACK, RODSTAB, RODSLASH, BACKFLIP, BACKFLIPKICK, SPELLA, WINA, WINB, DOWNED, DOWNIDLE
     }
 
     public RunAnimationEffect(String animation_key) {
@@ -48,6 +48,9 @@ public class RunAnimationEffect extends AbstractGameEffect {
                 break;
             case BACKFLIP:
                 key = "backflip";
+                break;
+            case BACKFLIPKICK:
+                key = "backflipKick";
                 break;
             case SPELLA:
                 key = "spellA";
