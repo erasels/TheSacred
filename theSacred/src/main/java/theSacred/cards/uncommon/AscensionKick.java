@@ -6,13 +6,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.actions.common.CallbackDrawAction;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.util.CardInfo;
+import theSacred.vfx.general.RunAnimationEffect;
 
 import static theSacred.TheSacred.makeID;
 import static theSacred.util.UC.*;
 
-public class AscenscionKick extends SacredCard {
+public class AscensionKick extends SacredCard {
     private final static CardInfo cardInfo = new CardInfo(
-            "AscenscionKick",
+            "AscensionKick",
             1,
             CardType.ATTACK,
             CardTarget.ENEMY);
@@ -24,7 +25,7 @@ public class AscenscionKick extends SacredCard {
 
     private static final int MAGIC = 1;
 
-    public AscenscionKick() {
+    public AscensionKick() {
         super(cardInfo, false);
 
         setDamage(DAMAGE, UPG_DAMAGE);
@@ -33,6 +34,7 @@ public class AscenscionKick extends SacredCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        doVfx(new RunAnimationEffect(RunAnimationEffect.ANIS.BACKFLIP));
         doDmg(m, damage, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         atb(new CallbackDrawAction(magicNumber, c -> {
             if(c.type == CardType.ATTACK) {
