@@ -6,10 +6,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.util.CardInfo;
 import theSacred.util.UC;
+import theSacred.vfx.general.RunAnimationEffect;
 
 import static basemod.helpers.BaseModCardTags.BASIC_DEFEND;
 import static theSacred.TheSacred.makeID;
 import static theSacred.util.UC.channelYY;
+import static theSacred.util.UC.doAnim;
 
 public class Defend extends SacredCard {
     private final static CardInfo cardInfo = new CardInfo(
@@ -38,6 +40,7 @@ public class Defend extends SacredCard {
         if(Settings.isDebug) {
             channelYY();
         }
+        doAnim(RunAnimationEffect.ANIS.GUARDA);
         UC.doDef(block);
     }
 }
