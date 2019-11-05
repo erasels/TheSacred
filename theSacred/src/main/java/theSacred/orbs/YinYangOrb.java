@@ -41,7 +41,7 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb, 
     protected static final float NUM_X_OFFSET = 42.0F * Settings.scale;
     protected static final float NUM_Y_OFFSET = -30.0F * Settings.scale;
 
-    private static final Texture IMG = TextureLoader.getTexture(makeOrbPath("YinYangOrb.png"));
+    public static final Texture IMG = TextureLoader.getTexture(makeOrbPath("YinYangOrb.png"));
     // Animation Rendering Numbers - You can leave these at default, or play around with them and see what they change.
     private float vfxTimer = 1.0f;
     private float vfxIntervalMin = 0.1f;

@@ -43,7 +43,8 @@ public class TheSacred implements
         EditCharactersSubscriber,
         PostInitializeSubscriber,
         PreStartGameSubscriber,
-        PostUpdateSubscriber, PostBattleSubscriber {
+        PostUpdateSubscriber,
+        PostBattleSubscriber {
     public static final Logger logger = LogManager.getLogger(TheSacred.class.getName());
     private static String modID;
 
