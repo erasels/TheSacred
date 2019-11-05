@@ -25,6 +25,7 @@ import theSacred.actions.utility.DamageAllAction;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.orbs.YinYangOrb;
 import theSacred.patches.combat.CardFieldMechanicsPatches;
+import theSacred.vfx.general.RunAnimationEffect;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -150,6 +151,18 @@ public class UC {
 
     public static void doVfx(AbstractGameEffect gameEffect, float duration) {
         atb(new VFXAction(gameEffect, duration));
+    }
+
+    public static void doAnim(RunAnimationEffect.ANIS ani) {
+        doAnim(ani, false);
+    }
+
+    public static void doAnim(RunAnimationEffect.ANIS ani, boolean top) {
+        if(top) {
+            att((new VFXAction(new RunAnimationEffect(ani))));
+        } else {
+            doVfx(new RunAnimationEffect(ani));
+        }
     }
 
     public static void doDraw(int number) {

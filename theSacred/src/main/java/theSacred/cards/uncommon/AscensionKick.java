@@ -34,7 +34,7 @@ public class AscensionKick extends SacredCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        doVfx(new RunAnimationEffect(RunAnimationEffect.ANIS.BACKFLIP));
+        doAnim(RunAnimationEffect.ANIS.BACKFLIP);
         doDmg(m, damage, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         atb(new CallbackDrawAction(magicNumber, c -> {
             if(c.type == CardType.ATTACK) {

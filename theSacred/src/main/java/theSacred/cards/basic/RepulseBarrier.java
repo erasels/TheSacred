@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.powers.turn.barriers.RepulseBarrierPower;
 import theSacred.util.CardInfo;
+import theSacred.vfx.general.RunAnimationEffect;
 
 import static theSacred.TheSacred.makeID;
 import static theSacred.util.UC.*;
@@ -33,6 +34,7 @@ public class RepulseBarrier extends SacredCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        doAnim(RunAnimationEffect.ANIS.GUARDB);
         doDef(block);
         doPow(p, new RepulseBarrierPower(magicNumber));
     }
