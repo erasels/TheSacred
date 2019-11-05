@@ -44,7 +44,7 @@ public class Strike extends SacredCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(!Settings.isDebug) {
-            UC.doAnim(RunAnimationEffect.ANIS.RODSLASH);
+            UC.doAnim(RunAnimationEffect.ANIS.GRAB);
             UC.doDmg(m, this.damage, MathUtils.randomBoolean() ? AbstractGameAction.AttackEffect.SLASH_VERTICAL : AbstractGameAction.AttackEffect.BLUNT_LIGHT);
         } else {
             //UC.atb(new BeginSpeedModeAction(new SpeedClickEnemyTime(3.0f, mon -> UC.doDmg(mon, damage, DamageInfo.DamageType.NORMAL, UC.getSpeedyAttackEffect(), true))));
