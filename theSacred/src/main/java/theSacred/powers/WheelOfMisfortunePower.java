@@ -5,6 +5,7 @@ import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 import theSacred.TheSacred;
 import theSacred.powers.abstracts.AbstractSacredPower;
@@ -45,12 +46,14 @@ public class WheelOfMisfortunePower extends AbstractSacredPower implements Clone
     public boolean onReceivePower(AbstractPower p, AbstractCreature t, AbstractCreature s) {
         if(p.type == PowerType.DEBUFF && t == owner && s != owner) {
             UC.generalPowerLogic(this, true);
-            if(nonApplicablePowers.contains(p.ID)) {
-                p = new PoisonPower(s, owner, POISON_AMT);
-            } else {
-                p.owner = s;
+            if(s instanceof AbstractMonster) {
+                if (nonApplicablePowers.contains(p.ID)) {
+                    p = new PoisonPower(s, owner, POISON_AMT);
+                } else {
+                    p.owner = s;
+                }
+                doPow(owner, s, p, false);
             }
-            doPow(owner, s, p, false);
             return false;
         }
         return true;
