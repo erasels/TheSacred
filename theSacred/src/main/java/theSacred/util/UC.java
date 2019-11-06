@@ -36,13 +36,14 @@ public class UC {
     public static AbstractPlayer p() {
         return AbstractDungeon.player;
     }
+
     private static DecimalFormat twoDecFormat = new DecimalFormat("#0.00");
     public static GlyphLayout layout = new GlyphLayout();
 
     //Checks
     public static boolean checkBurst() {
         boolean tmp = CardFieldMechanicsPatches.PlayerFields.isBurst.get(p());
-        if(tmp) {
+        if (tmp) {
             incrementTurnBurstAmount();
         }
         return tmp;
@@ -95,7 +96,7 @@ public class UC {
     }
 
     public static void doDmg(AbstractCreature target, int amount, DamageInfo.DamageType dt, AbstractGameAction.AttackEffect ae, boolean fast, boolean top) {
-        if(target == null) {
+        if (target == null) {
             target = AbstractDungeon.getRandomMonster();
         }
         if (top) {
@@ -122,7 +123,7 @@ public class UC {
     }
 
     public static void doDef(int amount, boolean top) {
-        if(top) {
+        if (top) {
             att(new GainBlockAction(p(), p(), amount));
         } else {
             atb(new GainBlockAction(p(), p(), amount));
@@ -158,7 +159,7 @@ public class UC {
     }
 
     public static void doAnim(RunAnimationEffect.ANIS ani, boolean top) {
-        if(top) {
+        if (top) {
             att((new VFXAction(new RunAnimationEffect(ani))));
         } else {
             doVfx(new RunAnimationEffect(ani));
@@ -174,7 +175,7 @@ public class UC {
     }
 
     public static void channelYY(boolean top) {
-        if(top) {
+        if (top) {
             att(new ChannelAction(new YinYangOrb()));
         } else {
             atb(new ChannelAction(new YinYangOrb()));
@@ -182,10 +183,22 @@ public class UC {
     }
 
     public static void generalPowerLogic(AbstractPower p) {
-        if(p.amount < 1) {
-            atb(new RemoveSpecificPowerAction(p.owner, p.owner, p));
+        generalPowerLogic(p, false);
+    }
+
+    public static void generalPowerLogic(AbstractPower p, boolean top) {
+        if (p.amount < 1) {
+            if (top) {
+                att(new RemoveSpecificPowerAction(p.owner, p.owner, p));
+            } else {
+                atb(new RemoveSpecificPowerAction(p.owner, p.owner, p));
+            }
         } else {
-            UC.reducePower(p);
+            if (top) {
+                att(new ReducePowerAction(p.owner, p.owner, p, 1));
+            } else {
+                UC.reducePower(p);
+            }
         }
     }
 
@@ -200,7 +213,7 @@ public class UC {
     //Getters
     public static AbstractGameAction.AttackEffect getSpeedyAttackEffect() {
         int effect = MathUtils.random(0, 4);
-        switch(effect) {
+        switch (effect) {
             case 0:
                 return AbstractGameAction.AttackEffect.SLASH_HORIZONTAL;
             case 1:
@@ -240,7 +253,7 @@ public class UC {
     }
 
     public static String get2DecString(float num) {
-        if(num <0) {
+        if (num < 0) {
             num = 0;
         }
         return twoDecFormat.format(AlchHelper.round(num, 2));
@@ -255,7 +268,7 @@ public class UC {
     }
 
     public static <T> T getModifiedObj(T t, String fieldKey, Object newValue, boolean isProtected) {
-        if(!isProtected) {
+        if (!isProtected) {
             ReflectionHacks.setPrivate(t, t.getClass(), fieldKey, newValue);
         } else {
             ReflectionHacks.setPrivateInherited(t, t.getClass(), fieldKey, newValue);
@@ -264,7 +277,7 @@ public class UC {
     }
 
     public static SacredCard getRandomNeedle() {
-        return TheSacred.needles.get(AbstractDungeon.cardRandomRng.random(TheSacred.needles.size()-1));
+        return TheSacred.needles.get(AbstractDungeon.cardRandomRng.random(TheSacred.needles.size() - 1));
     }
 
     //Setters

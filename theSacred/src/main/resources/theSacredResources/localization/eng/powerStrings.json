@@ -118,5 +118,13 @@
       " cards are ",
       "played #b2 additional times."
     ]
+  },
+  "theSacred:WheelOfMisfortune": {
+    "NAME": "Wheel of Misfortune",
+    "DESCRIPTIONS": [
+      "Reflects the next #b",
+      " incoming debuffs back to the sender. NL Applies #b",
+      " #yPoison if the debuff only works on players."
+    ]
   }
 }
