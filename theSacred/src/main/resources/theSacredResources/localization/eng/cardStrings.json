@@ -188,5 +188,10 @@
   "theSacred:Invocation": {
     "NAME": "Invocation",
     "DESCRIPTION": "Increase the thesacred:Invoke effect of all cards in your hand by !M! for the rest of combat."
+  },
+  "theSacred:WheelOfMisfortune": {
+    "NAME": "Wheel of Misfortune",
+    "DESCRIPTION": "The next _?_ times a debuff would be applied to you, it is instead applied to the sender. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "The next ? + !theSacred:IA! times a debuff would be applied to you, reflect it. NL Exhaust."
   }
 }
