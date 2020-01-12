@@ -52,7 +52,7 @@ public class DrawnCardHook {
                     if (m.getClassName().equals(DrawCardAction.class.getName())) {
                         m.replace("{" +
                                 "if(" + DrawnCardHook.class.getName() + ".callback != null) {" +
-                                "$_ = new " + CallbackDrawAction.class.getName() + "($2, " + DrawnCardHook.class.getName() + ".callback);" +
+                                "$_ = new " + CallbackDrawAction.class.getName() + "($1, " + DrawnCardHook.class.getName() + ".callback);" +
                                 "} else {" +
                                 "$_ = $proceed($$);" +
                                 "}" +
