@@ -1,13 +1,11 @@
 package theSacred.patches.cards;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
@@ -83,25 +81,6 @@ public class InvokeCardPatches {
                     }
                 }
             };
-        }
-    }
-
-    //Add Invoke tip without keyword in description
-    @SpirePatch(clz = TipHelper.class, method = "renderTipForCard")
-    public static class RenderInvokeKeyword {
-        @SpireInsertPatch(locator = Locator.class)
-        public static void patch(AbstractCard c, SpriteBatch sb, ArrayList<String> keywords) {
-            if(UC.isInvoke(c) && (keywords.isEmpty() || !keywords.get(0).equals("thesacred:invoke"))) {
-                keywords.add(0, "thesacred:invoke");
-            }
-        }
-
-        private static class Locator extends SpireInsertLocator {
-            @Override
-            public int[] Locate(CtBehavior ctBehavior) throws Exception {
-                Matcher finalMatcher = new Matcher.FieldAccessMatcher(TipHelper.class, "KEYWORDS");
-                return LineFinder.findInOrder(ctBehavior, finalMatcher);
-            }
         }
     }
 

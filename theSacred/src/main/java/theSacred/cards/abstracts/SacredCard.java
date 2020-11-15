@@ -1,6 +1,7 @@
 package theSacred.cards.abstracts;
 
 import basemod.abstracts.CustomCard;
+import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -12,6 +13,10 @@ import theSacred.patches.cards.CardENUMs;
 import theSacred.util.CardInfo;
 import theSacred.util.TextureLoader;
 import theSacred.util.UC;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static theSacred.TheSacred.makeID;
 
@@ -256,6 +261,14 @@ public abstract class SacredCard extends CustomCard {
                 }
                 return CardRarity.SPECIAL;
         }
+    }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltipsTop() {
+        if(invoke) {
+            return new ArrayList<>(Collections.singletonList(new TooltipInfo(TheSacred.invokeKeywords[0], TheSacred.invokeKeywords[1])));
+        }
+        return null;
     }
 
     @Override

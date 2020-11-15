@@ -198,6 +198,7 @@ public class TheSacred implements
         BaseMod.loadCustomStringsFile(MonsterStrings.class, getModID() + "Resources/localization/eng/monsterStrings.json");
     }
 
+    public static String[] invokeKeywords = new String[2];
     @Override
     public void receiveEditKeywords() {
         Gson gson = new Gson();
@@ -207,6 +208,10 @@ public class TheSacred implements
         if (keywords != null) {
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+                if(keyword.PROPER_NAME.contains("Invoke")) {
+                    invokeKeywords[0] = keyword.NAMES[0];
+                    invokeKeywords[1] = keyword.DESCRIPTION;
+                }
             }
         }
     }
