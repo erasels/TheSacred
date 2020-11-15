@@ -45,7 +45,8 @@ public class DrawnCardHook {
 
     @SpirePatch(clz = DrawCardAction.class, method = "update")
     public static class NewInstanceCapture {
-        public static ExprEditor Instrument() {
+        @SpireInstrumentPatch
+        public static ExprEditor patch() {
             return new ExprEditor() {
                 @Override
                 public void edit(NewExpr m) throws CannotCompileException {

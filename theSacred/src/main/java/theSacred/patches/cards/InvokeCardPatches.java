@@ -68,7 +68,8 @@ public class InvokeCardPatches {
 
     @SpirePatch(clz = SingleCardViewPopup.class, method = "renderCost")
     public static class PortraitViewCost {
-        public static ExprEditor Instrument() {
+        @SpireInstrumentPatch
+        public static ExprEditor patch() {
             return new ExprEditor() {
                 @Override
                 public void edit(MethodCall m) throws CannotCompileException {
