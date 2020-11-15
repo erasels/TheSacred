@@ -4,7 +4,7 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import javassist.CtBehavior;
-import theSacred.cards.abstracts.SacredCard;
+import theSacred.cards.abstracts.OnTurnChangeCard;
 import theSacred.util.UC;
 
 public class TurnbasedCardHook {
@@ -13,9 +13,9 @@ public class TurnbasedCardHook {
         @SpireInsertPatch(locator = Locator.class)
         public static void patch(GameActionManager __instance) {
             int newTurn = GameActionManager.turn + 1;
-            UC.p().drawPile.group.stream().filter(c -> c instanceof SacredCard).forEachOrdered(c -> ((SacredCard)c).onTurnChange(newTurn));
-            UC.p().hand.group.stream().filter(c -> c instanceof SacredCard).forEachOrdered(c -> ((SacredCard)c).onTurnChange(newTurn));
-            UC.p().discardPile.group.stream().filter(c -> c instanceof SacredCard).forEachOrdered(c -> ((SacredCard)c).onTurnChange(newTurn));
+            UC.p().drawPile.group.stream().filter(c -> c instanceof OnTurnChangeCard).forEachOrdered(c -> ((OnTurnChangeCard)c).onTurnChange(newTurn));
+            UC.p().hand.group.stream().filter(c -> c instanceof OnTurnChangeCard).forEachOrdered(c -> ((OnTurnChangeCard)c).onTurnChange(newTurn));
+            UC.p().discardPile.group.stream().filter(c -> c instanceof OnTurnChangeCard).forEachOrdered(c -> ((OnTurnChangeCard)c).onTurnChange(newTurn));
         }
 
         private static class Locator extends SpireInsertLocator {

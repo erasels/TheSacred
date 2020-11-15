@@ -418,8 +418,6 @@ public abstract class SacredCard extends CustomCard {
         }
     }
 
-    public void onTurnChange(int newTurn) { }
-
     public void InitializeCard() {
         FontHelper.cardDescFont_N.getData().setScale(1.0f);
         this.initializeTitle();
