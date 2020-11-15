@@ -2,6 +2,7 @@ package theSacred.cards.abstracts;
 
 import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.CommonKeywordIconsField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -70,6 +71,7 @@ public abstract class SacredCard extends CustomCard {
 
     public SacredCard(CardColor color, String cardName, int cost, CardType cardType, CardTarget target, CardRarity rarity, boolean upgradesDescription) {
         super(makeID(cardName), "", (String) null, cost, "", cardType, color, rarity, target);
+        CommonKeywordIconsField.useIcons.set(this, true);
 
         cardStrings = CardCrawlGame.languagePack.getCardStrings(cardID);
 
