@@ -2,6 +2,9 @@ package theSacred.cards.abstracts;
 
 import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.CommonKeywordIconsField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -450,5 +453,66 @@ public abstract class SacredCard extends CustomCard {
     }
     private void applyPowersToSN() {
         this.isShowNumberModified = showNumber != baseShowNumber;
+    }
+
+    protected String topText = "";
+    protected Color topTextCol = Color.WHITE;
+
+    public void setTopText(String s, Color c) {
+        topText = s;
+        topTextCol = c;
+    }
+
+    public void setTopText(String s) {
+        setTopText(s, Settings.CREAM_COLOR);
+    }
+
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+        renderTopText(sb, false);
+    }
+
+    public void renderTopText(SpriteBatch sb, boolean isCardPopup) {
+        if(!topText.equals("")) {
+            float xPos, yPos, offsetY;
+            BitmapFont font;
+            String text = getTopText();
+            if (text == null || this.isFlipped || this.isLocked || this.transparency <= 0.0F)
+                return;
+            if (isCardPopup) {
+                font = FontHelper.SCP_cardTitleFont_small;
+                xPos = Settings.WIDTH / 2.0F + 10.0F * Settings.scale;
+                yPos = Settings.HEIGHT / 2.0F + 393.0F * Settings.scale;
+                offsetY = 0.0F;
+            } else {
+                font = FontHelper.cardTitleFont_small;
+                xPos = this.current_x;
+                yPos = this.current_y;
+                offsetY = 400.0F * Settings.scale * this.drawScale / 2.0F;
+            }
+            BitmapFont.BitmapFontData fontData = font.getData();
+            float originalScale = fontData.scaleX;
+            float scaleMulti = 0.8F;
+            int length = text.length();
+            if (length > 20) {
+                scaleMulti -= 0.02F * (length - 20);
+                if (scaleMulti < 0.5F)
+                    scaleMulti = 0.5F;
+            }
+            fontData.setScale(scaleMulti * (isCardPopup ? 1.0F : this.drawScale));
+            Color color = getTopTextColor();
+            color.a = this.transparency;
+            FontHelper.renderRotatedText(sb, font, text, xPos, yPos, 0.0F, offsetY, this.angle, true, color);
+            fontData.setScale(originalScale);
+        }
+    }
+
+    public String getTopText() {
+        return topText;
+    }
+
+    protected Color getTopTextColor() {
+        return topTextCol.cpy();
     }
 }
