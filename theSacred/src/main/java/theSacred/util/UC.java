@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import theSacred.TheSacred;
 import theSacred.actions.utility.DamageAllAction;
@@ -75,6 +76,13 @@ public class UC {
     }
 
     //Do common effect
+    public static void doDmg(AbstractCreature target, AbstractCard c) {
+        doDmg(target, c.damage, c.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE);
+    }
+    public static void doDmg(AbstractCreature target, AbstractCard c, AbstractGameAction.AttackEffect ae) {
+        doDmg(target, c.damage, c.damageTypeForTurn, ae);
+    }
+
     public static void doDmg(AbstractCreature target, int amount) {
         doDmg(target, amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE);
     }
@@ -210,6 +218,29 @@ public class UC {
         reducePower(p, 1);
     }
 
+    public static void removePower(AbstractPower p, boolean top) {
+        if(top) {
+            att(new RemoveSpecificPowerAction(p.owner, p.owner, p));
+        } else {
+            atb(new RemoveSpecificPowerAction(p.owner, p.owner, p));
+        }
+    }
+    public static void removePower(AbstractPower p) {
+        removePower(p, false);
+    }
+    public static void copyCardPosition(AbstractCard original, AbstractCard target) {
+        target.current_x = original.current_x;
+        target.current_y = original.current_y;
+        target.target_x = original.target_x;
+        target.target_y = original.target_y;
+        target.drawScale = original.drawScale;
+        target.targetDrawScale = original.targetDrawScale;
+        target.angle = original.angle;
+        target.targetAngle = original.targetAngle;
+        target.transparency = original.transparency;
+        target.targetTransparency = original.targetTransparency;
+    }
+
     //Getters
     public static AbstractGameAction.AttackEffect getSpeedyAttackEffect() {
         int effect = MathUtils.random(0, 4);
@@ -235,6 +266,25 @@ public class UC {
             default:
                 return Color.RED;
         }
+    }
+
+    public static boolean isAttacking(AbstractCreature m) {
+        if(m instanceof AbstractMonster) {
+            return ((AbstractMonster) m).intent == AbstractMonster.Intent.ATTACK ||
+                    ((AbstractMonster) m).intent == AbstractMonster.Intent.ATTACK_BUFF ||
+                    ((AbstractMonster) m).intent == AbstractMonster.Intent.ATTACK_DEBUFF ||
+                    ((AbstractMonster) m).intent == AbstractMonster.Intent.ATTACK_DEFEND;
+        }
+        return false;
+    }
+    public static <T> T getRandomItem(ArrayList<T> list) {
+        return getRandomItem(list, AbstractDungeon.cardRandomRng);
+    }
+    public static <T> T getRandomItem(ArrayList<T> list, Random rng) {
+        return list.isEmpty() ? null : list.get(rng.random(list.size() - 1));
+    }
+    public static DamageInfo getDmg(AbstractCreature target, AbstractCard c) {
+        return new DamageInfo(target, c.damage, c.damageTypeForTurn);
     }
 
     public static ArrayList<AbstractMonster> getAliveMonsters() {
