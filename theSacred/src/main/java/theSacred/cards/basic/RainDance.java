@@ -41,6 +41,11 @@ public class RainDance extends SacredCard implements OnTurnChangeCard, StartupCa
         if(!recursionPrevention) {
             cardsToPreview = new RainDance(true);
         }
+
+        //If generated mid combat, already be in correct mode
+        if(UC.isInCombat()) {
+            atBattleStartPreDraw();
+        }
     }
 
 
