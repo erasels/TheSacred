@@ -26,9 +26,8 @@ import theSacred.TheSacred;
 import theSacred.animation.BetterSpriterAnimation;
 import theSacred.animation.PlayerListener;
 import theSacred.cards.basic.Defend;
-import theSacred.cards.basic.RepulseBarrier;
+import theSacred.cards.basic.RainDance;
 import theSacred.cards.basic.Strike;
-import theSacred.cards.basic.TreasuredOrb;
 import theSacred.orbs.YinYangOrb;
 import theSacred.relics.special.PurificationRod;
 import theSacred.ui.SacredEnergyOrb;
@@ -176,8 +175,7 @@ public class SacredCharacter extends CustomPlayer {
         for(int i = 0; i<4;i++) {
             retVal.add(Defend.ID);
         }
-        retVal.add(TreasuredOrb.ID);
-        retVal.add(RepulseBarrier.ID);
+        retVal.add(RainDance.ID);
         return retVal;
     }
 

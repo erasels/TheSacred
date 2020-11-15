@@ -193,5 +193,16 @@
     "NAME": "Wheel of Misfortune",
     "DESCRIPTION": "The next _?_ times a debuff would be applied to you, it is instead applied to the sender. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "The next ? + !theSacred:IA! times a debuff would be applied to you, reflect it. NL Exhaust."
+  },
+  "theSacred:RainDance": {
+    "NAME": "Rain Dance",
+    "DESCRIPTION": "Increases its damage on turn end during odd, and deals damage on even turns.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage. NL thesacred:Reshuffle.",
+      "Unplayable. NL At the end of this turn, increase this card's damage by !M! this combat.",
+      "PREPARING DANCE SEQUENCE",
+      "Even Turn",
+      "Odd Turn"
+    ]
   }
 }
