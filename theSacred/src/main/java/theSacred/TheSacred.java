@@ -1,5 +1,6 @@
 package theSacred;
 
+import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
@@ -18,6 +19,7 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import theSacred.cards.abstracts.SacredCard;
@@ -29,7 +31,6 @@ import theSacred.mechanics.speed.AbstractSpeedTime;
 import theSacred.relics.special.PurificationRod;
 import theSacred.util.TextureLoader;
 
-import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -178,11 +179,11 @@ public class TheSacred implements
         BaseMod.addDynamicVariable(new ShowNumber());
         BaseMod.addDynamicVariable(new InvokeAddition());
 
-        try {
-            AutoLoader.addCards();
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+        new AutoAdd(getModID())
+                .packageFilter("theSacred.cards")
+                .notPackageFilter("theSacred.cards._deprecated")
+                .setDefaultSeen(true)
+                .cards();
     }
 
     @Override
@@ -209,7 +210,7 @@ public class TheSacred implements
             for (Keyword keyword : keywords) {
                 BaseMod.addKeyword(getModID().toLowerCase(), keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
                 if(keyword.PROPER_NAME.contains("Invoke")) {
-                    invokeKeywords[0] = keyword.NAMES[0];
+                    invokeKeywords[0] = StringUtils.capitalize(keyword.NAMES[0].substring(keyword.NAMES[0].indexOf(":") + 1));
                     invokeKeywords[1] = keyword.DESCRIPTION;
                 }
             }

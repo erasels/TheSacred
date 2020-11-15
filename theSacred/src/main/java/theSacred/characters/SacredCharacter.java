@@ -120,6 +120,7 @@ public class SacredCharacter extends CustomPlayer {
     @Override
     public void playDeathAnimation() {
         TheSacred.runAnimation("downed");
+        ((BetterSpriterAnimation)this.animation).startDying();
     }
 
     //Runs a specific animation
