@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theSacred.actions.common.BetterDiscardPileToTopOfDeckAction;
+import theSacred.actions.common.BetterDiscardPileToDeckAction;
 import theSacred.cards.abstracts.AlignedCard;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.util.CardInfo;
@@ -40,7 +40,7 @@ public class AscensionKick extends SacredCard implements AlignedCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         doDmg(m, damage, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
-        atb(new BetterDiscardPileToTopOfDeckAction(magicNumber));
+        atb(new BetterDiscardPileToDeckAction(magicNumber));
     }
 
     @Override
