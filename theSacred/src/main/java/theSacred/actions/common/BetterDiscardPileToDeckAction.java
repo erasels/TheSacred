@@ -9,18 +9,24 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import theSacred.TheSacred;
 
-public class BetterDiscardPileToTopOfDeckAction extends AbstractGameAction {
+public class BetterDiscardPileToDeckAction extends AbstractGameAction {
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(TheSacred.makeID("ChooseCardsFromPilesAction"));
 
     public static final String[] TEXT = uiStrings.TEXT;
 
     private AbstractPlayer p;
+    public Spot position;
 
-    public BetterDiscardPileToTopOfDeckAction(int amount) {
+    public BetterDiscardPileToDeckAction(int amount, Spot spot) {
         this.p = AbstractDungeon.player;
         setValues(null, p, amount);
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FASTER;
+        position = spot;
+    }
+
+    public BetterDiscardPileToDeckAction(int amount) {
+        this(amount, Spot.TOP);
     }
 
     public void update() {
@@ -34,9 +40,10 @@ public class BetterDiscardPileToTopOfDeckAction extends AbstractGameAction {
                 return;
             }
             if (p.discardPile.size() <= amount) {
-                for(AbstractCard c : p.discardPile.group) {
+                while (!p.discardPile.isEmpty()) {
+                    AbstractCard c = p.discardPile.getBottomCard();
                     p.discardPile.removeCard(c);
-                    p.discardPile.moveToDeck(c, false);
+                    putInSpot(c);
                 }
                 isDone = true;
             } else {
@@ -48,11 +55,30 @@ public class BetterDiscardPileToTopOfDeckAction extends AbstractGameAction {
         if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
             for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
                 p.discardPile.removeCard(c);
-                p.hand.moveToDeck(c, false);
+                putInSpot(c);
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
             AbstractDungeon.player.hand.refreshHandLayout();
         }
         tickDuration();
+    }
+
+    private void putInSpot(AbstractCard c) {
+        switch (position) {
+            case TOP:
+                p.hand.moveToDeck(c, false);
+            case BOTTOM:
+                p.hand.moveToBottomOfDeck(c);
+                break;
+            case RANDOM:
+            default:
+                p.hand.moveToDeck(c, true);
+        }
+    }
+
+    public enum Spot {
+        TOP,
+        BOTTOM,
+        RANDOM
     }
 }
