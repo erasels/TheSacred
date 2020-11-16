@@ -28,6 +28,7 @@ import theSacred.animation.PlayerListener;
 import theSacred.cards.basic.Defend;
 import theSacred.cards.basic.RainDance;
 import theSacred.cards.basic.Strike;
+import theSacred.cards.basic.Twirl;
 import theSacred.orbs.YinYangOrb;
 import theSacred.relics.special.PurificationRod;
 import theSacred.ui.SacredEnergyOrb;
@@ -169,13 +170,14 @@ public class SacredCharacter extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for(int i = 0; i<4;i++) {
+        for(int i = 0; i<3;i++) {
             retVal.add(Strike.ID);
         }
-        for(int i = 0; i<4;i++) {
+        for(int i = 0; i<5;i++) {
             retVal.add(Defend.ID);
         }
         retVal.add(RainDance.ID);
+        retVal.add(Twirl.ID);
         return retVal;
     }
 
