@@ -3,6 +3,7 @@ package theSacred.cards.abstracts;
 import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.UIStrings;
@@ -24,7 +25,7 @@ public abstract class FieldCard extends SacredCard {
 
     public FieldCard(CardColor color, String cardName, int cost, CardType cardType, CardTarget target, CardRarity rarity, boolean upgradesDescription) {
         super(color, cardName, cost, cardType, target, rarity, upgradesDescription);
-        setTopText(uiStrings.TEXT[0], Color.CORAL);
+        setTopText(uiStrings.TEXT[0], Color.SKY);
     }
 
     @Override
@@ -70,4 +71,6 @@ public abstract class FieldCard extends SacredCard {
     public void updateParticles() { }
 
     public void onLeaveField() { }
+
+    public float atDamageGive(float damage, DamageInfo.DamageType type) { return damage; }
 }
