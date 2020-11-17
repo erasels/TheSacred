@@ -67,5 +67,12 @@
       "reshuffle"
     ],
     "DESCRIPTION": "When played, shuffle this card into your draw pile."
+  },
+  {
+    "PROPER_NAME": "Field",
+    "NAMES": [
+      "field"
+    ],
+    "DESCRIPTION": "When played, these cards apply their effect until replaced by playing another #yField card. Only a single #yField card can be active at a time."
   }
 ]

@@ -200,6 +200,7 @@ public class TheSacred implements
     }
 
     public static String[] invokeKeywords = new String[2];
+    public static String[] fieldKeywords = new String[2];
     @Override
     public void receiveEditKeywords() {
         Gson gson = new Gson();
@@ -212,6 +213,9 @@ public class TheSacred implements
                 if(keyword.PROPER_NAME.contains("Invoke")) {
                     invokeKeywords[0] = StringUtils.capitalize(keyword.NAMES[0].substring(keyword.NAMES[0].indexOf(":") + 1));
                     invokeKeywords[1] = keyword.DESCRIPTION;
+                } else if(keyword.PROPER_NAME.contains("Field")) {
+                    fieldKeywords[0] = StringUtils.capitalize(keyword.NAMES[0].substring(keyword.NAMES[0].indexOf(":") + 1));
+                    fieldKeywords[1] = keyword.DESCRIPTION;
                 }
             }
         }
