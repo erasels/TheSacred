@@ -24,7 +24,7 @@ public abstract class FieldCard extends SacredCard {
 
     public FieldCard(CardColor color, String cardName, int cost, CardType cardType, CardTarget target, CardRarity rarity, boolean upgradesDescription) {
         super(color, cardName, cost, cardType, target, rarity, upgradesDescription);
-        setTopText(uiStrings.TEXT[0], Color.ROYAL);
+        setTopText(uiStrings.TEXT[0], Color.CORAL);
     }
 
     @Override
@@ -41,6 +41,7 @@ public abstract class FieldCard extends SacredCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+        //TODO: Add a fancy vfx
         //Adds itself to the field
         addToBot(new AbstractGameAction() {
             @Override
@@ -65,6 +66,8 @@ public abstract class FieldCard extends SacredCard {
     public boolean isHovered() {
         return hb.hovered;
     }
+
+    public void updateParticles() { }
 
     public void onLeaveField() { }
 }
