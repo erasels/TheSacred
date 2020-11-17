@@ -15,5 +15,10 @@
       "Choose ",
       " card(s)."
     ]
+  },
+  "theSacred:FieldCards": {
+    "TEXT": [
+      "Field Effect"
+    ]
   }
 }
