@@ -14,7 +14,7 @@ public class FieldSystem {
     public static CardGroup fields = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
 
     public static final float BASE_SCALE = 0.5f;
-    public static final float HOVER_SCALE = 0.66f;
+    public static final float HOVER_SCALE = 0.7f;
 
     public static void acceptCard(FieldCard c) {
         if(locked)
