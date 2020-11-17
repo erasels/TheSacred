@@ -11,14 +11,14 @@ import javassist.CtBehavior;
 import theSacred.util.CardInfo;
 import theSacred.util.UC;
 
-public abstract class SacredChangeCard extends SacredCard {
+public abstract class ChangeCard extends SacredCard {
     public boolean changed;
 
-    public SacredChangeCard(CardInfo cardInfo, boolean upgradesDescription) {
+    public ChangeCard(CardInfo cardInfo, boolean upgradesDescription) {
         super(cardInfo, upgradesDescription);
     }
 
-    public SacredChangeCard(CardColor color, String cardName, int cost, CardType cardType, CardTarget target, CardRarity rarity, boolean upgradesDescription) {
+    public ChangeCard(CardColor color, String cardName, int cost, CardType cardType, CardTarget target, CardRarity rarity, boolean upgradesDescription) {
         super(color, cardName, cost, cardType, target, rarity, upgradesDescription);
     }
 
@@ -26,8 +26,8 @@ public abstract class SacredChangeCard extends SacredCard {
     public AbstractCard makeStatEquivalentCopy() {
         AbstractCard c = super.makeStatEquivalentCopy();
 
-        if (c instanceof SacredChangeCard) {
-            ((SacredChangeCard) c).changed = this.changed;
+        if (c instanceof ChangeCard) {
+            ((ChangeCard) c).changed = this.changed;
         }
         return c;
     }
@@ -70,61 +70,61 @@ public abstract class SacredChangeCard extends SacredCard {
 
         this.name = cardsToPreview.name;
         this.rawDescription = cardsToPreview.rawDescription;
-        this.textureImg = ((SacredChangeCard) cardsToPreview).textureImg;
+        this.textureImg = ((ChangeCard) cardsToPreview).textureImg;
         loadCardImage(this.textureImg);
         this.type = cardsToPreview.type;
         this.target = cardsToPreview.target;
         this.baseDamage = cardsToPreview.baseDamage;
         this.baseBlock = cardsToPreview.baseBlock;
         this.baseMagicNumber = cardsToPreview.baseMagicNumber;
-        this.baseMagicNumber2 = ((SacredChangeCard) cardsToPreview).baseMagicNumber2;
-        this.baseShowNumber = ((SacredChangeCard) cardsToPreview).baseShowNumber;
-        this.baseCost = ((SacredChangeCard) cardsToPreview).baseCost;
-        this.upgradesDescription = ((SacredChangeCard) cardsToPreview).upgradesDescription;
-        this.upgradeCost = ((SacredChangeCard) cardsToPreview).upgradeCost;
-        this.costUpgrade = ((SacredChangeCard) cardsToPreview).costUpgrade;
-        this.upgradeDamage = ((SacredChangeCard) cardsToPreview).upgradeDamage;
-        this.upgradeBlock = ((SacredChangeCard) cardsToPreview).upgradeBlock;
-        this.upgradeMagic = ((SacredChangeCard) cardsToPreview).upgradeMagic;
-        this.damageUpgrade = ((SacredChangeCard) cardsToPreview).damageUpgrade;
-        this.blockUpgrade = ((SacredChangeCard) cardsToPreview).blockUpgrade;
-        this.magicUpgrade = ((SacredChangeCard) cardsToPreview).magicUpgrade;
-        this.baseExhaust = ((SacredChangeCard) cardsToPreview).baseExhaust;
-        this.upgExhaust = ((SacredChangeCard) cardsToPreview).upgExhaust;
-        this.baseInnate = ((SacredChangeCard) cardsToPreview).baseInnate;
-        this.upgInnate = ((SacredChangeCard) cardsToPreview).upgInnate;
-        this.upgradeMultiDmg = ((SacredChangeCard) cardsToPreview).upgradeMultiDmg;
-        this.upgradeRetain = ((SacredChangeCard) cardsToPreview).upgradeRetain;
-        this.upgradeEthereal = ((SacredChangeCard) cardsToPreview).upgradeEthereal;
+        this.baseMagicNumber2 = ((ChangeCard) cardsToPreview).baseMagicNumber2;
+        this.baseShowNumber = ((ChangeCard) cardsToPreview).baseShowNumber;
+        this.baseCost = ((ChangeCard) cardsToPreview).baseCost;
+        this.upgradesDescription = ((ChangeCard) cardsToPreview).upgradesDescription;
+        this.upgradeCost = ((ChangeCard) cardsToPreview).upgradeCost;
+        this.costUpgrade = ((ChangeCard) cardsToPreview).costUpgrade;
+        this.upgradeDamage = ((ChangeCard) cardsToPreview).upgradeDamage;
+        this.upgradeBlock = ((ChangeCard) cardsToPreview).upgradeBlock;
+        this.upgradeMagic = ((ChangeCard) cardsToPreview).upgradeMagic;
+        this.damageUpgrade = ((ChangeCard) cardsToPreview).damageUpgrade;
+        this.blockUpgrade = ((ChangeCard) cardsToPreview).blockUpgrade;
+        this.magicUpgrade = ((ChangeCard) cardsToPreview).magicUpgrade;
+        this.baseExhaust = ((ChangeCard) cardsToPreview).baseExhaust;
+        this.upgExhaust = ((ChangeCard) cardsToPreview).upgExhaust;
+        this.baseInnate = ((ChangeCard) cardsToPreview).baseInnate;
+        this.upgInnate = ((ChangeCard) cardsToPreview).upgInnate;
+        this.upgradeMultiDmg = ((ChangeCard) cardsToPreview).upgradeMultiDmg;
+        this.upgradeRetain = ((ChangeCard) cardsToPreview).upgradeRetain;
+        this.upgradeEthereal = ((ChangeCard) cardsToPreview).upgradeEthereal;
 
         cardsToPreview.name = b_name;
         cardsToPreview.rawDescription = b_rawDesc;
-        ((SacredChangeCard) cardsToPreview).textureImg = b_img;
-        ((SacredChangeCard) cardsToPreview).loadCardImage(((SacredChangeCard) cardsToPreview).textureImg);
+        ((ChangeCard) cardsToPreview).textureImg = b_img;
+        ((ChangeCard) cardsToPreview).loadCardImage(((ChangeCard) cardsToPreview).textureImg);
         cardsToPreview.type = b_type;
         cardsToPreview.target = b_target;
         cardsToPreview.baseDamage = b_damage;
         cardsToPreview.baseBlock = b_block;
         cardsToPreview.baseMagicNumber = b_magic;
-        ((SacredChangeCard) cardsToPreview).baseMagicNumber2 = b_m2;
-        ((SacredChangeCard) cardsToPreview).baseShowNumber = b_sn;
-        ((SacredChangeCard) cardsToPreview).baseCost = b_cost;
-        ((SacredChangeCard) cardsToPreview).upgradesDescription = b_upgDesc;
-        ((SacredChangeCard) cardsToPreview).upgradeCost = b_upgCost;
-        ((SacredChangeCard) cardsToPreview).costUpgrade = b_costUprgade;
-        ((SacredChangeCard) cardsToPreview).upgradeDamage = b_udamage;
-        ((SacredChangeCard) cardsToPreview).upgradeBlock = b_ublock;
-        ((SacredChangeCard) cardsToPreview).upgradeMagic = b_umagic;
-        ((SacredChangeCard) cardsToPreview).damageUpgrade = b_upgDamage;
-        ((SacredChangeCard) cardsToPreview).blockUpgrade = b_upgBlock;
-        ((SacredChangeCard) cardsToPreview).magicUpgrade = b_upgMagic;
-        ((SacredChangeCard) cardsToPreview).baseExhaust = b_bex;
-        ((SacredChangeCard) cardsToPreview).upgExhaust = b_upgex;
-        ((SacredChangeCard) cardsToPreview).baseInnate = b_bin;
-        ((SacredChangeCard) cardsToPreview).upgInnate = b_upgin;
-        ((SacredChangeCard) cardsToPreview).upgradeMultiDmg = b_upgmult;
-        ((SacredChangeCard) cardsToPreview).upgradeRetain = b_upgret;
-        ((SacredChangeCard) cardsToPreview).upgradeEthereal = b_upgeth;
+        ((ChangeCard) cardsToPreview).baseMagicNumber2 = b_m2;
+        ((ChangeCard) cardsToPreview).baseShowNumber = b_sn;
+        ((ChangeCard) cardsToPreview).baseCost = b_cost;
+        ((ChangeCard) cardsToPreview).upgradesDescription = b_upgDesc;
+        ((ChangeCard) cardsToPreview).upgradeCost = b_upgCost;
+        ((ChangeCard) cardsToPreview).costUpgrade = b_costUprgade;
+        ((ChangeCard) cardsToPreview).upgradeDamage = b_udamage;
+        ((ChangeCard) cardsToPreview).upgradeBlock = b_ublock;
+        ((ChangeCard) cardsToPreview).upgradeMagic = b_umagic;
+        ((ChangeCard) cardsToPreview).damageUpgrade = b_upgDamage;
+        ((ChangeCard) cardsToPreview).blockUpgrade = b_upgBlock;
+        ((ChangeCard) cardsToPreview).magicUpgrade = b_upgMagic;
+        ((ChangeCard) cardsToPreview).baseExhaust = b_bex;
+        ((ChangeCard) cardsToPreview).upgExhaust = b_upgex;
+        ((ChangeCard) cardsToPreview).baseInnate = b_bin;
+        ((ChangeCard) cardsToPreview).upgInnate = b_upgin;
+        ((ChangeCard) cardsToPreview).upgradeMultiDmg = b_upgmult;
+        ((ChangeCard) cardsToPreview).upgradeRetain = b_upgret;
+        ((ChangeCard) cardsToPreview).upgradeEthereal = b_upgeth;
     }
 
     @Override
@@ -154,7 +154,7 @@ public abstract class SacredChangeCard extends SacredCard {
         @SpireInsertPatch(locator = Locator.class)
         public static void patch(AbstractPlayer __instance, SpriteBatch sb) {
             AbstractCard c = __instance.hoveredCard;
-            if ((__instance.isDraggingCard || __instance.inSingleTargetMode) && c instanceof SacredChangeCard) {
+            if ((__instance.isDraggingCard || __instance.inSingleTargetMode) && c instanceof ChangeCard) {
                 c.renderCardPreview(sb);
             }
         }
@@ -172,11 +172,11 @@ public abstract class SacredChangeCard extends SacredCard {
     public static class Switcher {
         @SpireInsertPatch(locator = Locator.class)
         public static void patch(UseCardAction __instance, AbstractCard ___targetCard) {
-            if (___targetCard instanceof SacredChangeCard) {
+            if (___targetCard instanceof ChangeCard) {
                 UC.atb(new AbstractGameAction() {
                     @Override
                     public void update() {
-                        ((SacredChangeCard) ___targetCard).updateChange();
+                        ((ChangeCard) ___targetCard).updateChange();
                         ___targetCard.superFlash();
                         isDone = true;
                     }
