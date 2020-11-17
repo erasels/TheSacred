@@ -209,5 +209,9 @@
     "NAME": "Twirl",
     "DESCRIPTION": "Deal !D! damage. NL Put !M! card from your discard pile on the bottom of your draw pile.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Put !M! cards from your discard pile on the bottom of your draw pile."
+  },
+  "theSacred:BoostField": {
+    "NAME": "Boost Field",
+    "DESCRIPTION": "Increase damage dealt by attacks by !M!."
   }
 }
