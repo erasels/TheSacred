@@ -52,7 +52,7 @@ public class RainDance extends SacredCard implements OnTurnChangeCard, StartupCa
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(isEvenTurn()) {
-            UC.doAnim(RunAnimationEffect.ANIS.RODSLASH);
+            UC.doAnim(RunAnimationEffect.ANIS.RODWHACK);
             UC.doDmg(m, this, AbstractGameAction.AttackEffect.SLASH_HEAVY);
         }
     }
