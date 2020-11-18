@@ -27,7 +27,7 @@ public class Provoke extends SacredCard {
     private static final int MAGIC = 2;
 
     public Provoke() {
-        super(cardInfo, false);
+        super(cardInfo, true);
         p(); //Stupid intellij stuff ,
 
         setDamage(DAMAGE);
@@ -44,9 +44,9 @@ public class Provoke extends SacredCard {
 
     @Override
     public void upgrade() {
-        super.upgrade();
         if (!upgraded) {
             cardsToPreview.upgrade();
         }
+        super.upgrade();
     }
 }
