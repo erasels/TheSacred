@@ -1,7 +1,6 @@
 package theSacred.cards.abstracts;
 
 import basemod.helpers.TooltipInfo;
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,6 +13,7 @@ import theSacred.mechanics.field.FieldSystem;
 import theSacred.util.CardInfo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class FieldCard extends SacredCard {
@@ -25,7 +25,7 @@ public abstract class FieldCard extends SacredCard {
 
     public FieldCard(CardColor color, String cardName, int cost, CardType cardType, CardTarget target, CardRarity rarity, boolean upgradesDescription) {
         super(color, cardName, cost, cardType, target, rarity, upgradesDescription);
-        setTopText(uiStrings.TEXT[0], Color.SKY);
+        //setTopText(uiStrings.TEXT[0], Color.SKY);
     }
 
     @Override
@@ -38,6 +38,11 @@ public abstract class FieldCard extends SacredCard {
             tps.add(0, new TooltipInfo(TheSacred.fieldKeywords[0], TheSacred.fieldKeywords[1]));
         }
         return tps;
+    }
+
+    @Override
+    public List<String> getCardDescriptors() {
+        return Collections.singletonList(uiStrings.TEXT[0]);
     }
 
     @Override
