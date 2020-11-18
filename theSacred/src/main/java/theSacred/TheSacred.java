@@ -257,6 +257,10 @@ public class TheSacred implements
         return getModID() + "Resources/images/ui/" + resourcePath;
     }
 
+    public static String makeVfxPath(String resourcePath) {
+        return getModID() + "Resources/images/vfx/" + resourcePath;
+    }
+
     public static String makeCharPath(String resourcePath) {
         return getModID() + "Resources/images/char/" + resourcePath;
     }
