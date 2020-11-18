@@ -5,6 +5,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EnergizedPower;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.util.CardInfo;
+import theSacred.util.UC;
+import theSacred.vfx.VfxBuilderRepository;
+import theSacred.vfx.general.RunAnimationEffect;
 
 import static theSacred.TheSacred.makeID;
 import static theSacred.util.UC.*;
@@ -33,7 +36,11 @@ public class BlightBuster extends SacredCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //TODO: Bunch of ofuda shotgun
+        UC.doAnim(RunAnimationEffect.ANIS.GRAB);
+        for (float angle = 85f ; angle < 95f; angle += 5f) {
+            UC.doVfx(VfxBuilderRepository.ofudaShot(p.hb, angle-90f, angle));
+        }
+
         doDmg(m, damage);
         doPow(p, new EnergizedPower(p, magicNumber));
     }
