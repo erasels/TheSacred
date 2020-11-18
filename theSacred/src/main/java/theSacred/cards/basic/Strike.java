@@ -51,7 +51,7 @@ public class Strike extends SacredCard {
             Runnable myRunnable = () -> {
                 System.out.println("Ran");
                 UC.doVfx(new CleaveEffect());
-                UC.doAllDmg(damage, AbstractGameAction.AttackEffect.NONE, false);
+                //UC.doAllDmg(damage, AbstractGameAction.AttackEffect.NONE, false);
             };
             UC.atb(new BeginSpeedModeAction(new SpeedClickButtonTime(10.0f, myRunnable, new BasicButtonGenerator(1f, true))));
             //UC.atb(new BeginSpeedModeAction(new SpeedHoverZoneTime(10.0f, myRunnable, true, 10)));

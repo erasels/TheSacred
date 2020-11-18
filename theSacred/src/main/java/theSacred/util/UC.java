@@ -124,8 +124,8 @@ public class UC {
         }
     }
 
-    public static void doAllDmg(int amount, AbstractGameAction.AttackEffect ae, boolean top) {
-        doAllDmg(amount, ae, DamageInfo.DamageType.NORMAL, top);
+    public static void doAllDmg(AbstractCard c, AbstractGameAction.AttackEffect ae, boolean top) {
+        doAllDmg(c.damage, ae, c.damageTypeForTurn, top);
     }
 
     public static void doDef(int amount) {
