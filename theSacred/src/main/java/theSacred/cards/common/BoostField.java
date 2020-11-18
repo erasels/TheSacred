@@ -1,6 +1,7 @@
 package theSacred.cards.common;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -49,5 +50,10 @@ public class BoostField extends FieldCard {
                 AbstractDungeon.effectsQueue.add(new BetterWrathParticleEffect(hb));
             }
         }
+    }
+
+    @Override
+    public Color getBarrierColor() {
+        return Color.ORANGE;
     }
 }

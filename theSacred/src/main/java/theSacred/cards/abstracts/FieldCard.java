@@ -1,6 +1,7 @@
 package theSacred.cards.abstracts;
 
 import basemod.helpers.TooltipInfo;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,6 +12,9 @@ import theSacred.TheSacred;
 import theSacred.characters.SacredCharacter;
 import theSacred.mechanics.field.FieldSystem;
 import theSacred.util.CardInfo;
+import theSacred.util.UC;
+import theSacred.vfx.combat.BarrierVfx;
+import theSacred.vfx.general.RunAnimationEffect;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -47,7 +51,8 @@ public abstract class FieldCard extends SacredCard {
 
     @Override
     public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
-        //TODO: Add a fancy vfx
+        UC.doAnim(RunAnimationEffect.ANIS.SPELLA);
+        UC.doVfx(new BarrierVfx(abstractPlayer.hb, getBarrierColor()));
         //Adds itself to the field
         addToBot(new AbstractGameAction() {
             @Override
@@ -56,6 +61,10 @@ public abstract class FieldCard extends SacredCard {
                 isDone = true;
             }
         });
+    }
+
+    public Color getBarrierColor() {
+        return Color.WHITE;
     }
 
     @Override
