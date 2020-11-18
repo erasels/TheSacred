@@ -39,7 +39,7 @@ public class Provoke extends SacredCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         UC.doAnim(RunAnimationEffect.ANIS.RODSTAB);
         UC.doDmg(m, this, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
-        UC.atb(new DoActionIfCreatureCheckAction(m, UC::isAttacking, new MakeTempCardInDiscardAction(cardsToPreview, 2)));
+        UC.atb(new DoActionIfCreatureCheckAction(m, UC::isAttacking, new MakeTempCardInDiscardAction(cardsToPreview, magicNumber)));
     }
 
     @Override
