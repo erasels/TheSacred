@@ -213,5 +213,9 @@
   "theSacred:BoostField": {
     "NAME": "Boost Field",
     "DESCRIPTION": "Increase damage dealt by attacks by !M!."
+  },
+  "theSacred:Punishment": {
+    "NAME": "Punishment",
+    "DESCRIPTION": "Grave. NL Deal !D! damage to ALL enemies. NL For each enemy killed, gain !M! [E]."
   }
 }
