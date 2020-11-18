@@ -217,5 +217,10 @@
   "theSacred:Punishment": {
     "NAME": "Punishment",
     "DESCRIPTION": "Grave. NL Deal !D! damage to ALL enemies. NL For each enemy killed, gain !M! [E]."
+  },
+  "theSacred:Provoke": {
+    "NAME": "Provoke",
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy intends to attack, add !M! *Insights into your discard pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If the enemy intends to attack, add !M! *Insights+ into your discard pile."
   }
 }
