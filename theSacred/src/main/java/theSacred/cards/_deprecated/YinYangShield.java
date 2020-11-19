@@ -1,6 +1,5 @@
-package theSacred.cards.common;
+package theSacred.cards._deprecated;
 
-import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -11,24 +10,23 @@ import theSacred.util.CardInfo;
 import static theSacred.TheSacred.makeID;
 import static theSacred.util.UC.*;
 
-public class SacredShot extends SacredCard implements AlignedCard {
+public class YinYangShield extends SacredCard implements AlignedCard {
     private final static CardInfo cardInfo = new CardInfo(
-            "SacredShot",
+            "YinYangShield",
             1,
-            CardType.ATTACK,
-            CardTarget.ENEMY);
+            CardType.SKILL,
+            CardTarget.SELF);
 
     public final static String ID = makeID(cardInfo.cardName);
 
-    private static final int DAMAGE = 9;
-    private static final int EXH_AMT = 2;
+    private static final int BLOCK = 9;
 
-    public SacredShot() {
+    public YinYangShield() {
         super(cardInfo, true);
-        p(); //Stupid intellij stuff , 
 
-        setDamage(DAMAGE);
-        setExhaust(true, false);
+        setBlock(BLOCK);
+        setRetain(true);
+        setExhaust(true);
     }
 
     @Override
@@ -37,16 +35,7 @@ public class SacredShot extends SacredCard implements AlignedCard {
     }
 
     @Override
-    public void upgrade() {
-        if(!upgraded) {
-            ExhaustiveVariable.setBaseValue(this, EXH_AMT);
-        }
-        super.upgrade();
-    }
-
-    @Override
     public void alignEffect(AbstractCreature target) {
-        //TODO: Add Orb smack Vfx
-        doDmg(target, damage);
+        doDef(block);
     }
 }

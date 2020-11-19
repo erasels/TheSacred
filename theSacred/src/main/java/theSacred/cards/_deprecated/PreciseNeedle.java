@@ -1,4 +1,4 @@
-package theSacred.cards.common;
+package theSacred.cards._deprecated;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
