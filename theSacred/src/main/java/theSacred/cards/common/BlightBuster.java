@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EnergizedPower;
 import theSacred.cards.abstracts.SacredCard;
+import theSacred.util.AlchHelper;
 import theSacred.util.CardInfo;
 import theSacred.util.UC;
 import theSacred.vfx.VfxBuilderRepository;
@@ -37,8 +38,8 @@ public class BlightBuster extends SacredCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         UC.doAnim(RunAnimationEffect.ANIS.GRAB);
-        for (float angle = 85f ; angle < 95f; angle += 5f) {
-            UC.doVfx(VfxBuilderRepository.ofudaShot(p.hb, angle-90f, angle));
+        for (float angle = 85f ; angle < 95.5f; angle += 5f) {
+            UC.doVfx(VfxBuilderRepository.ofudaShot(p.hb, AlchHelper.wrapAroundAngle(angle-90f), angle));
         }
 
         doDmg(m, damage);

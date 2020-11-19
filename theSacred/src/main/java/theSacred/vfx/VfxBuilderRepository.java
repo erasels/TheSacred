@@ -6,21 +6,21 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
-import theSacred.TheSacred;
-import theSacred.util.TextureLoader;
+import theSacred.util.UC;
 import theSacred.util.VfxBuilder;
 
 public class VfxBuilderRepository {
     public static AbstractGameEffect ofudaShot(Hitbox hb, float angle, float ofudaAngle) {
-        return new VfxBuilder(TextureLoader.getTexture(TheSacred.makeVfxPath("ofuda.png")), hb.cX + hb.width, hb.cY, 0.8f)
+        return new VfxBuilder(UC.getTexture("vfx", "ofuda"), hb.cX + hb.width, hb.cY, 0.8f)
                 .setScale(0.5f)
                 .setAngle(ofudaAngle)
-                .velocity(angle, 4000f)
+                .playSoundAt(0.1f, "MONSTER_BOOK_STAB_1")
+                .velocity(angle, 2500f)
                 .build();
     }
 
     public static AbstractGameEffect curvedDanmakuShot(Hitbox originHb, Hitbox targetHb, Color col) {
-        return new VfxBuilder(TextureLoader.getTexture(TheSacred.makeVfxPath("danmaku.png")), originHb.cX + originHb.width, originHb.cY, 0.4f)
+        return new VfxBuilder(UC.getTexture("vfx", "danmaku"), originHb.cX + originHb.width, originHb.cY, 0.4f)
                 .setScale(0.66f)
                 .setColor(col)
                 .useAdditiveBlending()
