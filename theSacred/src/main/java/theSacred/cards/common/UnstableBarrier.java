@@ -18,17 +18,16 @@ public class UnstableBarrier extends SacredCard {
 
     public final static String ID = makeID(cardInfo.cardName);
 
-    private static final int BLOCK = 14;
-    private static final int UPG_BLOCK = 2;
+    private static final int BLOCK = 10;
+    private static final int UPG_BLOCK = 4;
 
     private static final int MAGIC = 15;
-    private static final int UPG_MAGIC = 3;
 
     public UnstableBarrier() {
         super(cardInfo, false);
 
         setBlock(BLOCK, UPG_BLOCK);
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(MAGIC);
     }
 
     @Override
