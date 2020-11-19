@@ -222,5 +222,9 @@
     "NAME": "Provoke",
     "DESCRIPTION": "Deal !D! damage. NL If the enemy intends to attack, add !M! *Insights into your discard pile.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If the enemy intends to attack, add !M! *Insights+ into your discard pile."
+  },
+  "theSacred:LashOut": {
+    "NAME": "Lash Out",
+    "DESCRIPTION": "Discard your hand. NL Deal !D! damage to a random enemy for each card discarded."
   }
 }
