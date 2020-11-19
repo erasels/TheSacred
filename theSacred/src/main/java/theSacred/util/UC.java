@@ -3,8 +3,10 @@ package theSacred.util;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -244,32 +246,6 @@ public class UC {
     }
 
     //Getters
-    public static AbstractGameAction.AttackEffect getSpeedyAttackEffect() {
-        int effect = MathUtils.random(0, 4);
-        switch (effect) {
-            case 0:
-                return AbstractGameAction.AttackEffect.SLASH_HORIZONTAL;
-            case 1:
-                return AbstractGameAction.AttackEffect.SLASH_VERTICAL;
-            case 2:
-                return AbstractGameAction.AttackEffect.BLUNT_LIGHT;
-            default:
-                return AbstractGameAction.AttackEffect.SLASH_DIAGONAL;
-        }
-    }
-
-    public static Color getRandomFireColor() {
-        int i = MathUtils.random(3);
-        switch (i) {
-            case 0:
-                return Color.ORANGE;
-            case 1:
-                return Color.YELLOW;
-            default:
-                return Color.RED;
-        }
-    }
-
     public static boolean isAttacking(AbstractCreature m) {
         if(m instanceof AbstractMonster) {
             return ((AbstractMonster) m).intent == AbstractMonster.Intent.ATTACK ||
@@ -305,8 +281,55 @@ public class UC {
         return 0;
     }
 
+    public static Texture getTexture(String folder, String name) {
+        return TextureLoader.getTexture(TheSacred.makeImagePath(folder + "/" + name + ".png"));
+    }
+
+    public static TextureAtlas.AtlasRegion getTextureAtlas(String folder, String name) {
+        return TextureLoader.getTextureAsAtlasRegion(TheSacred.makeImagePath(folder + "/" + name + ".png"));
+    }
+
+    public static AbstractGameAction.AttackEffect getSpeedyAttackEffect() {
+        int effect = MathUtils.random(0, 4);
+        switch (effect) {
+            case 0:
+                return AbstractGameAction.AttackEffect.SLASH_HORIZONTAL;
+            case 1:
+                return AbstractGameAction.AttackEffect.SLASH_VERTICAL;
+            case 2:
+                return AbstractGameAction.AttackEffect.BLUNT_LIGHT;
+            default:
+                return AbstractGameAction.AttackEffect.SLASH_DIAGONAL;
+        }
+    }
+
+    public static Color getRandomFireColor() {
+        int i = MathUtils.random(3);
+        switch (i) {
+            case 0:
+                return Color.ORANGE;
+            case 1:
+                return Color.YELLOW;
+            default:
+                return Color.RED;
+        }
+    }
+
+    public static <T> T getModifiedObj(T t, String fieldKey, Object newValue, boolean isProtected) {
+        if (!isProtected) {
+            ReflectionHacks.setPrivate(t, t.getClass(), fieldKey, newValue);
+        } else {
+            ReflectionHacks.setPrivateInherited(t, t.getClass(), fieldKey, newValue);
+        }
+        return t;
+    }
+
     public static int getTurnBurstAmount() {
         return CardFieldMechanicsPatches.PlayerFields.turnBurstAmount.get(p());
+    }
+
+    public static SacredCard getRandomNeedle() {
+        return TheSacred.needles.get(AbstractDungeon.cardRandomRng.random(TheSacred.needles.size() - 1));
     }
 
     public static String get2DecString(float num) {
@@ -322,19 +345,6 @@ public class UC {
 
     public static float gt() {
         return Gdx.graphics.getRawDeltaTime();
-    }
-
-    public static <T> T getModifiedObj(T t, String fieldKey, Object newValue, boolean isProtected) {
-        if (!isProtected) {
-            ReflectionHacks.setPrivate(t, t.getClass(), fieldKey, newValue);
-        } else {
-            ReflectionHacks.setPrivateInherited(t, t.getClass(), fieldKey, newValue);
-        }
-        return t;
-    }
-
-    public static SacredCard getRandomNeedle() {
-        return TheSacred.needles.get(AbstractDungeon.cardRandomRng.random(TheSacred.needles.size() - 1));
     }
 
     //Setters
