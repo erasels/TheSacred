@@ -88,4 +88,8 @@ public class AlchHelper {
         bd = bd.setScale(decimalPlace, BigDecimal.ROUND_HALF_UP);
         return bd.floatValue();
     }
+
+    public static float wrapAroundAngle(float input) {
+        return input > 0?input:360f+input;
+    }
 }
