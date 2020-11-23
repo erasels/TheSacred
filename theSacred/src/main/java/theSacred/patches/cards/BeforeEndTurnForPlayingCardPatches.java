@@ -4,18 +4,15 @@ import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import javassist.CannotCompileException;
 import javassist.CtBehavior;
-import javassist.expr.ExprEditor;
-import javassist.expr.MethodCall;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.util.UC;
 
 public class BeforeEndTurnForPlayingCardPatches {
-    @SpirePatch(clz = AbstractCard.class, method = SpirePatch.CLASS)
+    /*@SpirePatch(clz = AbstractCard.class, method = SpirePatch.CLASS)
     public static class InterceptEoT {
         public static SpireField<Boolean> intercept = new SpireField<>(() -> false);
-    }
+    }*/
 
     @SpirePatch(clz = GameActionManager.class, method = "callEndOfTurnActions")
     public static class HookAndSinker {
@@ -37,7 +34,7 @@ public class BeforeEndTurnForPlayingCardPatches {
         }
 
 
-        @SpireInstrumentPatch
+        /*@SpireInstrumentPatch
         public static ExprEditor interceptor() {
             return new ExprEditor() {
                 @Override
@@ -49,10 +46,10 @@ public class BeforeEndTurnForPlayingCardPatches {
                     }
                 }
             };
-        }
+        }*/
     }
 
-    public static boolean shouldIntercept(AbstractCard c) {
+    /*public static boolean shouldIntercept(AbstractCard c) {
         return InterceptEoT.intercept.get(c);
-    }
+    }*/
 }

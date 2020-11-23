@@ -4,10 +4,9 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.PoisonPower;
-import theSacred.actions.unique.RottenFoodAction;
+import theSacred.actions.common.TransformCardInHandAcion;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.cards.special.Rot;
-import theSacred.patches.cards.BeforeEndTurnForPlayingCardPatches;
 import theSacred.util.CardInfo;
 import theSacred.util.UC;
 
@@ -49,13 +48,15 @@ public class RottenFood extends SacredCard {
     public void triggerOnBeforeEndOfTurnForPlayingCard() {
         int pos = UC.hand().group.indexOf(this);
         if(pos > -1) {
+            TransformCardInHandAcion act;
             if(pos > 0) {
-                BeforeEndTurnForPlayingCardPatches.InterceptEoT.intercept.set(UC.hand().group.get(pos -1), true);
+                act = new TransformCardInHandAcion(UC.hand().group.get(pos -1), cardsToPreview.makeStatEquivalentCopy());
+                act.update();
             }
             if(pos < UC.hand().size() - 1) {
-                BeforeEndTurnForPlayingCardPatches.InterceptEoT.intercept.set(UC.hand().group.get(pos +1), true);
+                act = new TransformCardInHandAcion(UC.hand().group.get(pos +1), cardsToPreview.makeStatEquivalentCopy());
+                act.update();
             }
         }
-        UC.atb(new RottenFoodAction(this));
     }
 }
