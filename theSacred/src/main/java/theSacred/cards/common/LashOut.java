@@ -27,7 +27,7 @@ public class LashOut extends SacredCard {
 
     public final static String ID = makeID(cardInfo.cardName);
 
-    private static final int DAMAGE = 4;
+    private static final int DAMAGE = 3;
 
     public LashOut() {
         super(cardInfo, false);
