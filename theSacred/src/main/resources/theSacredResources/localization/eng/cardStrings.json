@@ -199,7 +199,7 @@
     "DESCRIPTION": "Increases its damage by !M! on turn end during odd, and deals !D! damage on even turns.",
     "EXTENDED_DESCRIPTION": [
       "Deal !D! damage. NL thesacred:Reshuffle.",
-      "Unplayable. NL At the end of this turn, increase this card's damage by !M! this combat.",
+      "Unplayable. NL thesacred:Patience: increase this card's damage by !M! this combat.",
       "PREPARING DANCE SEQUENCE",
       "Even Turn",
       "Odd Turn"

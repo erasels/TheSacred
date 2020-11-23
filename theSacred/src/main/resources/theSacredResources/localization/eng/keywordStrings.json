@@ -74,5 +74,13 @@
       "field"
     ],
     "DESCRIPTION": "When played, these cards apply their effect until replaced by playing another #yField card. Only a single #yField card can be active at a time."
+  },
+  {
+    "PROPER_NAME": "Patience",
+    "NAMES": [
+      "patience",
+      "patient"
+    ],
+    "DESCRIPTION": "If this card is in your hand at the end of turn, this effect triggers."
   }
 ]
