@@ -3,7 +3,7 @@ package theSacred.cards._deprecated;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EnergizedPower;
-import theSacred.actions.common.TransformRandomCardsInHandAction;
+import theSacred.actions.unique.TransformRandomCardsInHandAction;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.util.CardInfo;
 

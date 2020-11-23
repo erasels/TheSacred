@@ -1,4 +1,4 @@
-package theSacred.actions.common;
+package theSacred.actions.unique;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
