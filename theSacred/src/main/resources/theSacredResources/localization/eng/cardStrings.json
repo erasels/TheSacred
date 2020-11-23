@@ -226,5 +226,13 @@
   "theSacred:LashOut": {
     "NAME": "Lash Out",
     "DESCRIPTION": "Discard your hand. NL Deal !D! damage to a random enemy for each card discarded."
+  },
+  "theSacred:RottenFood": {
+    "NAME": "Rotten Food",
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Poison. NL thesacred:Patience: NL [#FFF6E2]Transform[] adjacent cards into *Rot."
+  },
+  "theSacred:Rot": {
+    "NAME": "Rot",
+    "DESCRIPTION": "Apply !M! Poison. NL Draw !theSacred:M2! card."
   }
 }

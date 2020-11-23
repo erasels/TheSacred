@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -41,6 +42,7 @@ public class UC {
     public static AbstractPlayer p() {
         return AbstractDungeon.player;
     }
+    public static CardGroup hand() { return AbstractDungeon.player.hand;}
 
     private static DecimalFormat twoDecFormat = new DecimalFormat("#0.00");
     public static GlyphLayout layout = new GlyphLayout();

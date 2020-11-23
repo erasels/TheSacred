@@ -276,6 +276,8 @@ public abstract class SacredCard extends CustomCard {
         return null;
     }
 
+    public void triggerOnBeforeEndOfTurnForPlayingCard() { }
+
     @Override
     public AbstractCard makeStatEquivalentCopy() {
         AbstractCard card = super.makeStatEquivalentCopy();
