@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import theSacred.actions.common.TransformCardInHandAcion;
 import theSacred.util.UC;
 
+@Deprecated
 public class RottenFoodAction extends AbstractGameAction {
     protected AbstractCard origin;
 
