@@ -23,6 +23,12 @@ public class TransformCardInHandAcion extends AbstractGameAction {
         isRandom = true;
     }
 
+    public TransformCardInHandAcion(int position, AbstractCard newCard) {
+        this.target = UC.p();
+        transformCard = newCard;
+        this.position = position;
+    }
+
     public TransformCardInHandAcion(int position) {
         this.target = UC.p();
         this.position = position;

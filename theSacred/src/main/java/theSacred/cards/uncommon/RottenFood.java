@@ -50,11 +50,11 @@ public class RottenFood extends SacredCard {
         if(pos > -1) {
             TransformCardInHandAcion act;
             if(pos > 0) {
-                act = new TransformCardInHandAcion(UC.hand().group.get(pos -1), cardsToPreview.makeStatEquivalentCopy());
+                act = new TransformCardInHandAcion(pos -1, cardsToPreview.makeStatEquivalentCopy());
                 act.update();
             }
             if(pos < UC.hand().size() - 1) {
-                act = new TransformCardInHandAcion(UC.hand().group.get(pos +1), cardsToPreview.makeStatEquivalentCopy());
+                act = new TransformCardInHandAcion(pos +1, cardsToPreview.makeStatEquivalentCopy());
                 act.update();
             }
         }
