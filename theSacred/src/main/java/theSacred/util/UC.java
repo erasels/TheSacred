@@ -35,6 +35,7 @@ import theSacred.vfx.general.RunAnimationEffect;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class UC {
@@ -182,6 +183,20 @@ public class UC {
 
     public static void doDraw(int number) {
         atb(new DrawCardAction(p(), number));
+    }
+
+    public static void doDraw(int number, AbstractGameAction follow) {
+        atb(new DrawCardAction(number, follow));
+    }
+
+    public static void doDraw(int number, Consumer<ArrayList<AbstractCard>> callback) {
+        atb(new DrawCardAction(number, new AbstractGameAction() {
+            @Override
+            public void update() {
+                callback.accept(DrawCardAction.drawnCards);
+                isDone = true;
+            }
+        }));
     }
 
     public static void channelYY() {
