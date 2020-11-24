@@ -3,7 +3,6 @@ package theSacred.cards.uncommon;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theSacred.actions.common.CallbackDrawAction;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.util.CardInfo;
 import theSacred.vfx.general.RunAnimationEffect;
@@ -36,10 +35,6 @@ public class AscensionKick extends SacredCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         doAnim(RunAnimationEffect.ANIS.BACKFLIPKICK);
         doDmg(m, damage, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        atb(new CallbackDrawAction(magicNumber, c -> {
-            if(c.type == CardType.ATTACK) {
-                c.setCostForTurn(0);
-            }
-        }));
+        doDraw(magicNumber, cards -> cards.stream().filter(c -> c.type == CardType.ATTACK).forEach(c -> c.setCostForTurn(0)));
     }
 }
