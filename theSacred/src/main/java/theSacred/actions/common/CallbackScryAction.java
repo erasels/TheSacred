@@ -2,13 +2,15 @@ package theSacred.actions.common;
 
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import theSacred.patches.cards.ScryDiscardAmountHook;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;
 
 public class CallbackScryAction extends ScryAction {
-    private Consumer<ArrayList<AbstractCard>> callback;
+    protected Consumer<ArrayList<AbstractCard>> callback;
+    protected boolean callCallback = false;
+    protected ArrayList<AbstractCard> cards;
 
     public CallbackScryAction(int numCards, Consumer<ArrayList<AbstractCard>> callback) {
         super(numCards);
@@ -17,8 +19,13 @@ public class CallbackScryAction extends ScryAction {
 
     @Override
     public void update() {
-        ScryDiscardAmountHook.callback = callback;
+        if(startDuration != duration && !callCallback) {
+            callCallback = true;
+            cards = new ArrayList<>(AbstractDungeon.gridSelectScreen.selectedCards);
+        }
         super.update();
-        ScryDiscardAmountHook.callback = null;
+        if(callCallback && isDone) {
+            callback.accept(cards);
+        }
     }
 }
