@@ -234,5 +234,10 @@
   "theSacred:Rot": {
     "NAME": "Rot",
     "DESCRIPTION": "Apply !M! Poison. NL Draw !theSacred:M2! card."
+  },
+  "theSacred:BorderCrush": {
+    "NAME": "Border Crush",
+    "DESCRIPTION": "Deal !D! damage. NL Affected by Block modifiers.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Affected by Block modifiers. NL Gain !B! Block."
   }
 }
