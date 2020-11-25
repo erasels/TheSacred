@@ -82,5 +82,13 @@
       "patient"
     ],
     "DESCRIPTION": "If this card is in your hand at the end of turn, this effect triggers."
+  },
+  {
+    "PROPER_NAME": "Cycle",
+    "NAMES": [
+      "cycle",
+      "cycled"
+    ],
+    "DESCRIPTION": "Discard up to the specified number of cards, then draw that many."
   }
 ]
