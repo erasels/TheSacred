@@ -9,8 +9,8 @@ import theSacred.util.UC;
 public class TemporaryPowerApplicationAction extends AbstractGameAction {
     protected AbstractPower p;
 
-    public TemporaryPowerApplicationAction(AbstractCreature target, AbstractPower pow) {
-        this.target = target;
+    public TemporaryPowerApplicationAction(AbstractPower pow) {
+        this.target = pow.owner;
         p = pow;
         this.amount = pow.amount;
     }
