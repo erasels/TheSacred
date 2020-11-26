@@ -1,4 +1,4 @@
-package theSacred.cards.common;
+package theSacred.cards.uncommon;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -27,7 +27,7 @@ public class LashOut extends SacredCard {
 
     public final static String ID = makeID(cardInfo.cardName);
 
-    private static final int DAMAGE = 3;
+    private static final int DAMAGE = 4;
 
     public LashOut() {
         super(cardInfo, false);
