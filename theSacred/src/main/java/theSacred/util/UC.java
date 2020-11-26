@@ -30,7 +30,7 @@ import theSacred.TheSacred;
 import theSacred.actions.utility.DamageAllAction;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.orbs.YinYangOrb;
-import theSacred.patches.combat.CardFieldMechanicsPatches;
+import theSacred.patches.cards.CardFieldMechanicsPatches;
 import theSacred.vfx.general.RunAnimationEffect;
 
 import java.text.DecimalFormat;

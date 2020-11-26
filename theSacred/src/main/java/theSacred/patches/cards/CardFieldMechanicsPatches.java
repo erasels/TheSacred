@@ -1,4 +1,4 @@
-package theSacred.patches.combat;
+package theSacred.patches.cards;
 
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
-import theSacred.patches.cards.CardENUMs;
 import theSacred.util.UC;
 
 import java.util.ArrayList;
