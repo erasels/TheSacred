@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -14,13 +16,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
-import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
+import com.megacrit.cardcrawl.vfx.combat.LightFlareParticleEffect;
 import theSacred.TheSacred;
 import theSacred.actions.common.RemoveSpecificOrbAction;
-import theSacred.orbs.interfaces.OnUseCardOrb;
+import theSacred.actions.unique.TemporaryPowerApplicationAction;
 import theSacred.orbs.interfaces.OnHPLossOrb;
+import theSacred.orbs.interfaces.OnUseCardOrb;
 import theSacred.util.TextureLoader;
 import theSacred.util.UC;
 
@@ -37,6 +42,7 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
     private static final float DMG_TAKE_MOD = 1.25f;
     private static final int CHARGE_INC = 1;
     private static final int BREAK_AMT = 10;
+    private static final int INC_AMT = 1;
 
     protected static final float NUM_X_OFFSET = 42.0F * Settings.scale;
     protected static final float NUM_Y_OFFSET = -30.0F * Settings.scale;
@@ -48,6 +54,7 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
     private float vfxIntervalMax = 0.4f;
 
     public int breakAmount, baseBreakAmount;
+    public State curState;
 
     public YinYangOrb() {
         ID = ORB_ID;
@@ -62,6 +69,7 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
 
         angle = MathUtils.random(360.0f); // More Animation-related Numbers
         channelAnimTimer = 0.5f;
+        curState = State.YANG;
     }
 
     public YinYangOrb(int passive) {
@@ -86,6 +94,15 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
     }
 
     @Override
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if(curState == State.YANG && card.type == AbstractCard.CardType.SKILL) {
+            UC.atb(new TemporaryPowerApplicationAction(new StrengthPower(UC.p(), INC_AMT)));
+        } else if (curState == State.YIN && card.type == AbstractCard.CardType.ATTACK) {
+            UC.atb(new TemporaryPowerApplicationAction(new DexterityPower(UC.p(), INC_AMT)));
+        }
+    }
+
+    @Override
     public void wasHPLost(DamageInfo info, int damageAmount) {
         breakAmount -= damageAmount;
         if(breakAmount < 0) {
@@ -99,6 +116,12 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
     @Override
     public void onStartOfTurn() {
         passiveAmount += getCharge();
+
+        if(curState == State.YIN) {
+            curState = State.YANG;
+        } else if (curState == State.YANG) {
+            curState = State.YIN;
+        }
     }
 
     public void onChannel() {
@@ -123,8 +146,18 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
         angle += Gdx.graphics.getDeltaTime() * 45.0f;
         vfxTimer -= Gdx.graphics.getDeltaTime();
         if (vfxTimer < 0.0f) {
-            AbstractDungeon.effectList.add(new FrostOrbPassiveEffect(cX, cY));
+            //AbstractDungeon.effectList.add(new FrostOrbPassiveEffect(cX, cY));
             vfxTimer = MathUtils.random(vfxIntervalMin, vfxIntervalMax);
+
+            if(curState == State.YIN) {
+                for (int i = 0; i < 2; i++) {
+                    AbstractDungeon.effectsQueue.add(new LightFlareParticleEffect(cX, cY, Color.LIGHT_GRAY));
+                }
+            } else if (curState == State.YANG) {
+                for (int i = 0; i < 2; i++) {
+                    AbstractDungeon.effectsQueue.add(new LightFlareParticleEffect(cX, cY, Color.RED));
+                }
+            }
         }
     }
 
@@ -160,5 +193,9 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
     @Override
     public AbstractOrb makeCopy() {
         return new YinYangOrb(basePassiveAmount);
+    }
+
+    public enum State {
+        YIN, YANG
     }
 }
