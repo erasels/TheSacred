@@ -19,14 +19,14 @@ import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.FrostOrbPassiveEffect;
 import theSacred.TheSacred;
 import theSacred.actions.common.RemoveSpecificOrbAction;
-import theSacred.orbs.interfaces.DamageAndBlockModifyOrb;
+import theSacred.orbs.interfaces.OnUseCardOrb;
 import theSacred.orbs.interfaces.OnHPLossOrb;
 import theSacred.util.TextureLoader;
 import theSacred.util.UC;
 
 import static theSacred.TheSacred.makeOrbPath;
 
-public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb, OnHPLossOrb {
+public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb {
     // Standard ID/Description
     public static final String ORB_ID = TheSacred.makeID("YinYangOrb");
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
@@ -83,14 +83,6 @@ public class YinYangOrb extends AbstractOrb implements DamageAndBlockModifyOrb, 
     public void onEvoke() {
         UC.doAllDmg(evokeAmount, AbstractGameAction.AttackEffect.FIRE, DamageInfo.DamageType.THORNS, false);
         AbstractDungeon.actionManager.addToBottom(new SFXAction("TINGSHA"));
-    }
-
-    @Override
-    public float atPlayerDamageGive(float damage, DamageInfo.DamageType type) {
-        if (type == DamageInfo.DamageType.NORMAL) {
-            return damage + passiveAmount;
-        }
-        return damage;
     }
 
     @Override
