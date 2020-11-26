@@ -67,11 +67,11 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
         passiveAmount = basePassiveAmount = 0;
         breakAmount = baseBreakAmount = BREAK_AMT;
 
-        updateDescription();
-
         angle = MathUtils.random(360.0f); // More Animation-related Numbers
         channelAnimTimer = 0.5f;
         curState = State.YANG;
+
+        updateDescription();
     }
 
     public YinYangOrb(int passive) {
@@ -82,7 +82,11 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
     @Override
     public void updateDescription() {
         applyFocus();
-        description = DESC[0] + passiveAmount + DESC[1] + getCharge() + DESC[2] + breakAmount + DESC[3];
+        if(curState == State.YANG) {
+            description = DESC[0] + DESC[2] + DESC[3] + DESC[5] + DESC[6] + breakAmount + DESC[7];
+        } else if (curState == State.YIN) {
+            description = DESC[1] +  DESC[2] + DESC[4] + DESC[5] + DESC[6] + breakAmount + DESC[7];
+        }
     }
 
     @Override

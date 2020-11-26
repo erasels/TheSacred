@@ -2,10 +2,14 @@
   "theSacred:YinYangOrb": {
     "NAME": "Yin-Yang Orb",
     "DESCRIPTION": [
-      "#yPassive: Increase all attack damage by #b",
-      ". At the start of turn, gain #b",
-      " charge. NL Breaks after you take #r",
-      " unblocked attack damage. NL NL #yEvoke: ..."
+      "#rYANG NL ",
+      "#rYIN NL ",
+      "#yPassive: NL ",
+      "Gain #b1 #yTemporary #yStrength if you play a #ySkill.",
+      "Gain #b1 #yTemporary #yDexterity if you play an #yAttack.",
+      " NL NL #yEvoke: ...",
+      " NL NL Breaks after you take #r",
+      " more unblocked attack damage."
     ]
   }
 }
