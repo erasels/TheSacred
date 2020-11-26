@@ -53,6 +53,8 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
     private float vfxIntervalMin = 0.1f;
     private float vfxIntervalMax = 0.4f;
 
+    public static int incAmt;
+
     public int breakAmount, baseBreakAmount;
     public State curState;
 
@@ -96,9 +98,17 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if(curState == State.YANG && card.type == AbstractCard.CardType.SKILL) {
-            UC.atb(new TemporaryPowerApplicationAction(new StrengthPower(UC.p(), INC_AMT)));
+            incAmt += INC_AMT;
+            if(getLast() == this) {
+                UC.atb(new TemporaryPowerApplicationAction(new StrengthPower(UC.p(), incAmt)));
+                incAmt = 0;
+            }
         } else if (curState == State.YIN && card.type == AbstractCard.CardType.ATTACK) {
-            UC.atb(new TemporaryPowerApplicationAction(new DexterityPower(UC.p(), INC_AMT)));
+            incAmt += INC_AMT;
+            if(getLast() == this) {
+                UC.atb(new TemporaryPowerApplicationAction(new DexterityPower(UC.p(), incAmt)));
+                incAmt = 0;
+            }
         }
     }
 
@@ -188,6 +198,25 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
     @Override
     public void playChannelSFX() {
         CardCrawlGame.sound.play("TINGSHA", 1.5f);
+    }
+
+    public YinYangOrb getLast() {
+        for(int i = UC.p().orbs.size() - 1; i > 0; i--) {
+            AbstractOrb o = UC.p().orbs.get(i);
+            if(o instanceof YinYangOrb) {
+                return (YinYangOrb) o;
+            }
+        }
+        return null;
+    }
+
+    public YinYangOrb getFirst() {
+        for(AbstractOrb o : UC.p().orbs) {
+            if(o instanceof YinYangOrb) {
+                return (YinYangOrb) o;
+            }
+        }
+        return null;
     }
 
     @Override
