@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -87,4 +88,6 @@ public abstract class FieldCard extends SacredCard {
     public void onLeaveField() { }
 
     public float atDamageGive(float damage, DamageInfo.DamageType type) { return damage; }
+
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {}
 }

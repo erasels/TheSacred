@@ -24,6 +24,11 @@ public class FieldEffectPower extends AbstractSacredPower implements InvisiblePo
     }
 
     @Override
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
+        FieldSystem.onAttack(info, damageAmount, target);
+    }
+
+    @Override
     public void onRemove() {
         UC.doPow(owner, this, true);
     }

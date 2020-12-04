@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import theSacred.cards.abstracts.FieldCard;
 import theSacred.powers.abstracts.FieldEffectPower;
@@ -110,6 +111,10 @@ public class FieldSystem {
             damage = c.atDamageGive(damage, type);
         }
         return damage;
+    }
+
+    public static void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
+        getFields().forEach(c -> c.onAttack(info, damageAmount, target));
     }
 
     private static ArrayList<FieldCard> getFields() {
