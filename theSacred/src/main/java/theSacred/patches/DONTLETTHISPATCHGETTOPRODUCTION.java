@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 @SpirePatch(clz = SplashScreen.class, method = "update")
 public class DONTLETTHISPATCHGETTOPRODUCTION {
     public static SpireReturn Prefix(SplashScreen __instance) {
-        if (CardCrawlGame.playerName.toLowerCase().equals("rordev")) {
+        if (CardCrawlGame.playerName.toLowerCase().equals("rordev") || CardCrawlGame.playerName.toLowerCase().equals("era")) {
             __instance.isDone = true;
             return SpireReturn.Return(null);
         }
@@ -23,7 +23,7 @@ public class DONTLETTHISPATCHGETTOPRODUCTION {
     @SpirePatch(clz = MenuButton.class, method = "update")
     public static class fkmainmenu {
         public static void Prefix(MenuButton __instance) {
-            if (CardCrawlGame.playerName.toLowerCase().equals("rordev")) {
+            if (CardCrawlGame.playerName.toLowerCase().equals("rordev") || CardCrawlGame.playerName.toLowerCase().equals("era")) {
                 if (__instance.result == MenuButton.ClickResult.RESUME_GAME) {
                     CardCrawlGame.mainMenuScreen.screen = MainMenuScreen.CurScreen.NONE;
                     CardCrawlGame.mainMenuScreen.hideMenuButtons();
