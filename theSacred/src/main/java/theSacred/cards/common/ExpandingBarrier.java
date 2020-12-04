@@ -27,20 +27,21 @@ public class ExpandingBarrier extends FieldCard {
 
     private final static CardInfo cardInfo = new CardInfo(
             "ExpandingBarrier",
-            1,
+            2,
             CardType.SKILL,
             CardTarget.SELF);
 
     public final static String ID = makeID(cardInfo.cardName);
 
-    private static final int MAGIC = 1;
-    private static final int UPG_MAGIC = 1;
+    private static final int MAGIC = 2;
+    private static final int UPG_COST = 1;
 
     public ExpandingBarrier() {
         super(cardInfo, false);
         p(); //Stupid intellij stuff s, s
 
-        setMagic(MAGIC, UPG_MAGIC);
+        setMagic(MAGIC);
+        setCostUpgrade(UPG_COST);
     }
 
     @Override
