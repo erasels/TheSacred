@@ -488,7 +488,7 @@ public abstract class SacredCard extends CustomCard {
                 yPos = Settings.HEIGHT / 2.0F + 393.0F * Settings.scale;
                 offsetY = 0.0F;
             } else {
-                font = FontHelper.cardTitleFont_small;
+                font = FontHelper.cardTitleFont;
                 xPos = this.current_x;
                 yPos = this.current_y;
                 offsetY = 400.0F * Settings.scale * this.drawScale / 2.0F;
@@ -502,7 +502,7 @@ public abstract class SacredCard extends CustomCard {
                 if (scaleMulti < 0.5F)
                     scaleMulti = 0.5F;
             }
-            fontData.setScale(scaleMulti * (isCardPopup ? 1.0F : this.drawScale));
+            fontData.setScale(scaleMulti * (isCardPopup ? 1.0F : this.drawScale * 0.85f));
             Color color = getTopTextColor();
             color.a = this.transparency;
             FontHelper.renderRotatedText(sb, font, text, xPos, yPos, 0.0F, offsetY, this.angle, true, color);
