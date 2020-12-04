@@ -29,6 +29,7 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import theSacred.TheSacred;
 import theSacred.actions.utility.DamageAllAction;
 import theSacred.cards.abstracts.SacredCard;
+import theSacred.mechanics.field.FieldSystem;
 import theSacred.orbs.YinYangOrb;
 import theSacred.patches.cards.CardFieldMechanicsPatches;
 import theSacred.vfx.general.RunAnimationEffect;
@@ -71,6 +72,10 @@ public class UC {
 
     public static boolean anonymousCheckBurst() {
         return CardFieldMechanicsPatches.PlayerFields.isBurst.get(p());
+    }
+
+    public static boolean checkFortified() {
+        return !FieldSystem.fields.isEmpty();
     }
 
     //Actionmanager
