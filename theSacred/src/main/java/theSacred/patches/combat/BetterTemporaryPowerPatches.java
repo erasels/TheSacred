@@ -60,17 +60,11 @@ public class BetterTemporaryPowerPatches {
                     null, // Exceptions
                     "{" +
                             "super.renderAmount($1, $2, $3, $4);" +
-                            DecreaseAtEoTStr.class.getName() + ".render($1, $2, $3, $4, fontScale, " + Fields.class.getName() + ".getTA(this));" +
+                            BetterTemporaryPowerPatches.class.getName() + ".renderDecrease($1, $2, $3, $4, fontScale, " + Fields.class.getName() + ".getTA(this));" +
                             "}",
                     ctClass
             );
             ctClass.addMethod(method2);
-        }
-
-        public static void render(SpriteBatch sb, float x, float y, Color c, float fontScale, int amount) {
-            if(amount > 0) {
-                FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(amount), x, y + 15 * Settings.scale, fontScale, Color.RED);
-            }
         }
     }
 
@@ -103,46 +97,38 @@ public class BetterTemporaryPowerPatches {
                     null, // Exceptions
                     "{" +
                             "super.renderAmount($1, $2, $3, $4);" +
-                            DecreaseAtEoTDex.class.getName() + ".render($1, $2, $3, $4, fontScale, " + Fields.class.getName() + ".getTA(this));" +
+                            BetterTemporaryPowerPatches.class.getName() + ".renderDecrease($1, $2, $3, $4, fontScale, " + Fields.class.getName() + ".getTA(this));" +
                             "}",
                     ctClass
             );
             ctClass.addMethod(method2);
         }
+    }
 
-        public static void render(SpriteBatch sb, float x, float y, Color c, float fontScale, int amount) {
-            if(amount > 0) {
-                FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(amount), x, y + 15 * Settings.scale, fontScale, Color.RED);
-            }
+    public static void renderDecrease(SpriteBatch sb, float x, float y, Color c, float fontScale, int amount) {
+        if(amount > 0) {
+            FontHelper.renderFontRightTopAligned(sb, FontHelper.powerAmountFont, Integer.toString(amount), x, y + 15 * Settings.scale, fontScale, Color.RED);
         }
     }
 
     //Description
     private static final PowerStrings strStrings = CardCrawlGame.languagePack.getPowerStrings("Flex");
-    @SpirePatch(clz = StrengthPower.class, method = "updateDescription")
-    public static class UpdateDescWithTempDecreaseStr {
-        @SpirePostfixPatch
-        public static void patch(StrengthPower __instance) {
-            int i = __instance.description.indexOf(strStrings.DESCRIPTIONS[0]);
-            if(i < 0) {
-                __instance.description += " NL " + strStrings.DESCRIPTIONS[0] + Fields.getTA(__instance) + strStrings.DESCRIPTIONS[1];
-            } else {
-                int j = __instance.description.indexOf(strStrings.DESCRIPTIONS[1]);
-                __instance.description = __instance.description.substring(0, i) + Fields.getTA(__instance) + __instance.description.substring(j);
-            }
-        }
-    }
-
     private static final PowerStrings dexStrings = CardCrawlGame.languagePack.getPowerStrings("DexLoss");
-    @SpirePatch(clz = DexterityPower.class, method = "updateDescription")
-    public static class UpdateDescWithTempDecreaseDex {
+    @SpirePatch(clz = StrengthPower.class, method = "updateDescription")
+    public static class UpdateDescWithTempDecrease {
         @SpirePostfixPatch
-        public static void patch(DexterityPower __instance) {
-            int i = __instance.description.indexOf(dexStrings.DESCRIPTIONS[0]);
-            if(i < 0) {
-                __instance.description += " NL " + dexStrings.DESCRIPTIONS[0] + Fields.getTA(__instance) + dexStrings.DESCRIPTIONS[1];
+        public static void patch(AbstractPower __instance) {
+            PowerStrings strings;
+            if(__instance instanceof StrengthPower) {
+                strings = strStrings;
             } else {
-                int j = __instance.description.indexOf(dexStrings.DESCRIPTIONS[1]);
+                strings = dexStrings;
+            }
+            int i = __instance.description.indexOf(strings.DESCRIPTIONS[0]);
+            if(i < 0) {
+                __instance.description += " NL " + strings.DESCRIPTIONS[0] + Fields.getTA(__instance) + strings.DESCRIPTIONS[1];
+            } else {
+                int j = __instance.description.indexOf(strings.DESCRIPTIONS[1]);
                 __instance.description = __instance.description.substring(0, i) + Fields.getTA(__instance) + __instance.description.substring(j);
             }
         }
