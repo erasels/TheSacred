@@ -136,6 +136,7 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
         } else if (curState == State.YANG) {
             curState = State.YIN;
         }
+        updateDescription();
     }
 
     public void onChannel() {
@@ -205,7 +206,7 @@ public class YinYangOrb extends AbstractOrb implements OnUseCardOrb, OnHPLossOrb
     }
 
     public YinYangOrb getLast() {
-        for(int i = UC.p().orbs.size() - 1; i > 0; i--) {
+        for(int i = UC.p().orbs.size() - 1; i > -1; i--) {
             AbstractOrb o = UC.p().orbs.get(i);
             if(o instanceof YinYangOrb) {
                 return (YinYangOrb) o;
