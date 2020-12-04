@@ -210,9 +210,13 @@
     "DESCRIPTION": "Deal !D! damage. NL Put !M! card from your discard pile on the bottom of your draw pile.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Put !M! cards from your discard pile on the bottom of your draw pile."
   },
-  "theSacred:BoostField": {
-    "NAME": "Boost Field",
-    "DESCRIPTION": "Increase damage dealt by attacks by !M!."
+  "theSacred:ExpandingBarrier": {
+    "NAME": "Expanding Barrier",
+    "DESCRIPTION": "Whenever you attack, apply !M! *Choked to the target.",
+    "EXTENDED_DESCRIPTION": [
+      "Choked",
+      "Whenever you play a card, the owner loses HP equal to its amount for the turn."
+    ]
   },
   "theSacred:Punishment": {
     "NAME": "Punishment",
