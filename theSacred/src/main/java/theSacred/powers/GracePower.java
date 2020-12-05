@@ -43,7 +43,7 @@ public class GracePower extends AbstractSacredPower implements CloneablePowerInt
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if(card.baseBlock > -1 && GraceField.useGrace.get(card)) {
+        if(card.baseBlock > -1 && card.type == AbstractCard.CardType.SKILL && GraceField.useGrace.get(card)) {
             flash();
             UC.atb(new ReducePowerAction(UC.p(), UC.p(), this, amount));
         }

@@ -130,7 +130,7 @@
   "theSacred:Grace": {
     "NAME": "Grace",
     "DESCRIPTIONS": [
-      "The next time you gain #yBlock from a card, gain #b",
+      "The next time you gain #yBlock from a #ySkill [REMOVE_SPACE], gain #b",
       " additional #yBlock."
     ]
   }
