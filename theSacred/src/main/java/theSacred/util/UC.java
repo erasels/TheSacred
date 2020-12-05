@@ -138,6 +138,10 @@ public class UC {
         doAllDmg(c.damage, ae, c.damageTypeForTurn, top);
     }
 
+    public static void doDef(AbstractCard c) {
+        doDef(c.block, false);
+    }
+
     public static void doDef(int amount) {
         doDef(amount, false);
     }
@@ -148,6 +152,10 @@ public class UC {
         } else {
             atb(new GainBlockAction(p(), p(), amount));
         }
+    }
+
+    public static void doPow(AbstractPower p) {
+        doPow(p.owner, p, false);
     }
 
     public static void doPow(AbstractCreature target, AbstractPower p) {
