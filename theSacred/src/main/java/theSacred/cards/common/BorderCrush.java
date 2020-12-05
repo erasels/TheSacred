@@ -53,6 +53,8 @@ public class BorderCrush extends SacredCard {
         super.applyPowers();
         if(baseBlock != block) {
             damage += (block - baseBlock);
+            if(damage < 0)
+                damage = 0;
             isDamageModified = true;
         }
         baseBlock = b_blk;
