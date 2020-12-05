@@ -90,5 +90,12 @@
       "cycled"
     ],
     "DESCRIPTION": "Discard up to the specified number of cards, then draw that many."
+  },
+  {
+    "PROPER_NAME": "Grace",
+    "NAMES": [
+      "grace"
+    ],
+    "DESCRIPTION": "Your next Block card has its Block increased."
   }
 ]
