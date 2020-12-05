@@ -243,5 +243,9 @@
     "NAME": "Border Crush",
     "DESCRIPTION": "Deal !D! damage. NL Affected by Block modifiers.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Affected by Block modifiers. NL Gain !B! Block."
+  },
+  "theSacred:CautionaryBorder": {
+    "NAME": "Cautionary Border",
+    "DESCRIPTION": "Gain !B! Block. NL thesacred:Patience: Gain !M! thesacred:Grace."
   }
 }
