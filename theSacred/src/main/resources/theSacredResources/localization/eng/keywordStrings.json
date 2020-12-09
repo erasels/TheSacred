@@ -53,13 +53,14 @@
     "DESCRIPTION": "Put the orb into a new slot. If you've reached max capacity (6), no new orb will be channeled."
   },
   {
-    "PROPER_NAME": "Aligned",
+    "PROPER_NAME": "Yin/Yang-Aligned",
     "NAMES": [
       "aligned",
       "align",
-      "aligned:"
+      "yin",
+      "yang"
     ],
-    "DESCRIPTION": "This effect is repeated for each currently channeled #yYin-Yang #yOrb."
+    "DESCRIPTION": "Triggers effect if the majority of your Yin-Yang Orbs are in the specified state."
   },
   {
     "PROPER_NAME": "Reshuffle",

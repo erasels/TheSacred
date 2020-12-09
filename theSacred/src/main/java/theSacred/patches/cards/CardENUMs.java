@@ -11,6 +11,10 @@ public class CardENUMs {
     @SpireEnum
     public static AbstractCard.CardTags ALIGNED;
     @SpireEnum
+    public static AbstractCard.CardTags YINALIGNED;
+    @SpireEnum
+    public static AbstractCard.CardTags YANGALIGNED;
+    @SpireEnum
     public static AbstractCard.CardTags NEEDLE;
     @SpireEnum
     public static AbstractCard.CardTags INVOKE;

@@ -415,7 +415,7 @@ public abstract class SacredCard extends CustomCard {
     @Override
     public void triggerOnGlowCheck() {
         if(CardCrawlGame.isInARun()) {
-            if ((this.hasTag(CardENUMs.BURST) && UC.anonymousCheckBurst()) || this.hasTag(CardENUMs.ALIGNED) && UC.isAligned()) {
+            if ((this.hasTag(CardENUMs.BURST) && UC.anonymousCheckBurst()) || (this.hasTag(CardENUMs.YINALIGNED) && UC.isYinAligned()) || (this.hasTag(CardENUMs.YANGALIGNED) && UC.isYangAligned())) {
                 glowColor = GOLD_BORDER_GLOW_COLOR;
             } else {
                 glowColor = BLUE_BORDER_GLOW_COLOR;

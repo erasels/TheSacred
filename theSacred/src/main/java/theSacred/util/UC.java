@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
@@ -62,8 +63,36 @@ public class UC {
         return CardFieldMechanicsPatches.PlayerFields.hasRemnant.get(p());
     }
 
-    public static boolean isAligned() {
+    public static boolean hasYinYang() {
         return p().orbs.stream().anyMatch(o -> o instanceof YinYangOrb);
+    }
+
+    public static boolean isAligned(YinYangOrb.State state) {
+        int i = 0, a = 0;
+        for(AbstractOrb o : p().orbs) {
+            if(o instanceof YinYangOrb) {
+                if(((YinYangOrb) o).curState == YinYangOrb.State.YIN) {
+                    i++;
+                } else if(((YinYangOrb) o).curState == YinYangOrb.State.YANG) {
+                    a++;
+                }
+            }
+        }
+
+        if(state == YinYangOrb.State.YIN)
+            return i > a;
+        if(state == YinYangOrb.State.YANG)
+            return a > i;
+
+        return false;
+    }
+
+    public static boolean isYinAligned() {
+        return isAligned(YinYangOrb.State.YIN);
+    }
+
+    public static boolean isYangAligned() {
+        return isAligned(YinYangOrb.State.YANG);
     }
 
     public static boolean isInvoke(AbstractCard c) {
