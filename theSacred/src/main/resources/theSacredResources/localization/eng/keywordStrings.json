@@ -1,13 +1,5 @@
 [
   {
-    "PROPER_NAME": "Burst",
-    "NAMES": [
-      "burst",
-      "burst:"
-    ],
-    "DESCRIPTION": "This effect triggers if the last card played was an #yAttack [REMOVE_SPACE]."
-  },
-  {
     "PROPER_NAME": "Remnant",
     "NAMES": [
       "remnant",

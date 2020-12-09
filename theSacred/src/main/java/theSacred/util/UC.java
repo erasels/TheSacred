@@ -51,14 +51,6 @@ public class UC {
     public static GlyphLayout layout = new GlyphLayout();
 
     //Checks
-    public static boolean checkBurst() {
-        boolean tmp = CardFieldMechanicsPatches.PlayerFields.isBurst.get(p());
-        if (tmp) {
-            incrementTurnBurstAmount();
-        }
-        return tmp;
-    }
-
     public static boolean checkRemnant() {
         return CardFieldMechanicsPatches.PlayerFields.hasRemnant.get(p());
     }
@@ -97,10 +89,6 @@ public class UC {
 
     public static boolean isInvoke(AbstractCard c) {
         return c instanceof SacredCard && ((SacredCard) c).invoke;
-    }
-
-    public static boolean anonymousCheckBurst() {
-        return CardFieldMechanicsPatches.PlayerFields.isBurst.get(p());
     }
 
     public static boolean checkFortified() {
@@ -383,10 +371,6 @@ public class UC {
         return t;
     }
 
-    public static int getTurnBurstAmount() {
-        return CardFieldMechanicsPatches.PlayerFields.turnBurstAmount.get(p());
-    }
-
     public static SacredCard getRandomNeedle() {
         return TheSacred.needles.get(AbstractDungeon.cardRandomRng.random(TheSacred.needles.size() - 1));
     }
@@ -407,10 +391,6 @@ public class UC {
     }
 
     //Setters
-    public static void incrementTurnBurstAmount() {
-        CardFieldMechanicsPatches.PlayerFields.turnBurstAmount.set(p(), getTurnBurstAmount() + 1);
-    }
-
     public static <T> boolean True(T t) {
         return true;
     }

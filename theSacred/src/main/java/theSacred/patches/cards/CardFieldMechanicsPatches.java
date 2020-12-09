@@ -17,32 +17,21 @@ public class CardFieldMechanicsPatches {
 
     @SpirePatch(clz = AbstractPlayer.class, method = SpirePatch.CLASS)
     public static class PlayerFields {
-        public static SpireField<Boolean> isBurst = new SpireField<>(() -> false);
-        public static SpireField<Integer> turnBurstAmount = new SpireField<>(() -> 0);
         public static SpireField<Boolean> hasRemnant = new SpireField<>(() -> false);
     }
 
-    //Should take care of clearing burst from last combat as well
     @SpirePatch(clz = AbstractPlayer.class, method = "applyStartOfTurnRelics")
-    public static class TurnEndBurstReset {
+    public static class TurnEndReset {
         @SpirePrefixPatch
         public static void patch(AbstractPlayer __instance) {
-            PlayerFields.isBurst.set(AbstractDungeon.player, false);
-            PlayerFields.turnBurstAmount.set(AbstractDungeon.player, 0);
             PlayerFields.hasRemnant.set(AbstractDungeon.player, false);
         }
     }
 
     @SpirePatch(clz = UseCardAction.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {AbstractCard.class, AbstractCreature.class})
-    public static class CaptureBurstActivation {
+    public static class CaptureActivation {
         @SpireInsertPatch(locator = Locator.class)
         public static void patch(UseCardAction __instance, AbstractCard c, AbstractCreature target) {
-            if(c.type == AbstractCard.CardType.ATTACK) {
-                PlayerFields.isBurst.set(AbstractDungeon.player, true);
-            } else {
-                PlayerFields.isBurst.set(AbstractDungeon.player, false);
-            }
-
             if(!PlayerFields.hasRemnant.get(UC.p()) && c.hasTag(CardENUMs.INVOKE)) {
                 PlayerFields.hasRemnant.set(UC.p(), true);
             }

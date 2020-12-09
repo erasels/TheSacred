@@ -49,7 +49,6 @@ public abstract class SacredCard extends CustomCard {
     protected boolean baseInnate;
     protected boolean upgInnate;
 
-    protected boolean upgradeBurst;
     protected boolean upgradeRetain;
     protected boolean upgradeEthereal;
     protected boolean upgradeMultiDmg;
@@ -102,7 +101,6 @@ public abstract class SacredCard extends CustomCard {
         this.blockUpgrade = 0;
         this.magicUpgrade = 0;
 
-        upgradeBurst = false;
         upgradeRetain = false;
         upgradeEthereal = false;
 
@@ -186,14 +184,6 @@ public abstract class SacredCard extends CustomCard {
         this.baseInnate = baseInnate;
         this.isInnate = baseInnate;
         this.upgInnate = upgInnate;
-    }
-
-    public void setBurst(boolean upgradeToBurst) {
-        if(upgradeToBurst) {
-            upgradeBurst = true;
-        } else {
-            tags.add(CardENUMs.BURST);
-        }
     }
 
     public void setRetain(boolean upgradeToRetain) {
@@ -306,7 +296,6 @@ public abstract class SacredCard extends CustomCard {
             ((SacredCard) card).upgradeMultiDmg = this.upgradeMultiDmg;
             ((SacredCard) card).upgradeRetain = this.upgradeRetain;
             ((SacredCard) card).upgradeEthereal = this.upgradeEthereal;
-            ((SacredCard) card).upgradeBurst = this.upgradeBurst;
 
             ((SacredCard) card).baseMagicNumber2 = this.baseMagicNumber2;
             ((SacredCard) card).magicNumber2 = this.magicNumber2;
@@ -358,10 +347,6 @@ public abstract class SacredCard extends CustomCard {
 
             if (baseInnate ^ upgInnate) //different
                 this.isInnate = upgInnate;
-
-            if(upgradeBurst) {
-                tags.add(CardENUMs.BURST);
-            }
 
             if(upgradeRetain) {
                 selfRetain = true;
@@ -415,7 +400,7 @@ public abstract class SacredCard extends CustomCard {
     @Override
     public void triggerOnGlowCheck() {
         if(CardCrawlGame.isInARun()) {
-            if ((this.hasTag(CardENUMs.BURST) && UC.anonymousCheckBurst()) || (this.hasTag(CardENUMs.YINALIGNED) && UC.isYinAligned()) || (this.hasTag(CardENUMs.YANGALIGNED) && UC.isYangAligned())) {
+            if ((this.hasTag(CardENUMs.YINALIGNED) && UC.isYinAligned()) || (this.hasTag(CardENUMs.YANGALIGNED) && UC.isYangAligned())) {
                 glowColor = GOLD_BORDER_GLOW_COLOR;
             } else {
                 glowColor = BLUE_BORDER_GLOW_COLOR;
