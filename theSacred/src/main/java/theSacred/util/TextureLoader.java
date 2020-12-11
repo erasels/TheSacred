@@ -1,5 +1,7 @@
 package theSacred.util;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -67,35 +69,7 @@ public class TextureLoader {
         textures.put(textureString, texture);
     }
 
-    public static String getAndLoadCardTextureString(final String cardName, final AbstractCard.CardType cardType) {
-        String textureString = getCardTextureString(cardName, cardType);
-        String originalString = textureString;
 
-        if (textures.get(textureString) == null) {
-            try {
-                loadTexture(textureString);
-            } catch (GdxRuntimeException e) {
-                switch (cardType) {
-                    case ATTACK:
-                        textureString = makeCardPath("attacks/default.png");
-                        break;
-                    case SKILL:
-                        textureString = makeCardPath("skills/default.png");
-                        break;
-                    case POWER:
-                        textureString = makeCardPath("powers/default.png");
-                        break;
-                    default:
-                        textureString = makeUIPath("missing_texture.png");
-                        break;
-                }
-
-                loadCardTexture(originalString, textureString, true);
-            }
-        }
-        //no exception, file exists
-        return originalString;
-    }
 
     private static void loadCardTexture(final String textureKey, final String textureString, boolean linearFilter) throws GdxRuntimeException {
         if (!textures.containsKey(textureString))
@@ -138,7 +112,26 @@ public class TextureLoader {
                 textureString = makeUIPath("missing_texture.png");
                 break;
         }
-        //no exception, file exists
+
+        FileHandle h = Gdx.files.internal(textureString);
+        if (!h.exists())
+        {
+            switch (cardType) {
+                case ATTACK:
+                    textureString = makeCardPath("attacks/default.png");
+                    break;
+                case SKILL:
+                    textureString = makeCardPath("skills/default.png");
+                    break;
+                case POWER:
+                    textureString = makeCardPath("powers/default.png");
+                    break;
+                default:
+                    textureString = makeUIPath("missing_texture.png");
+                    break;
+            }
+        }
+
         return textureString;
     }
 

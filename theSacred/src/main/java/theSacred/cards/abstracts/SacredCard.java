@@ -15,7 +15,6 @@ import theSacred.TheSacred;
 import theSacred.characters.SacredCharacter;
 import theSacred.patches.cards.CardENUMs;
 import theSacred.util.CardInfo;
-import theSacred.util.TextureLoader;
 import theSacred.util.UC;
 
 import java.util.ArrayList;
@@ -23,6 +22,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static theSacred.TheSacred.makeID;
+import static theSacred.util.TextureLoader.getCardTextureString;
 
 public abstract class SacredCard extends CustomCard {
     protected CardStrings cardStrings;
@@ -72,14 +72,10 @@ public abstract class SacredCard extends CustomCard {
     }
 
     public SacredCard(CardColor color, String cardName, int cost, CardType cardType, CardTarget target, CardRarity rarity, boolean upgradesDescription) {
-        super(makeID(cardName), "", (String) null, cost, "", cardType, color, rarity, target);
+        super(makeID(cardName), "", getCardTextureString(cardName, cardType), cost, "", cardType, color, rarity, target);
         CommonKeywordIconsField.useIcons.set(this, true);
 
         cardStrings = CardCrawlGame.languagePack.getCardStrings(cardID);
-
-        img = TextureLoader.getAndLoadCardTextureString(cardName, cardType);
-        this.textureImg = img;
-        loadCardImage(textureImg);
 
         this.rarity = autoRarity();
 
