@@ -29,6 +29,13 @@ public class FieldEffectPower extends AbstractSacredPower implements InvisiblePo
     }
 
     @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        if(isPlayer) {
+            FieldSystem.atEndOfTurn();
+        }
+    }
+
+    @Override
     public void onRemove() {
         UC.doPow(owner, this, true);
     }

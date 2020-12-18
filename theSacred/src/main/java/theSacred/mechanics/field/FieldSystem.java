@@ -12,6 +12,7 @@ import theSacred.powers.abstracts.FieldEffectPower;
 import theSacred.util.UC;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class FieldSystem {
     public static int fieldAmount = 1;
@@ -115,6 +116,19 @@ public class FieldSystem {
 
     public static void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         getFields().forEach(c -> c.onAttack(info, damageAmount, target));
+    }
+
+    public static void atEndOfTurn() {
+        Iterator<AbstractCard> iter = fields.group.iterator();
+        while(iter.hasNext()) {
+            FieldCard c = (FieldCard) iter.next();
+            c.atEndOfTurn();
+            c.decrementDuration();
+            if(c.getDuration() <= 0) {
+                iter.remove();
+                removeCard(c);
+            }
+        }
     }
 
     private static ArrayList<FieldCard> getFields() {

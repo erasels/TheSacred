@@ -10,12 +10,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.ChokePower;
 import theSacred.cards.abstracts.FieldCard;
 import theSacred.util.CardInfo;
-import theSacred.util.UC;
 import theSacred.vfx.combat.BetterWrathParticleEffect;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static theSacred.TheSacred.makeID;
@@ -35,9 +33,10 @@ public class ExpandingBarrier extends FieldCard {
 
     private static final int MAGIC = 2;
     private static final int UPG_COST = 1;
+    private static final int DUR = 3;
 
     public ExpandingBarrier() {
-        super(cardInfo, false);
+        super(cardInfo, false, DUR);
         p(); //Stupid intellij stuff s, s
 
         setMagic(MAGIC);
