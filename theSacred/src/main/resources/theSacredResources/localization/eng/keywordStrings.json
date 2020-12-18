@@ -66,7 +66,7 @@
     "NAMES": [
       "field"
     ],
-    "DESCRIPTION": "When played, these cards apply their effect until replaced by playing another #yField card. Only a single #yField card can be active at a time."
+    "DESCRIPTION": "When played, these cards apply their effect until their duration is up or they are replaced by playing another #yField card. Only a single #yField card can be active at a time."
   },
   {
     "PROPER_NAME": "Patience",
