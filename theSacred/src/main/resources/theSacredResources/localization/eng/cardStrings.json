@@ -247,5 +247,10 @@
   "theSacred:CautionaryBorder": {
     "NAME": "Cautionary Border",
     "DESCRIPTION": "Gain !B! Block. NL thesacred:Patience: Gain !M! thesacred:Grace."
+  },
+  "theSacred:Rift": {
+    "NAME": "Rift",
+    "DESCRIPTION": "Gain !B! Block. NL Put a card from your hand on top of your draw pile.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block twice. NL Put a card from your hand on top of your draw pile."
   }
 }
