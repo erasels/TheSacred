@@ -4,6 +4,7 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -202,6 +203,12 @@ public class SacredCharacter extends CustomPlayer {
     @Override
     public int getAscensionMaxHPLoss() {
         return 5;
+    }
+
+    @Override
+    public void renderPlayerImage(SpriteBatch sb) {
+        sb.setColor(tint.color);
+        super.renderPlayerImage(sb);
     }
 
     // Should return the card color enum to be associated with your character.

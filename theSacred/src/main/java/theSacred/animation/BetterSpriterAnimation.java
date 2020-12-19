@@ -63,10 +63,15 @@ public class BetterSpriterAnimation extends AbstractAnimation {
         for(this.frameRegulator += Gdx.graphics.getDeltaTime(); this.frameRegulator - 0.016666668F >= 0.0F; this.frameRegulator -= 0.016666668F) {
             this.myPlayer.update();
         }
+
         if (isDying) {
             color.lerp(targetColor, Gdx.graphics.getDeltaTime() * lerpSpeed); //fade out on death effect
             drawer.setColor(color.r, color.g, color.b, color.a);
+        } else {
+            Color col = batch.getColor();
+            drawer.setColor(col.r, col.g, col.b, col.a);
         }
+
         AbstractPlayer player = AbstractDungeon.player;
         if (player != null) {
             this.myPlayer.setPosition(new Point(x, y));
