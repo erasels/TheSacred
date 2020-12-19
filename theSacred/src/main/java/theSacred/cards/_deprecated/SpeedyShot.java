@@ -1,4 +1,4 @@
-package theSacred.cards.common;
+package theSacred.cards._deprecated;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
