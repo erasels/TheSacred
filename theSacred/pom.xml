@@ -14,6 +14,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <SlayTheSpire.version>01-23-2019</SlayTheSpire.version>
         <ModTheSpire.version>3.18.2</ModTheSpire.version>
+        <ModID>theSacred</ModID>
+        <JarName>TheSacred</JarName>
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
         <Steam.path>K:/Steam/steamapps</Steam.path>
     </properties>
@@ -56,7 +58,7 @@
 
     <!-- This is how your code is packaged into the jar file-->
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>${JarName}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -78,7 +80,7 @@
                         <configuration>
                             <target>
                                 <!-- This moves your mod into a common folder where all mods you make can go. -->
-                                <copy file="target/${project.artifactId}.jar" tofile="${Steam.path}/common/SlayTheSpire/mods/${project.artifactId}.jar"/>
+                                <copy file="target/${JarName}.jar" tofile="${Steam.path}/common/SlayTheSpire/mods/${JarName}.jar"/>
                             </target>
                         </configuration>
                         <goals>
@@ -97,14 +99,20 @@
                 <directory>src/main/resources</directory>
                 <filtering>false</filtering>
                 <excludes>
+                    <!-- Exclude these files from being processed normally without the project variables defined above !-->
+                    <exclude>${ModID}Resources/**/*.json</exclude>
                     <exclude>ModTheSpire.json</exclude>
+                    <!-- Do not package pdn files!-->
+                    <exclude>**/*.pdn</exclude>
                 </excludes>
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
                 <includes>
+                    <!-- Include these files for being processed with the project variables defined above !-->
                     <include>ModTheSpire.json</include>
+                    <include>${ModID}Resources/**/*.json</include>
                 </includes>
             </resource>
         </resources>

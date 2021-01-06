@@ -1,5 +1,5 @@
 {
-"theSacred:PlaceholderPotion": {
+"${ModID}:PlaceholderPotion": {
         "NAME": "Placeholder Potion",
         "DESCRIPTIONS": ["Gain ", " At the end of your turn, lose ", " Strength."]
 }

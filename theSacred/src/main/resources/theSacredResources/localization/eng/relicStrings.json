@@ -1,5 +1,5 @@
 {
-  "theSacred:PurificationRod": {
+  "${ModID}:PurificationRod": {
     "NAME": "Purification Rod",
     "FLAVOR": "A \"correctional tool\" used to correct the behavior of unbehaved creatures.",
     "DESCRIPTIONS": [

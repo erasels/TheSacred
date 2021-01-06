@@ -87,7 +87,7 @@ public class TheSacred implements
     public TheSacred() {
         BaseMod.subscribe(this);
 
-        setModID("theSacred");
+        setModID("theSacred"); // needs to be the same as ModID in pom.xml
 
         logger.info("Creating the color " + SacredCharacter.Enums.COLOR_SACRED.toString());
 

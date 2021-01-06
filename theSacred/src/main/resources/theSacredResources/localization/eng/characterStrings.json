@@ -1,5 +1,5 @@
 {
-  "theSacred:SacredCharacter": {
+  "${ModID}:SacredCharacter": {
     "NAMES": [
       "The Sacred",
       "the Sacred"

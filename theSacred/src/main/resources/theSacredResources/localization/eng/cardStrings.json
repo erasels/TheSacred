@@ -1,148 +1,148 @@
 {
-  "theSacred:Strike": {
+  "${ModID}:Strike": {
     "NAME": "Strike",
     "DESCRIPTION": "Deal !D! damage."
   },
-  "theSacred:Defend": {
+  "${ModID}:Defend": {
     "NAME": "Defend",
     "DESCRIPTION": "Gain !B! Block."
   },
-  "theSacred:TreasuredOrb": {
+  "${ModID}:TreasuredOrb": {
     "NAME": "Treasured Orb",
     "DESCRIPTION": "Deal !D! damage. NL Channel thesacred:Yin-Yang. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Channel thesacred:Yin-Yang. NL Trigger the passive of all thesacred:Yin-Yang. NL Exhaust."
   },
-  "theSacred:RepulseBarrier": {
+  "${ModID}:RepulseBarrier": {
     "NAME": "Repulse Barrier",
     "DESCRIPTION": "Gain !B! Block. Whenever you're attacked this turn, deal !M! damage back."
   },
-  "theSacred:Fortification": {
+  "${ModID}:Fortification": {
     "NAME": "Fortification",
     "DESCRIPTION": "Effects from Barriers last !M! additional turn.",
     "UPGRADE_DESCRIPTION": "Innate. NL Effects from thesacred:Barriers last !M! additional turn."
   },
-  "theSacred:PreciseNeedle": {
+  "${ModID}:PreciseNeedle": {
     "NAME": "Precise Needle",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Vulnerable. NL thesacred:Aligned: Apply !M! Vulnerable."
   },
-  "theSacred:BrittleBarrier": {
+  "${ModID}:BrittleBarrier": {
     "NAME": "Brittle Barrier",
     "DESCRIPTION": "Gain !B! Block. NL thesacred:Aligned: Whenever you're attacked this turn, apply 1 Weak."
   },
-  "theSacred:SpeedyShot": {
+  "${ModID}:SpeedyShot": {
     "NAME": "Speedy Shot",
     "DESCRIPTION": "Deal !D! damage. NL thesacred:Aligned: Draw !M! cards."
   },
-  "theSacred:ProtectionPrayer": {
+  "${ModID}:ProtectionPrayer": {
     "NAME": "Protection Prayer",
     "DESCRIPTION": "Gain 25% more Block for !theSacred:M2! turns. NL thesacred:Aligned: ALL enemies lose !M! Strength this turn."
   },
-  "theSacred:PersuasionNeedles": {
+  "${ModID}:PersuasionNeedles": {
     "NAME": "Persuasion Needles",
     "DESCRIPTION": "Deal !D! damage !M! times. NL thesacred:Aligned: Add a copy of this card into your discard pile. NL Exhaust."
   },
-  "theSacred:SacredShot": {
+  "${ModID}:SacredShot": {
     "NAME": "Sacred Shot",
     "DESCRIPTION": "Channel thesacred:Yin-Yang. NL thesacred:Aligned: Deal !D! damage. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Channel thesacred:Yin-Yang. NL thesacred:Aligned: Deal !D! damage. NL Exhaustive !stslib:ex!."
   },
-  "theSacred:DuplexBoundary": {
+  "${ModID}:DuplexBoundary": {
     "NAME": "Duplex Boundary",
     "DESCRIPTION": "Take 50% less attack damage for !M! turns.",
     "UPGRADE_DESCRIPTION": "Retain. NL Take 50% less attack damage for !M! turns."
   },
-  "theSacred:DispellingPrayer": {
+  "${ModID}:DispellingPrayer": {
     "NAME": "Dispelling Prayer",
     "DESCRIPTION": "Remove all your debuffs, gain !M! Strength for each. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Remove all your debuffs, gain !M! Strength and !theSacred:M2! Dexterity for each. NL Exhaust."
   },
-  "theSacred:SealErode": {
+  "${ModID}:SealErode": {
     "NAME": "Seal: Erode",
     "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. Increase this card's hit count by !theSacred:M2! this combat.",
     "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage to a random enemy !M! times. Increase this card's hit count by !theSacred:M2! this combat."
   },
-  "theSacred:QuickwittedStrike": {
+  "${ModID}:QuickwittedStrike": {
     "NAME": "Quick-Witted Strike",
     "DESCRIPTION": "Deal !D! damage. NL Shuffle your hand into your draw pile then draw that many cards."
   },
-  "theSacred:Prayer": {
+  "${ModID}:Prayer": {
     "NAME": "Prayer",
     "DESCRIPTION": "Put !M! Invoke card from your draw or discard pile into your hand. Exhaustive !stslib:ex!.",
     "UPGRADE_DESCRIPTION": "Put !M! Invoke cards from your draw or discard pile into your hand. Exhaustive !stslib:ex!."
   },
-  "theSacred:YinYangStrike": {
+  "${ModID}:YinYangStrike": {
     "NAME": "Yin-Yang Strike",
     "DESCRIPTION": "Deal !D! damage. NL If you have less than !M! thesacred:Yin-Yang channel thesacred:Yin-Yang."
   },
-  "theSacred:SealSpread": {
+  "${ModID}:SealSpread": {
     "NAME": "Spread Amulet",
     "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL Gain !theSacred:M2! Vulnerable.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage to a random enemy !M! times."
   },
-  "theSacred:MindAmulet": {
+  "${ModID}:MindAmulet": {
     "NAME": "Mind Amulet",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Apply !M! Vulnerable."
   },
-  "theSacred:QuickRift": {
+  "${ModID}:QuickRift": {
     "NAME": "Quick Rift",
     "DESCRIPTION": "Draw !M! cards, gain Block equal to their combined costs, affected by Block modifiers."
   },
-  "theSacred:Ward": {
+  "${ModID}:Ward": {
     "NAME": "Ward",
     "DESCRIPTION": "Scry !M!. NL Next turn, gain [E].",
     "UPGRADE_DESCRIPTION": "Scry !M!. NL Next turn, gain [E] [E]."
   },
-  "theSacred:HomingAmulet": {
+  "${ModID}:HomingAmulet": {
     "NAME": "Homing Amulet",
     "DESCRIPTION": "Deal !D! damage, deal !M! damage to a random enemy that you didn't target. NL thesacred:Aligned: Repeat."
   },
-  "theSacred:FantasyRift": {
+  "${ModID}:FantasyRift": {
     "NAME": "Fantasy Rift",
     "DESCRIPTION": "Gain !B! Block. NL Transform !M! random cards in your hand. NL Next Turn, gain [E]."
   },
-  "theSacred:YinYangShield": {
+  "${ModID}:YinYangShield": {
     "NAME": "Yin-Yang Shield",
     "DESCRIPTION": "Channel thesacred:Yin-Yang. NL thesacred:Aligned: Gain !B! Block. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Retain. NL Channel thesacred:Yin-Yang. NL thesacred:Aligned: Gain !B! Block. NL Exhaust."
   },
-  "theSacred:AnachronicBarrier": {
+  "${ModID}:AnachronicBarrier": {
     "NAME": "Anachronic Barrier",
     "DESCRIPTION": "Take all incoming attack damage at the end of your next turn instead. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Take all incoming attack damage at the end of your next turn instead. NL Next turn, gain !B! Block. NL Exhaust."
   },
-  "theSacred:Vengeance": {
+  "${ModID}:Vengeance": {
     "NAME": "Vengeance",
     "DESCRIPTION": "Deal damage equal to your missing health affected by attack modifiers. NL (Currently: !D!)",
     "UPGRADE_DESCRIPTION": "Deal damage equal to your missing health affected by attack modifiers to ALL enemies. NL (Currently: !D!)"
   },
-  "theSacred:SlaveSeals": {
+  "${ModID}:SlaveSeals": {
     "NAME": "Slave Seals",
     "DESCRIPTION": "Whenever an enemy takes attack damage, another enemy takes that much damage as well."
   },
-  "theSacred:InfiniteNeedles": {
+  "${ModID}:InfiniteNeedles": {
     "NAME": "Infinite Needles",
     "DESCRIPTION": "Deal !D! damage. NL Draw !M! card. NL Shuffle a copy of this card into your draw pile. NL Exhaustive !stslib:ex!."
   },
-  "theSacred:FantasyNature": {
+  "${ModID}:FantasyNature": {
     "NAME": "Fantasy Nature",
     "DESCRIPTION": "Gain !M! Intangible. NL thesacred:Aligned: Gain !M! Intangible. NL You cannot gain Intangible for the rest of combat."
   },
-  "theSacred:Illusion": {
+  "${ModID}:Illusion": {
     "NAME": "Illusion",
     "DESCRIPTION": "Deal !D! damage. Scry equal to the damage.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. Scry equal to the damage. NL thesacred:Aligned: Deal !M! damage for each discarded card."
   },
-  "theSacred:TargetingTalisman": {
+  "${ModID}:TargetingTalisman": {
     "NAME": "Chain Reaction",
     "DESCRIPTION": "Deal !D! damage to the weakest enemy. If this kills the enemy, deal double the excess damage to the next weakest enemy."
   },
-  "theSacred:ExorcismDance": {
+  "${ModID}:ExorcismDance": {
     "NAME": "Exorcism Dance",
     "DESCRIPTION": "Gain !B! Block !theSacred:M2! times. NL Add a random Needle into you hand.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block !theSacred:M2! times. NL Add !M! random thesacred:Needles into you hand."
   },
-  "theSacred:ErrantFaith": {
+  "${ModID}:ErrantFaith": {
     "NAME": "Errant Faith",
     "DESCRIPTION": "Whenever you play an thesacred:Invoke card, gain [E].",
     "UPGRADE_DESCRIPTION": "Whenever you play an thesacred:Invoke card, gain [E] [E]."
@@ -151,50 +151,50 @@
     "NAME": "Ascension Kick",
     "DESCRIPTION": "Deal !D! damage. Put !M! cards from your discard pile on top of your draw pile. NL thesacred:Aligned: Draw !theSacred:M2! card."
   },
-  "theSacred:Expansion": {
+  "${ModID}:Expansion": {
     "NAME": "Expansion",
     "DESCRIPTION": "Gain !B! Block. NL thesacred:Aligned: Deal damage equal to your Block to a random enemy."
   },
-  "theSacred:AscensionKick": {
+  "${ModID}:AscensionKick": {
     "NAME": "Ascension Kick",
     "DESCRIPTION": "Deal !D! damage. NL Draw !M! card, if it's an attack, it costs 0 this turn."
   },
-  "theSacred:TripUp": {
+  "${ModID}:TripUp": {
     "NAME": "Trip Up",
     "DESCRIPTION": "Deal !D! damage. NL Trigger the effect of each active barrier on you on the target."
   },
-  "theSacred:UnstableBarrier": {
+  "${ModID}:UnstableBarrier": {
     "NAME": "Unstable Barrier",
     "DESCRIPTION": "Gain !B! Block. NL If your Block is broken this turn, deal !M! damage to ALL enemies."
   },
-  "theSacred:ProtectionIdol": {
+  "${ModID}:ProtectionIdol": {
     "NAME": "Protection Idol",
     "DESCRIPTION": "Gain !B! * _?_ Block.",
     "UPGRADE_DESCRIPTION": "Gain !B! * _?_ Block. NL ? can't roll 0."
   },
-  "theSacred:BlightBuster": {
+  "${ModID}:BlightBuster": {
     "NAME": "Blight Buster",
     "DESCRIPTION": "thesacred:Remnant: This card costs 0. NL Deal !D! damage. NL Next turn, gain [E]."
   },
-  "theSacred:ScourgedEarth": {
+  "${ModID}:ScourgedEarth": {
     "NAME": "Scourged Earth",
     "DESCRIPTION": "Deal !D! damage to ALL enemies. NL Deal !M! damage to ALL enemies at the start of your next _?_ turns."
   },
-  "theSacred:Trifecta": {
+  "${ModID}:Trifecta": {
     "NAME": "Trifecta",
     "DESCRIPTION": "The next _?_ cards you play are played 2 additional times. NL ? can't roll 0. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "The next ? + !theSacred:IA! cards you play are played 2 additional times. NL Exhaust."
   },
-  "theSacred:Invocation": {
+  "${ModID}:Invocation": {
     "NAME": "Invocation",
     "DESCRIPTION": "Increase the thesacred:Invoke effect of all cards in your hand by !M! for the rest of combat."
   },
-  "theSacred:WheelOfMisfortune": {
+  "${ModID}:WheelOfMisfortune": {
     "NAME": "Wheel of Misfortune",
     "DESCRIPTION": "The next _?_ times a debuff would be applied to you, it is instead applied to the sender. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "The next ? + !theSacred:IA! times a debuff would be applied to you, reflect it. NL Exhaust."
   },
-  "theSacred:RainDance": {
+  "${ModID}:RainDance": {
     "NAME": "Rain Dance",
     "DESCRIPTION": "Increases its damage by !M! on turn end during odd, and deals !D! damage on even turns.",
     "EXTENDED_DESCRIPTION": [
@@ -205,12 +205,12 @@
       "Odd Turn"
     ]
   },
-  "theSacred:Twirl": {
+  "${ModID}:Twirl": {
     "NAME": "Twirl",
     "DESCRIPTION": "Deal !D! damage. NL Put !M! card from your discard pile on the bottom of your draw pile.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Put !M! cards from your discard pile on the bottom of your draw pile."
   },
-  "theSacred:ExpandingBarrier": {
+  "${ModID}:ExpandingBarrier": {
     "NAME": "Expanding Barrier",
     "DESCRIPTION": "Whenever you attack, apply !M! *Choked to the target.",
     "EXTENDED_DESCRIPTION": [
@@ -218,37 +218,37 @@
       "Whenever you play a card, the owner loses HP equal to its amount for the turn."
     ]
   },
-  "theSacred:Punishment": {
+  "${ModID}:Punishment": {
     "NAME": "Punishment",
     "DESCRIPTION": "Grave. NL Deal !D! damage to ALL enemies. NL For each enemy killed, gain !M! [E]."
   },
-  "theSacred:Provoke": {
+  "${ModID}:Provoke": {
     "NAME": "Provoke",
     "DESCRIPTION": "Deal !D! damage. NL If the enemy intends to attack, add !M! *Insights into your discard pile.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If the enemy intends to attack, add !M! *Insights+ into your discard pile."
   },
-  "theSacred:LashOut": {
+  "${ModID}:LashOut": {
     "NAME": "Lash Out",
     "DESCRIPTION": "Discard your hand. NL Deal !D! damage to a random enemy for each card discarded."
   },
-  "theSacred:RottenFood": {
+  "${ModID}:RottenFood": {
     "NAME": "Rotten Food",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! Poison. NL thesacred:Patience: NL [#FFF6E2]Transform[] adjacent cards into *Rot."
   },
-  "theSacred:Rot": {
+  "${ModID}:Rot": {
     "NAME": "Rot",
     "DESCRIPTION": "Apply !M! Poison. NL Draw !theSacred:M2! card."
   },
-  "theSacred:BorderCrush": {
+  "${ModID}:BorderCrush": {
     "NAME": "Border Crush",
     "DESCRIPTION": "Deal !D! damage. NL Affected by Block modifiers.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Affected by Block modifiers. NL Gain !B! Block."
   },
-  "theSacred:CautionaryBorder": {
+  "${ModID}:CautionaryBorder": {
     "NAME": "Cautionary Border",
     "DESCRIPTION": "Gain !B! Block. NL thesacred:Patience: Gain !M! thesacred:Grace."
   },
-  "theSacred:Rift": {
+  "${ModID}:Rift": {
     "NAME": "Rift",
     "DESCRIPTION": "Gain !B! Block. NL Put a card from your hand on top of your draw pile.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block twice. NL Put a card from your hand on top of your draw pile."

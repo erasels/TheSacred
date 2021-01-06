@@ -1,22 +1,22 @@
 {
-  "theSacred:ExhaustionPanel": {
+  "${ModID}:ExhaustionPanel": {
     "TEXT": [
       "Exhaustion",
       "When you would die, revive with half HP, clear your debuffs and gain Exhaustion instead. NL You lose #b1 HP per #yExhaustion whenever you play a card. NL You give up if #yExhaustion would reach #b5."
     ]
   },
-  "theSacred:SpeedModePrepText": {
+  "${ModID}:SpeedModePrepText": {
     "TEXT": [
       "Begins in: "
     ]
   },
-  "theSacred:ChooseCardsFromPilesAction": {
+  "${ModID}:ChooseCardsFromPilesAction": {
     "TEXT": [
       "Choose ",
       " card(s)."
     ]
   },
-  "theSacred:FieldCards": {
+  "${ModID}:FieldCards": {
     "TEXT": [
       "[#4169E1]Field[]"
     ]

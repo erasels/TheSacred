@@ -1,12 +1,12 @@
 {
-  "theSacred:RepulseBarrier": {
+  "${ModID}:RepulseBarrier": {
     "NAME": "Repulse",
     "DESCRIPTIONS": [
       "When attacked, deals #b",
       " damage back."
     ]
   },
-  "theSacred:Ignite": {
+  "${ModID}:Ignite": {
     "NAME": "Ignite",
     "DESCRIPTIONS": [
       "At the end of its turn, takes #b",
@@ -14,14 +14,14 @@
       "At the end of the monsters' turn, take #b"
     ]
   },
-  "theSacred:RecklessAttack": {
+  "${ModID}:RecklessAttack": {
     "NAME": "Reckless Attack",
     "DESCRIPTIONS": [
       "The next card you play costs #b0 [REMOVE_SPACE]. Lose HP equal to #b",
       " times its original energy cost instead."
     ]
   },
-  "theSacred:Mirage": {
+  "${ModID}:Mirage": {
     "NAME": "Bearing Flames",
     "DESCRIPTIONS": [
       "Until the end of your #b",
@@ -32,48 +32,48 @@
       " loses it instead."
     ]
   },
-  "theSacred:Updraft": {
+  "${ModID}:Updraft": {
     "NAME": "Updraft",
     "DESCRIPTIONS": [
       "When you would die, heal HP equal to #b",
       " times the amount of cards with a HP cost in your deck."
     ]
   },
-  "theSacred:Cursed": {
+  "${ModID}:Cursed": {
     "NAME": "Cursed",
     "DESCRIPTIONS": [
       "On death, applies its debuffs to all other monsters."
     ]
   },
-  "theSacred:BrittleBarrier": {
+  "${ModID}:BrittleBarrier": {
     "NAME": "Brittle Barrier",
     "DESCRIPTIONS": [
       "When attacked, apply #b",
       " #yWeak [REMOVE_SPACE]."
     ]
   },
-  "theSacred:BlessingOfProtection": {
+  "${ModID}:BlessingOfProtection": {
     "NAME": "Protection Blessing",
     "DESCRIPTIONS": [
       "Gain #b",
       "% more #yBlock from cards."
     ]
   },
-  "theSacred:DuplexBoundary": {
+  "${ModID}:DuplexBoundary": {
     "NAME": "Duplex Boundary",
     "DESCRIPTIONS": [
       "Take #b",
       "% less damage."
     ]
   },
-  "theSacred:AnachronicBarrier": {
+  "${ModID}:AnachronicBarrier": {
     "NAME": "Anachronic Barrier",
     "DESCRIPTIONS": [
       "Delay all incoming attack damage to the end of the specified round. NL Currently: #b",
       " damage is stored."
     ]
   },
-  "theSacred:SlaveSeals": {
+  "${ModID}:SlaveSeals": {
     "NAME": "Slave Seals",
     "DESCRIPTIONS": [
       "Whenever an enemy takes attack damage, #b",
@@ -83,34 +83,34 @@
       " takes that much damage as well."
     ]
   },
-  "theSacred:Limit": {
+  "${ModID}:Limit": {
     "NAME": "Self-Imposed Limit",
     "DESCRIPTIONS": [
       "Cannot gain #yIntagible for the rest of combat."
     ]
   },
-  "theSacred:ErrantFaith": {
+  "${ModID}:ErrantFaith": {
     "NAME": "Errant Faith",
     "DESCRIPTIONS": [
       "Gain #b",
       " [E] after playing an #yInvoke card."
     ]
   },
-  "theSacred:UnstableBarrier": {
+  "${ModID}:UnstableBarrier": {
     "NAME": "Unstable Barrier",
     "DESCRIPTIONS": [
       "If your #yBlock is broken, deal #b",
       " damage to ALL enemies."
     ]
   },
-  "theSacred:ScourgedEarth": {
+  "${ModID}:ScourgedEarth": {
     "NAME": "Scourged Earth",
     "DESCRIPTIONS": [
       "At the start of your turn, deal #b",
       " damage to ALL enemies."
     ]
   },
-  "theSacred:Trifecta": {
+  "${ModID}:Trifecta": {
     "NAME": "Trifecta",
     "DESCRIPTIONS": [
       "The next #b",
@@ -119,7 +119,7 @@
       "played #b2 additional times."
     ]
   },
-  "theSacred:WheelOfMisfortune": {
+  "${ModID}:WheelOfMisfortune": {
     "NAME": "Wheel of Misfortune",
     "DESCRIPTIONS": [
       "Reflects the next #b",
@@ -127,7 +127,7 @@
       " #yPoison if the debuff only works on players."
     ]
   },
-  "theSacred:Grace": {
+  "${ModID}:Grace": {
     "NAME": "Grace",
     "DESCRIPTIONS": [
       "The next time you gain #yBlock from a #ySkill [REMOVE_SPACE], gain #b",
