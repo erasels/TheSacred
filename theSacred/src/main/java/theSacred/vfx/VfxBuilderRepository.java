@@ -1,5 +1,6 @@
 package theSacred.vfx;
 
+import basemod.helpers.VfxBuilder;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.Settings;
@@ -7,7 +8,6 @@ import com.megacrit.cardcrawl.helpers.Hitbox;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import theSacred.util.UC;
-import theSacred.util.VfxBuilder;
 
 public class VfxBuilderRepository {
     public static AbstractGameEffect ofudaShot(Hitbox hb, float angle, float ofudaAngle) {
