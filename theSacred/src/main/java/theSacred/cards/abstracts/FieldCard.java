@@ -52,9 +52,6 @@ public abstract class FieldCard extends SacredCard {
     @Override
     public List<TooltipInfo> getCustomTooltipsTop() {
         ArrayList<TooltipInfo> tps = (ArrayList<TooltipInfo>) super.getCustomTooltipsTop();
-        if (tps == null) {
-            tps = new ArrayList<>();
-        }
         if (!FieldSystem.fields.contains(this)) {
             tps.add(0, new TooltipInfo(TheSacred.fieldKeywords[0], TheSacred.fieldKeywords[1]));
         }
@@ -107,7 +104,6 @@ public abstract class FieldCard extends SacredCard {
         resetDuration();
     }
 
-    //TODO: Make this render in the big card view
     protected void renderDuration(SpriteBatch sb) {
         float drawX = current_x - 256.0F;
         float drawY = current_y - 256.0F;

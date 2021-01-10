@@ -20,6 +20,7 @@ import theSacred.util.CardInfo;
 import theSacred.util.UC;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public abstract class InvokeCard extends SacredCard{
@@ -64,11 +65,14 @@ public abstract class InvokeCard extends SacredCard{
 
     @Override
     public List<TooltipInfo> getCustomTooltipsTop() {
-        ArrayList<TooltipInfo> var = new ArrayList<>(super.getCustomTooltipsTop());
-        if(var != null) {
-            var.add(new TooltipInfo(TheSacred.invokeKeywords[0], TheSacred.invokeKeywords[1]));
-        }
+        ArrayList<TooltipInfo> var = (ArrayList<TooltipInfo>) super.getCustomTooltipsTop();
+        var.add(new TooltipInfo(TheSacred.invokeKeywords[0], TheSacred.invokeKeywords[1]));
         return var;
+    }
+
+    @Override
+    public List<String> getCardDescriptors() {
+        return Collections.singletonList(TheSacred.invokeKeywords[0]);
     }
 
     private int invokeChangeIndex;

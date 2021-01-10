@@ -1,6 +1,7 @@
 package theSacred.cards.abstracts;
 
 import basemod.abstracts.CustomCard;
+import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -15,6 +16,9 @@ import theSacred.characters.SacredCharacter;
 import theSacred.patches.cards.CardENUMs;
 import theSacred.util.CardInfo;
 import theSacred.util.UC;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static theSacred.TheSacred.makeID;
 import static theSacred.util.TextureLoader.getCardTextureString;
@@ -221,6 +225,12 @@ public abstract class SacredCard extends CustomCard {
     }
 
     public void triggerOnBeforeEndOfTurnForPlayingCard() { }
+
+    @Override
+    public List<TooltipInfo> getCustomTooltipsTop() {
+        List<TooltipInfo> l = super.getCustomTooltipsTop();
+        return l != null? new ArrayList<>(l) : new ArrayList<>();
+    }
 
     @Override
     public AbstractCard makeStatEquivalentCopy() {
