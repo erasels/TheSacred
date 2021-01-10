@@ -28,6 +28,7 @@ import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import theSacred.TheSacred;
+import theSacred.cards.abstracts.InvokeCard;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.mechanics.field.FieldSystem;
 import theSacred.orbs.YinYangOrb;
@@ -87,7 +88,7 @@ public class UC {
     }
 
     public static boolean isInvoke(AbstractCard c) {
-        return c instanceof SacredCard && ((SacredCard) c).invoke;
+        return c instanceof InvokeCard;
     }
 
     public static boolean checkFortified() {

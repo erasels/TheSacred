@@ -2,7 +2,8 @@ package theSacred.cards.variables;
 
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import theSacred.cards.abstracts.SacredCard;
+import theSacred.cards.abstracts.InvokeCard;
+import theSacred.util.UC;
 
 public class InvokeAddition extends DynamicVariable {
     @Override
@@ -12,24 +13,24 @@ public class InvokeAddition extends DynamicVariable {
 
     @Override
     public int baseValue(AbstractCard card) {
-        if (card instanceof SacredCard) {
-            return ((SacredCard) card).baseInvokeAddition + (card.upgraded?((SacredCard) card).invokeUpgAddition:0);
+        if (UC.isInvoke(card)) {
+            return ((InvokeCard) card).baseInvokeAddition + (card.upgraded?((InvokeCard) card).invokeUpgAddition:0);
         }
         return -1;
     }
 
     @Override
     public int value(AbstractCard card) {
-        if (card instanceof SacredCard) {
-            return ((SacredCard) card).invokeAddition + (card.upgraded?((SacredCard) card).invokeUpgAddition:0);
+        if (UC.isInvoke(card)) {
+            return ((InvokeCard) card).invokeAddition + (card.upgraded?((InvokeCard) card).invokeUpgAddition:0);
         }
         return -1;
     }
 
     @Override
     public boolean isModified(AbstractCard card) {
-        if (card instanceof SacredCard) {
-            return ((SacredCard) card).baseInvokeAddition != ((SacredCard) card).invokeAddition;
+        if (UC.isInvoke(card)) {
+            return ((InvokeCard) card).baseInvokeAddition != ((InvokeCard) card).invokeAddition;
         }
         return false;
     }

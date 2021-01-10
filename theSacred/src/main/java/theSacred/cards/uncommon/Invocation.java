@@ -3,6 +3,7 @@ package theSacred.cards.uncommon;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.actions.common.DoActionForAllCardsInHandAction;
+import theSacred.cards.abstracts.InvokeCard;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.util.CardInfo;
 
@@ -32,7 +33,7 @@ public class Invocation extends SacredCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new DoActionForAllCardsInHandAction(0, c -> {
             if(isInvoke(c)) {
-                ((SacredCard)c).incrementInvokeForCombat(magicNumber);
+                ((InvokeCard)c).incrementInvokeForCombat(magicNumber);
             }
         }));
     }

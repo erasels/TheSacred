@@ -3,7 +3,7 @@ package theSacred.cards.common;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theSacred.cards.abstracts.SacredCard;
+import theSacred.cards.abstracts.InvokeCard;
 import theSacred.powers.turn.ScourgedEarthPower;
 import theSacred.util.CardInfo;
 import theSacred.vfx.combat.BetterScreenOnFireEffect;
@@ -11,7 +11,7 @@ import theSacred.vfx.combat.BetterScreenOnFireEffect;
 import static theSacred.TheSacred.makeID;
 import static theSacred.util.UC.*;
 
-public class ScourgedEarth extends SacredCard {
+public class ScourgedEarth extends InvokeCard {
     private final static CardInfo cardInfo = new CardInfo(
             "ScourgedEarth",
             0,

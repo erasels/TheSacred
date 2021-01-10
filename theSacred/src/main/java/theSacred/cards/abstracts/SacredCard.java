@@ -1,7 +1,6 @@
 package theSacred.cards.abstracts;
 
 import basemod.abstracts.CustomCard;
-import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -17,18 +16,12 @@ import theSacred.patches.cards.CardENUMs;
 import theSacred.util.CardInfo;
 import theSacred.util.UC;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import static theSacred.TheSacred.makeID;
 import static theSacred.util.TextureLoader.getCardTextureString;
 
 public abstract class SacredCard extends CustomCard {
     protected CardStrings cardStrings;
     protected String img;
-
-    public static final int INVOKE_MAX_COST = 3;
 
     protected boolean upgradesDescription;
 
@@ -60,11 +53,6 @@ public abstract class SacredCard extends CustomCard {
     public int baseShowNumber;
     public int showNumber;
     public boolean isShowNumberModified;
-
-    public boolean invoke;
-    public boolean invokeCostRandomized;
-    public int invokeMinCost, invokeMaxCost;
-    public int baseInvokeAddition, invokeAddition, invokeUpgAddition;
 
 
     public SacredCard(CardInfo cardInfo, boolean upgradesDescription) {
@@ -99,14 +87,6 @@ public abstract class SacredCard extends CustomCard {
 
         upgradeRetain = false;
         upgradeEthereal = false;
-
-        invoke = false;
-        invokeCostRandomized = false;
-        invokeMinCost = 0;
-        invokeMaxCost = INVOKE_MAX_COST;
-        baseInvokeAddition = 0;
-        invokeAddition = 0;
-        invokeUpgAddition = 0;
 
         if(cardName.toLowerCase().contains("strike")) {
             tags.add(CardTags.STRIKE);
@@ -214,20 +194,6 @@ public abstract class SacredCard extends CustomCard {
         this.magicNumber2 = baseMagicNumber2 = mn2;
     }
 
-    public void setInvoke(int invkAdd, int invkUpgAdd) {
-        setInvoke(invkAdd, invkUpgAdd, 0, INVOKE_MAX_COST);
-    }
-
-    public void setInvoke(int invkAdd, int invkUpgAdd, int invkMin, int invkMax) {
-        this.invoke = true;
-        baseInvokeAddition = invokeAddition = invkAdd;
-        invokeUpgAddition = invkUpgAdd;
-        invokeMinCost = invkMin;
-        invokeMaxCost = invkMax;
-        this.tags.add(CardENUMs.INVOKE);
-        initializeDescription();
-    }
-
     private CardRarity autoRarity() {
         String packageName = this.getClass().getPackage().getName();
 
@@ -252,14 +218,6 @@ public abstract class SacredCard extends CustomCard {
                 }
                 return CardRarity.SPECIAL;
         }
-    }
-
-    @Override
-    public List<TooltipInfo> getCustomTooltipsTop() {
-        if(invoke) {
-            return new ArrayList<>(Collections.singletonList(new TooltipInfo(TheSacred.invokeKeywords[0], TheSacred.invokeKeywords[1])));
-        }
-        return null;
     }
 
     public void triggerOnBeforeEndOfTurnForPlayingCard() { }
@@ -297,12 +255,6 @@ public abstract class SacredCard extends CustomCard {
             ((SacredCard) card).magicNumber2 = this.magicNumber2;
             ((SacredCard) card).baseShowNumber = this.baseShowNumber;
             ((SacredCard) card).showNumber = this.showNumber;
-
-            ((SacredCard) card).baseInvokeAddition = baseInvokeAddition;
-            ((SacredCard) card).invokeAddition = invokeAddition;
-            ((SacredCard) card).invokeUpgAddition = invokeUpgAddition;
-            ((SacredCard) card).invokeMinCost = invokeMinCost;
-            ((SacredCard) card).invokeMaxCost = invokeMaxCost;
         }
 
         return card;
@@ -357,39 +309,6 @@ public abstract class SacredCard extends CustomCard {
             }
 
             this.initializeDescription();
-        }
-    }
-
-    private int invokeChangeIndex;
-    private boolean invokeStringChanged = false;
-    private static final String INVOKE_DYNAMIC_MARKER = "_?_";
-    @Override
-    public void initializeDescription() {
-        if(invoke) {
-            int marker = rawDescription.indexOf(INVOKE_DYNAMIC_MARKER);
-            if (marker > -1) {
-                invokeChangeIndex = marker;
-                rawDescription = rawDescription.replace(INVOKE_DYNAMIC_MARKER, "?");
-            }
-
-            if (invokeAddition != baseInvokeAddition && !invokeStringChanged && !rawDescription.contains("? + !theSacred:IA!")) {
-                invokeStringChanged = true;
-                rawDescription = rawDescription.substring(0, invokeChangeIndex + 1)
-                        + " + !theSacred:IA!"
-                        + rawDescription.substring(invokeChangeIndex + 1);
-            }
-        }
-        super.initializeDescription();
-    }
-
-    public int getInvokeAmt() {
-        return costForTurn + invokeAddition + (upgraded?invokeUpgAddition:0);
-    }
-
-    public void incrementInvokeForCombat(int invkAdd) {
-        invokeAddition+=invkAdd;
-        if(!invokeStringChanged) {
-            initializeDescription();
         }
     }
 

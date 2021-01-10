@@ -2,14 +2,14 @@ package theSacred.cards.rare;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theSacred.cards.abstracts.SacredCard;
+import theSacred.cards.abstracts.InvokeCard;
 import theSacred.powers.TrifectaPower;
 import theSacred.util.CardInfo;
 
 import static theSacred.TheSacred.makeID;
-import static theSacred.util.UC.*;
+import static theSacred.util.UC.doPow;
 
-public class Trifecta extends SacredCard {
+public class Trifecta extends InvokeCard {
     private final static CardInfo cardInfo = new CardInfo(
             "Trifecta",
             0,

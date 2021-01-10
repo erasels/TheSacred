@@ -2,15 +2,16 @@ package theSacred.cards.uncommon;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theSacred.cards.abstracts.SacredCard;
+import theSacred.cards.abstracts.InvokeCard;
 import theSacred.powers.WheelOfMisfortunePower;
 import theSacred.util.CardInfo;
 import theSacred.vfx.general.RunAnimationEffect;
 
 import static theSacred.TheSacred.makeID;
-import static theSacred.util.UC.*;
+import static theSacred.util.UC.doPow;
+import static theSacred.util.UC.doVfx;
 
-public class WheelOfMisfortune extends SacredCard {
+public class WheelOfMisfortune extends InvokeCard {
     private final static CardInfo cardInfo = new CardInfo(
             "WheelOfMisfortune",
             0,

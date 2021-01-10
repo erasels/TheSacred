@@ -2,13 +2,13 @@ package theSacred.cards.common;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theSacred.cards.abstracts.SacredCard;
+import theSacred.cards.abstracts.InvokeCard;
 import theSacred.util.CardInfo;
 
 import static theSacred.TheSacred.makeID;
 import static theSacred.util.UC.doDef;
 
-public class ProtectionIdol extends SacredCard {
+public class ProtectionIdol extends InvokeCard {
     private final static CardInfo cardInfo = new CardInfo(
             "ProtectionIdol",
             0,
