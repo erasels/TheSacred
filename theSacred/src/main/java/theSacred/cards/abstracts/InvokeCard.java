@@ -23,10 +23,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class InvokeCard extends SacredCard{
+public abstract class InvokeCard extends SacredCard {
     public static final int INVOKE_MAX_COST = 3;
 
-    public boolean invoke;
     public boolean invokeCostRandomized;
     public int invokeMinCost, invokeMaxCost;
     public int baseInvokeAddition, invokeAddition, invokeUpgAddition;
@@ -34,7 +33,6 @@ public abstract class InvokeCard extends SacredCard{
     public InvokeCard(CardColor color, String cardName, int cost, CardType cardType, CardTarget target, CardRarity rarity, boolean upgradesDescription) {
         super(color, cardName, cost, cardType, target, rarity, upgradesDescription);
 
-        invoke = false;
         invokeCostRandomized = false;
         invokeMinCost = 0;
         invokeMaxCost = INVOKE_MAX_COST;
@@ -54,7 +52,6 @@ public abstract class InvokeCard extends SacredCard{
     }
 
     public void setInvoke(int invkAdd, int invkUpgAdd, int invkMin, int invkMax) {
-        this.invoke = true;
         baseInvokeAddition = invokeAddition = invkAdd;
         invokeUpgAddition = invkUpgAdd;
         invokeMinCost = invkMin;
@@ -78,32 +75,31 @@ public abstract class InvokeCard extends SacredCard{
     private int invokeChangeIndex;
     private boolean invokeStringChanged = false;
     private static final String INVOKE_DYNAMIC_MARKER = "_?_";
+
     @Override
     public void initializeDescription() {
-        if(invoke) {
-            int marker = rawDescription.indexOf(INVOKE_DYNAMIC_MARKER);
-            if (marker > -1) {
-                invokeChangeIndex = marker;
-                rawDescription = rawDescription.replace(INVOKE_DYNAMIC_MARKER, "?");
-            }
+        int marker = rawDescription.indexOf(INVOKE_DYNAMIC_MARKER);
+        if (marker > -1) {
+            invokeChangeIndex = marker;
+            rawDescription = rawDescription.replace(INVOKE_DYNAMIC_MARKER, "?");
+        }
 
-            if (invokeAddition != baseInvokeAddition && !invokeStringChanged && !rawDescription.contains("? + !theSacred:IA!")) {
-                invokeStringChanged = true;
-                rawDescription = rawDescription.substring(0, invokeChangeIndex + 1)
-                        + " + !theSacred:IA!"
-                        + rawDescription.substring(invokeChangeIndex + 1);
-            }
+        if (invokeAddition != baseInvokeAddition && !invokeStringChanged && !rawDescription.contains("? + !theSacred:IA!")) {
+            invokeStringChanged = true;
+            rawDescription = rawDescription.substring(0, invokeChangeIndex + 1)
+                    + " + !theSacred:IA!"
+                    + rawDescription.substring(invokeChangeIndex + 1);
         }
         super.initializeDescription();
     }
 
     public int getInvokeAmt() {
-        return costForTurn + invokeAddition + (upgraded?invokeUpgAddition:0);
+        return costForTurn + invokeAddition + (upgraded ? invokeUpgAddition : 0);
     }
 
     public void incrementInvokeForCombat(int invkAdd) {
-        invokeAddition+=invkAdd;
-        if(!invokeStringChanged) {
+        invokeAddition += invkAdd;
+        if (!invokeStringChanged) {
             initializeDescription();
         }
     }
@@ -157,8 +153,8 @@ public abstract class InvokeCard extends SacredCard{
     public static class CatchEnteredHand {
         @SpirePostfixPatch
         public static void call(CardGroup __instance) {
-            for(AbstractCard c : __instance.group) {
-                if(UC.isInvoke(c) && !((InvokeCard) c).invokeCostRandomized) {
+            for (AbstractCard c : __instance.group) {
+                if (UC.isInvoke(c) && !((InvokeCard) c).invokeCostRandomized) {
                     ((InvokeCard) c).randomizeCost();
                 }
             }
@@ -173,7 +169,7 @@ public abstract class InvokeCard extends SacredCard{
                 @Override
                 public void edit(MethodCall m) throws CannotCompileException {
                     if (m.getClassName().equals(FontHelper.class.getName()) && m.getMethodName().equals("renderFont")) {
-                        m.replace("if ("+ UC.class.getName() +".isInvoke(card)) {" +
+                        m.replace("if (" + UC.class.getName() + ".isInvoke(card)) {" +
                                 "$3 = \"?\";" +
                                 "$4 = 674.0f * " + Settings.class.getName() + ".scale;" +
                                 "}" +
@@ -193,7 +189,7 @@ public abstract class InvokeCard extends SacredCard{
         @SpirePostfixPatch
         public static void patch(CardGroup __instance, AbstractCard card) {
             if (UC.isInvoke(card)) {
-                ((InvokeCard)card).invokeCostRandomized = false;
+                ((InvokeCard) card).invokeCostRandomized = false;
             }
         }
     }
@@ -203,7 +199,7 @@ public abstract class InvokeCard extends SacredCard{
         @SpirePostfixPatch
         public static void patch(CardGroup __instance, AbstractCard card, boolean randomSpot) {
             if (UC.isInvoke(card) && __instance == AbstractDungeon.player.hand && AbstractDungeon.player.hand.contains(card)) {
-                ((InvokeCard)card).invokeCostRandomized = false;
+                ((InvokeCard) card).invokeCostRandomized = false;
             }
         }
     }
