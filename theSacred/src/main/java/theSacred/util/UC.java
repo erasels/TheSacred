@@ -28,7 +28,6 @@ import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import theSacred.TheSacred;
-import theSacred.actions.utility.DamageAllAction;
 import theSacred.cards.abstracts.SacredCard;
 import theSacred.mechanics.field.FieldSystem;
 import theSacred.orbs.YinYangOrb;
@@ -145,14 +144,18 @@ public class UC {
 
     public static void doAllDmg(int amount, AbstractGameAction.AttackEffect ae, DamageInfo.DamageType dt, boolean top) {
         if (top) {
-            att(new DamageAllAction(p(), amount, false, dt, ae, false));
+            att(new DamageAllEnemiesAction(p(), amount, dt, ae));
         } else {
-            atb(new DamageAllAction(p(), amount, false, dt, ae, false));
+            atb(new DamageAllEnemiesAction(p(), amount, dt, ae));
         }
     }
 
     public static void doAllDmg(AbstractCard c, AbstractGameAction.AttackEffect ae, boolean top) {
-        doAllDmg(c.damage, ae, c.damageTypeForTurn, top);
+        if (top) {
+            att(new DamageAllEnemiesAction(p(), c.multiDamage, c.damageTypeForTurn, ae));
+        } else {
+            atb(new DamageAllEnemiesAction(p(), c.multiDamage, c.damageTypeForTurn, ae));
+        }
     }
 
     public static void doDef(AbstractCard c) {
@@ -304,7 +307,7 @@ public class UC {
     }
 
     public static boolean isInCombat() {
-        return CardCrawlGame.isInARun() && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom().phase != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
+        return CardCrawlGame.isInARun() && AbstractDungeon.currMapNode != null && AbstractDungeon.getCurrRoom() != null && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT;
     }
 
     public static <T> T getRandomItem(ArrayList<T> list) {

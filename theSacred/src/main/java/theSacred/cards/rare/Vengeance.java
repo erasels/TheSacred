@@ -35,7 +35,7 @@ public class Vengeance extends SacredCard {
         if (!upgraded) {
             doDmg(m, damage, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         } else {
-            doAllDmg(damage, AbstractGameAction.AttackEffect.BLUNT_HEAVY, damageTypeForTurn, false);
+            doAllDmg(this, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false);
         }
     }
 

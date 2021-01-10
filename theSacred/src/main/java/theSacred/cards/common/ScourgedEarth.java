@@ -1,7 +1,6 @@
 package theSacred.cards.common;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theSacred.cards.abstracts.SacredCard;
@@ -37,7 +36,7 @@ public class ScourgedEarth extends SacredCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         doVfx(new BetterScreenOnFireEffect(0.5f*getInvokeAmt(), 0.5f*getInvokeAmt(), "ATTACK_FLAME_BARRIER"));
-        doAllDmg(damage, AbstractGameAction.AttackEffect.FIRE, DamageInfo.DamageType.NORMAL, false);
+        doAllDmg(this, AbstractGameAction.AttackEffect.FIRE, false);
         if(getInvokeAmt() > 0) {
             doPow(p, new ScourgedEarthPower(getInvokeAmt(), magicNumber));
         }
