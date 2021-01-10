@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import theSacred.TheSacred;
 import theSacred.characters.SacredCharacter;
 import theSacred.patches.cards.CardENUMs;
@@ -92,16 +93,16 @@ public abstract class SacredCard extends CustomCard {
         upgradeRetain = false;
         upgradeEthereal = false;
 
-        if(cardName.toLowerCase().contains("strike")) {
+        if (cardName.toLowerCase().contains("strike")) {
             tags.add(CardTags.STRIKE);
         }
-        if(cardName.toLowerCase().contains("barrier")) {
+        if (cardName.toLowerCase().contains("barrier")) {
             tags.add(CardENUMs.BARRIER);
         }
-        if(cardName.toLowerCase().contains("needle")) {
+        if (cardName.toLowerCase().contains("needle")) {
             tags.add(CardENUMs.NEEDLE);
         }
-        if(this instanceof AlignedCard) {
+        if (this instanceof AlignedCard) {
             tags.add(CardENUMs.ALIGNED);
         }
 
@@ -167,7 +168,7 @@ public abstract class SacredCard extends CustomCard {
     }
 
     public void setRetain(boolean upgradeToRetain) {
-        if(upgradeToRetain) {
+        if (upgradeToRetain) {
             upgradeRetain = true;
         } else {
             selfRetain = true;
@@ -175,7 +176,7 @@ public abstract class SacredCard extends CustomCard {
     }
 
     public void setEthereal(boolean upgradeToEthereal) {
-        if(upgradeToEthereal) {
+        if (upgradeToEthereal) {
             upgradeEthereal = true;
         } else {
             isEthereal = true;
@@ -183,7 +184,7 @@ public abstract class SacredCard extends CustomCard {
     }
 
     public void setMultiDamage(boolean upgradeMulti) {
-        if(upgradeMulti) {
+        if (upgradeMulti) {
             upgradeMultiDmg = true;
         } else {
             this.isMultiDamage = true;
@@ -217,19 +218,20 @@ public abstract class SacredCard extends CustomCard {
             case "basic":
                 return CardRarity.BASIC;
             default:
-                if(Settings.isDebug) {
+                if (Settings.isDebug) {
                     TheSacred.logger.info("Automatic Card rarity resulted in SPECIAL, input: " + directParent);
                 }
                 return CardRarity.SPECIAL;
         }
     }
 
-    public void triggerOnBeforeEndOfTurnForPlayingCard() { }
+    public void triggerOnBeforeEndOfTurnForPlayingCard() {
+    }
 
     @Override
     public List<TooltipInfo> getCustomTooltipsTop() {
         List<TooltipInfo> l = super.getCustomTooltipsTop();
-        return l != null? new ArrayList<>(l) : new ArrayList<>();
+        return l != null ? new ArrayList<>(l) : new ArrayList<>();
     }
 
     @Override
@@ -306,15 +308,15 @@ public abstract class SacredCard extends CustomCard {
             if (baseInnate ^ upgInnate) //different
                 this.isInnate = upgInnate;
 
-            if(upgradeRetain) {
+            if (upgradeRetain) {
                 selfRetain = true;
             }
 
-            if(upgradeEthereal) {
+            if (upgradeEthereal) {
                 isEthereal = true;
             }
 
-            if(upgradeMultiDmg) {
+            if (upgradeMultiDmg) {
                 this.isMultiDamage = true;
             }
 
@@ -324,7 +326,7 @@ public abstract class SacredCard extends CustomCard {
 
     @Override
     public void triggerOnGlowCheck() {
-        if(CardCrawlGame.isInARun()) {
+        if (CardCrawlGame.isInARun()) {
             if ((this.hasTag(CardENUMs.YINALIGNED) && UC.isYinAligned()) || (this.hasTag(CardENUMs.YANGALIGNED) && UC.isYangAligned())) {
                 glowColor = GOLD_BORDER_GLOW_COLOR;
             } else {
@@ -363,6 +365,7 @@ public abstract class SacredCard extends CustomCard {
     private void applyPowersToMN2() {
         this.isMagicNumber2Modified = magicNumber2 != baseMagicNumber2;
     }
+
     private void applyPowersToSN() {
         this.isShowNumberModified = showNumber != baseShowNumber;
     }
@@ -385,8 +388,16 @@ public abstract class SacredCard extends CustomCard {
         renderTopText(sb, false);
     }
 
+    @Override
+    public void renderInLibrary(SpriteBatch sb) {
+        super.renderInLibrary(sb);
+        if (!(SingleCardViewPopup.isViewingUpgrade && this.isSeen && !this.isLocked)) {
+            renderTopText(sb, false);
+        }
+    }
+
     public void renderTopText(SpriteBatch sb, boolean isCardPopup) {
-        if(!topText.equals("")) {
+        if (!topText.equals("")) {
             float xPos, yPos, offsetY;
             BitmapFont font;
             String text = getTopText();
