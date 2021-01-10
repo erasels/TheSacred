@@ -1,5 +1,6 @@
 package theSacred.cards.basic;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.StartupCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
@@ -107,8 +108,17 @@ public class RainDance extends SacredCard implements OnTurnChangeCard, StartupCa
     public boolean atBattleStartPreDraw() {
         //To check if this modifier has been added to the card
         modifiedShuffle = shuffleBackIntoDrawPile;
-        onTurnChange(1);
+        onTurnChange(GameActionManager.turn);
         //Return false prevents it from being played
         return false;
     }
+
+    @Override
+    public void renderCardPreview(SpriteBatch sb) {
+        if(UC.isInCombat() && !p().masterDeck.contains(this))
+            super.renderCardPreview(sb);
+    }
+
+    @Override
+    public void renderCardPreviewInSingleView(SpriteBatch sb) { }
 }
