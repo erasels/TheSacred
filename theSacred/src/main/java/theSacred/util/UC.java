@@ -299,10 +299,7 @@ public class UC {
     //Getters
     public static boolean isAttacking(AbstractCreature m) {
         if(m instanceof AbstractMonster) {
-            return ((AbstractMonster) m).intent == AbstractMonster.Intent.ATTACK ||
-                    ((AbstractMonster) m).intent == AbstractMonster.Intent.ATTACK_BUFF ||
-                    ((AbstractMonster) m).intent == AbstractMonster.Intent.ATTACK_DEBUFF ||
-                    ((AbstractMonster) m).intent == AbstractMonster.Intent.ATTACK_DEFEND;
+            return ((AbstractMonster) m).getIntentBaseDmg() >= 0;
         }
         return false;
     }
